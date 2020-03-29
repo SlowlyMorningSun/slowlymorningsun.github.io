@@ -7,15 +7,15 @@
   
   <title>如何进行github的博客搭建 | SlowlyMorningSun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 环境环境1.1 安装Git  官网上有git-for-windows可以直接下载 1.2 安装node.js下载：http:&#x2F;&#x2F;nodejs.org&#x2F;download&#x2F;可以下载 node-v0.10.33-x64.msi安装时直接保持默认配置即可。NOTE：Hexo 3.9.0要求nodejs版本&gt;6.9.0Ubuntu下，直接执行下面的命令安装即可： apt-get install">
+  <meta name="description" content="1. 环境环境1.1 安装Git  官网上有git-for-windows可以直接下载 1.2 安装node.js下载：http:&#x2F;&#x2F;nodejs.org&#x2F;download&#x2F;可以下载 node-v0.10.33-x64.msi安装时直接保持默认配置即可。NOTE：Hexo 3.9.0要求nodejs版本&gt;6.9.0Ubuntu下，直接执行下面的命令安装即可： 12sudo apt-get i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何进行github的博客搭建">
 <meta property="og:url" content="http://yoursite.com/2020/03/29/1/index.html">
 <meta property="og:site_name" content="SlowlyMorningSun">
-<meta property="og:description" content="1. 环境环境1.1 安装Git  官网上有git-for-windows可以直接下载 1.2 安装node.js下载：http:&#x2F;&#x2F;nodejs.org&#x2F;download&#x2F;可以下载 node-v0.10.33-x64.msi安装时直接保持默认配置即可。NOTE：Hexo 3.9.0要求nodejs版本&gt;6.9.0Ubuntu下，直接执行下面的命令安装即可： apt-get install">
+<meta property="og:description" content="1. 环境环境1.1 安装Git  官网上有git-for-windows可以直接下载 1.2 安装node.js下载：http:&#x2F;&#x2F;nodejs.org&#x2F;download&#x2F;可以下载 node-v0.10.33-x64.msi安装时直接保持默认配置即可。NOTE：Hexo 3.9.0要求nodejs版本&gt;6.9.0Ubuntu下，直接执行下面的命令安装即可： 12sudo apt-get i">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-29T03:44:42.000Z">
-<meta property="article:modified_time" content="2020-03-29T04:19:24.050Z">
+<meta property="article:modified_time" content="2020-03-29T04:23:24.899Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -90,7 +90,7 @@
       
         <h2 id="1-环境环境"><a href="#1-环境环境" class="headerlink" title="1. 环境环境"></a>1. 环境环境</h2><h4 id="1-1-安装Git"><a href="#1-1-安装Git" class="headerlink" title="1.1 安装Git"></a>1.1 安装Git</h4><p>  官网上有git-for-windows可以直接下载</p>
 <h4 id="1-2-安装node-js"><a href="#1-2-安装node-js" class="headerlink" title="1.2 安装node.js"></a>1.2 安装node.js</h4><p>下载：<a href="http://nodejs.org/download/" target="_blank" rel="noopener">http://nodejs.org/download/</a><br>可以下载 node-v0.10.33-x64.msi<br>安装时直接保持默认配置即可。<br>NOTE：Hexo 3.9.0要求nodejs版本&gt;6.9.0<br>Ubuntu下，直接执行下面的命令安装即可：</p>
-<figure class="highlight plain"><figcaption><span>apt-get install nodejs```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;sudo apt-get install npm</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="2-配置Github"><a href="#2-配置Github" class="headerlink" title="2. 配置Github"></a>2. 配置Github</h2><h4 id="1-1-建立Repository"><a href="#1-1-建立Repository" class="headerlink" title="1.1 建立Repository"></a>1.1 建立Repository</h4><p>建立与你用户名对应的仓库，仓库名必须为【your_user_name.github.io】</p>
 <h4 id="1-2-配置SSH-Key"><a href="#1-2-配置SSH-Key" class="headerlink" title="1.2 配置SSH-Key"></a>1.2 配置SSH-Key</h4><p>因为你提交代码肯定要拥有你的github权限才可以，但是直接使用用户名和密码太不安全了，所以我们使用ssh key来解决本地和服务器的连接问题。<br>$ cd ~/. ssh #检查本机已存在的ssh密钥<br>如果提示：No such file or directory 说明你是第一次使用git。</p>
