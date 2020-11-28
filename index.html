@@ -64,6 +64,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-NuGet_Package_Restore" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/28/NuGet_Package_Restore/" class="article-date">
+  <time datetime="2020-11-28T14:05:10.289Z" itemprop="datePublished">2020-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/28/NuGet_Package_Restore/">NuGet_Package_Restore</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于C-中构建整体程序框架需要的NuGet”Package-Restore”"><a href="#关于C-中构建整体程序框架需要的NuGet”Package-Restore”" class="headerlink" title="关于C#中构建整体程序框架需要的NuGet”Package Restore”"></a>关于C#中构建整体程序框架需要的NuGet”Package Restore”</h1><hr>
+<p>在进行对于DWSIM 6进行编译的时候，此时出现了两个问题：第一个是对于del的值的未知，其次是对于NuGet的问题</p>
+<h2 id="首先是对于第一个问题："><a href="#首先是对于第一个问题：" class="headerlink" title="首先是对于第一个问题："></a>首先是对于第一个问题：</h2><p>关于问题的描述如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Resx 文件无效。未找到请求的值“Del”。</span><br></pre></td></tr></table></figure>
+
+<p>此时只要将del变为delete既可以成功的进行下去，但是此时会出现第二个问题。</p>
+<h2 id="关于NuGet的程序还原问题"><a href="#关于NuGet的程序还原问题" class="headerlink" title="关于NuGet的程序还原问题:"></a>关于NuGet的程序还原问题:</h2><p>关于问题的描述如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http:&#x2F;&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkID&#x3D;322105. The missing file is &#123;0&#125;.</span><br></pre></td></tr></table></figure>
+
+<p>对于这类的问题：首先我们对程序包还原进行概述：程序包还原首先根据需要安装项目的直接依赖项，然后在整个依赖项关系图中安装这些包的所有依赖项。常用的策略如下：选择“工具” &gt; “选项” &gt; “NuGet 程序包管理器”，以启用程序包还原。 在“程序包还原”选项下，选择“允许 NuGet 下载缺少的程序包”。在“解决方案资源管理器”中，右键单击解决方案并选择“还原 NuGet 程序包” 。如果仍未正确安装一个或多个单独的包，“解决方案资源管理器”会显示错误图标 。 右键单击并选择“管理 NuGet 程序包”，然后使用“程序包管理器”卸载并重新安装受影响的程序包 。 有关详细信息，请参阅重新安装和更新包。如果看到错误“此项目引用此计算机上缺少的 NuGet 包”或者“一个或更多 NuGet 包需要还原但无法还原，因为未授予许可”，则启用自动还原。 对于旧项目，亦请参阅迁移到自动程序包还原。 另请参阅程序包还原疑难解答。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/28/NuGet_Package_Restore/" data-id="cki1rqib00000c4ue5zxr2x4r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-hello_gird" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/26/hello_gird/" class="article-date">
@@ -290,6 +336,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/11/28/NuGet_Package_Restore/">NuGet_Package_Restore</a>
+          </li>
         
           <li>
             <a href="/2020/11/26/hello_gird/">hello_gird</a>

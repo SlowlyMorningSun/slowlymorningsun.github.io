@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>NuGet_Package_Restore | SlowlyMorningSun</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于C#中构建整体程序框架需要的NuGet”Package Restore” 在进行对于DWSIM 6进行编译的时候，此时出现了两个问题：第一个是对于del的值的未知，其次是对于NuGet的问题 首先是对于第一个问题：关于问题的描述如下： 1Resx 文件无效。未找到请求的值“Del”。  此时只要将del变为delete既可以成功的进行下去，但是此时会出现第二个问题。 关于NuGet的程序还原问">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NuGet_Package_Restore">
+<meta property="og:url" content="http://yoursite.com/2020/11/28/NuGet_Package_Restore/index.html">
+<meta property="og:site_name" content="SlowlyMorningSun">
+<meta property="og:description" content="关于C#中构建整体程序框架需要的NuGet”Package Restore” 在进行对于DWSIM 6进行编译的时候，此时出现了两个问题：第一个是对于del的值的未知，其次是对于NuGet的问题 首先是对于第一个问题：关于问题的描述如下： 1Resx 文件无效。未找到请求的值“Del”。  此时只要将del变为delete既可以成功的进行下去，但是此时会出现第二个问题。 关于NuGet的程序还原问">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-28T14:05:10.289Z">
+<meta property="article:modified_time" content="2020-11-28T14:03:06.964Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="SlowlyMorningSun" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">SlowlyMorningSun</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-NuGet_Package_Restore" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/28/NuGet_Package_Restore/" class="article-date">
+  <time datetime="2020-11-28T14:05:10.289Z" itemprop="datePublished">2020-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      NuGet_Package_Restore
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于C-中构建整体程序框架需要的NuGet”Package-Restore”"><a href="#关于C-中构建整体程序框架需要的NuGet”Package-Restore”" class="headerlink" title="关于C#中构建整体程序框架需要的NuGet”Package Restore”"></a>关于C#中构建整体程序框架需要的NuGet”Package Restore”</h1><hr>
+<p>在进行对于DWSIM 6进行编译的时候，此时出现了两个问题：第一个是对于del的值的未知，其次是对于NuGet的问题</p>
+<h2 id="首先是对于第一个问题："><a href="#首先是对于第一个问题：" class="headerlink" title="首先是对于第一个问题："></a>首先是对于第一个问题：</h2><p>关于问题的描述如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Resx 文件无效。未找到请求的值“Del”。</span><br></pre></td></tr></table></figure>
+
+<p>此时只要将del变为delete既可以成功的进行下去，但是此时会出现第二个问题。</p>
+<h2 id="关于NuGet的程序还原问题"><a href="#关于NuGet的程序还原问题" class="headerlink" title="关于NuGet的程序还原问题:"></a>关于NuGet的程序还原问题:</h2><p>关于问题的描述如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http:&#x2F;&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkID&#x3D;322105. The missing file is &#123;0&#125;.</span><br></pre></td></tr></table></figure>
+
+<p>对于这类的问题：首先我们对程序包还原进行概述：程序包还原首先根据需要安装项目的直接依赖项，然后在整个依赖项关系图中安装这些包的所有依赖项。常用的策略如下：选择“工具” &gt; “选项” &gt; “NuGet 程序包管理器”，以启用程序包还原。 在“程序包还原”选项下，选择“允许 NuGet 下载缺少的程序包”。在“解决方案资源管理器”中，右键单击解决方案并选择“还原 NuGet 程序包” 。如果仍未正确安装一个或多个单独的包，“解决方案资源管理器”会显示错误图标 。 右键单击并选择“管理 NuGet 程序包”，然后使用“程序包管理器”卸载并重新安装受影响的程序包 。 有关详细信息，请参阅重新安装和更新包。如果看到错误“此项目引用此计算机上缺少的 NuGet 包”或者“一个或更多 NuGet 包需要还原但无法还原，因为未授予许可”，则启用自动还原。 对于旧项目，亦请参阅迁移到自动程序包还原。 另请参阅程序包还原疑难解答。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/28/NuGet_Package_Restore/" data-id="cki1rqib00000c4ue5zxr2x4r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/26/hello_gird/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hello_gird</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/28/NuGet_Package_Restore/">NuGet_Package_Restore</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/26/hello_gird/">hello_gird</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/31/how_to_install_rdkit/">如何在ancoda的环境下下载rdkit</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/blog_create/">如何进行github的博客搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/29/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
