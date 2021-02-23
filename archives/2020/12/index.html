@@ -6,17 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>强化学习求解（三） ———— 时间差分法 | SlowlyMorningSun</title>
+  <title>Archives: 2020/12 | SlowlyMorningSun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="强化学习求解（三） ———— 时间差分法&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="强化学习求解（三） ———— 时间差分法">
-<meta property="og:url" content="http://yoursite.com/2020/02/17/temporal_difference/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="SlowlyMorningSun">
+<meta property="og:url" content="http://yoursite.com/archives/2020/12/index.html">
 <meta property="og:site_name" content="SlowlyMorningSun">
-<meta property="og:description" content="强化学习求解（三） ———— 时间差分法&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-17T09:52:12.000Z">
-<meta property="article:modified_time" content="2021-02-23T09:25:25.961Z">
 <meta property="article:author" content="Chenyang,Xu">
 <meta name="twitter:card" content="summary">
   
@@ -154,160 +150,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-temporal_difference" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      强化学习求解（三） ———— 时间差分法
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/12/08/montocarlo/" class="archive-article-date">
+  	<time datetime="2020-12-08T03:44:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/12/08/montocarlo/">强化学习求解（二） ———— 蒙特卡洛法</a>
     </h1>
   
 
-        
-        <a href="/2020/02/17/temporal_difference/" class="archive-article-date">
-  	<time datetime="2020-02-17T09:52:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="强化学习求解（三）-————-时间差分法"><a href="#强化学习求解（三）-————-时间差分法" class="headerlink" title="强化学习求解（三） ———— 时间差分法"></a>强化学习求解（三） ———— 时间差分法</h1><p>==========================================================================================================================</p>
-<a id="more"></a>
-<h2 id="关于主要的配置需求"><a href="#关于主要的配置需求" class="headerlink" title="关于主要的配置需求"></a>关于主要的配置需求</h2><ol>
-<li>numpy</li>
-<li>gym</li>
-</ol>
-<h2 id="关于程序的解释："><a href="#关于程序的解释：" class="headerlink" title="关于程序的解释："></a>关于程序的解释：</h2><p>对于本次的程序，我首先通过<strong>TD（λ）算法</strong>来进行介绍，由于对于强化学习求解的时间差分法存在着固定式策略和非固定式策略两种，在本篇博客里面将主要对<strong>固定式策略——Sarsa算法</strong>，以及对于<strong>非固定式策略——Q-learning算法</strong>进行介绍。</p>
-<h3 id="1-TD（λ）算法"><a href="#1-TD（λ）算法" class="headerlink" title="1.TD（λ）算法"></a>1.TD（λ）算法</h3><p>在本章介绍的是时间差分预测算法，其中Sarsa与Q-learning算法都属于TD(0)算法。在进行对于TD(λ)进行介绍之前，我们将首先介绍<strong>n-步奖励</strong>。<strong>n-步奖励</strong>，即为在当前状态向前行动n步，并计算n步的的回报。其中时间差分目标G<sub>t</sub><sup>(n)</sup>由两部分组成：已走的步数使用确定的即时奖励，未来的步数使用估计的状态价值代替。</p>
-<p>当n=1时： G<sub>t</sub><sup>(1)</sup> = r<sub>t+1</sub> + γv(S<sub>t+1</sub>)<br>当n=2时： G<sub>t</sub><sup>(2)</sup> = r<sub>t+1</sub> + γv(r<sub>t+2</sub>) + γ<sup>2</sup>v(r<sub>t+2</sub>)<br>当n接近无穷的时候，该公式趋近于蒙特卡洛法</p>
-<p>接下来，我们引入了λ参数，通过引入该参数，可以在不增加计算复杂度的情况下综合考虑所有步数的预测，即综合考虑从时间步1到时间步∞的所有的奖励，其中对于任意一个时间步n的奖励增加到一定的权重（1-λ）λ<sup>n-1</sup>，因而可以获得λ-奖励的公式：</p>
-<p>G<sub>t</sub><sup>λ</sup> = （1-λ）* ∑ λ<sup>n-1</sup> * G<sub>t</sub><sup>n</sup><br>v(S<sub>t</sub>) &lt;- v(S<sub>t</sub>) + α[ G<sub>t</sub><sup>λ</sup> - v(S<sub>t</sub>) ]</p>
-<h3 id="2-CartPole-游戏"><a href="#2-CartPole-游戏" class="headerlink" title="2.CartPole 游戏"></a>2.CartPole 游戏</h3><p>CartPole 游戏是gym库中游戏之一，对于他的状态值而言，他反馈的是小车的位置（Position），杆子的角度（Angle），车的速度（Velocity）以及角度的变化率（Rate of Angle），接下来展示游戏的调用的过程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import gym</span><br><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">import sys</span><br><span class="line">from collections import defaultdict, namedtuple</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># CaerPole 游戏介绍</span><br><span class="line">env &#x3D; gym.make(&quot;CartPole-v0&quot;)</span><br><span class="line">sumlist &#x3D; []</span><br><span class="line">for t in range(200):</span><br><span class="line">    state &#x3D; env.reset()</span><br><span class="line">    i &#x3D; 0</span><br><span class="line"></span><br><span class="line">    # 进行游戏</span><br><span class="line">    while(True):</span><br><span class="line">        i +&#x3D;1</span><br><span class="line">        # 环境重置</span><br><span class="line">        env.render()</span><br><span class="line">        # 随机选择动作</span><br><span class="line">        action &#x3D; env.action_space.sample()</span><br><span class="line">        # 获取动作的数量</span><br><span class="line">        nA &#x3D; env.action_space.n</span><br><span class="line">        # 智能体执行动作</span><br><span class="line">        state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line">        # print(state,action ,reward)</span><br><span class="line"></span><br><span class="line">        # 游戏结束，输出本次游戏的时间步</span><br><span class="line">        if done:</span><br><span class="line">            print(&quot;Episode finished after &#123;&#125; timesteps&quot;.format(i+1))</span><br><span class="line">            break</span><br><span class="line">    # 记录迭代次数</span><br><span class="line">    sumlist.append(i)</span><br><span class="line">    print(&quot;Gamw Over .....&quot;)</span><br><span class="line"># 关闭游戏监听器</span><br><span class="line">env.close()</span><br><span class="line"></span><br><span class="line">iter_time &#x3D; sum(sumlist)&#x2F;len(sumlist)</span><br><span class="line">print(&quot;CartPole game iter average time is &#123;&#125;&quot;.format(iter_time))</span><br></pre></td></tr></table></figure>
+        <div class="article-info info-on-right">
+          
+          
 
-<h3 id="3-关于结果图像的显示"><a href="#3-关于结果图像的显示" class="headerlink" title="3.关于结果图像的显示"></a>3.关于结果图像的显示</h3><p>在这部分中，作者仅给出一下的代码，不给予解释：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 显示时间步和奖励结果</span><br><span class="line">def plot_episodes_stats(stats, smoothing_window&#x3D;10):</span><br><span class="line">    fig1 &#x3D; plt.figure(figsize&#x3D;(10,5))</span><br><span class="line">    plt.plot(stats.episode_lengths[:200])</span><br><span class="line">    plt.xlabel(&quot;Episode&quot;)</span><br><span class="line">    plt.ylabel(&quot;Episode length&quot;)</span><br><span class="line">    plt .title(&quot;EPisode Length over time&quot;)</span><br><span class="line">    plt.show(fig1)</span><br><span class="line">    fig2 &#x3D; plt.figure(figsize&#x3D;(10,5))</span><br><span class="line">    reward_smoothed &#x3D; pd.Series(stats.episode_rewards[:200]).rolling(smoothing_window, min_periods&#x3D;smoothing_window).mean()</span><br><span class="line">    plt.plot(reward_smoothed)</span><br><span class="line">    plt.xlabel(&quot;Episode&quot;)</span><br><span class="line">    plt.ylabel(&quot;Episode reward&quot;)</span><br><span class="line">    plt.title(&quot;Episode Reward over time&quot;.format(smoothing_window))</span><br><span class="line">    plt.show(fig2)</span><br><span class="line">    return fig1, fig2</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-Sarsa算法"><a href="#4-Sarsa算法" class="headerlink" title="4.Sarsa算法"></a>4.Sarsa算法</h3><p>关于Sarsa算法，他是根据当前状态s，当前的动作a，当前的奖励r，下一时间步状态s’，下一时间步动作a’，这5个变量组合而成的。其中在本段代码中，作者将对应的可能的范围区间划分成不同的区域，进而判断对应的状态处于具体的哪个中进而实现对于存储空间浪费的降低并便于查询与检索。在整个的算法过程中，Sarsa采用的是epislon-贪婪算法，实现对于策略的更新，通过当前状态以及对于下一状态的估计，我们实现对于动作值函数Q的迭代收敛，具体代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">class SARSA():</span><br><span class="line">    def __init__(self, env, num_episodes, discount&#x3D;1.0, alpha&#x3D;0.5, epsilon&#x3D;0.1, n_bins&#x3D;10):</span><br><span class="line">        # 初始化算法使用到的基本变量</span><br><span class="line">        # 动作状态数</span><br><span class="line">        self.nA &#x3D; env.action_space.n</span><br><span class="line">        # 状态空间数</span><br><span class="line">        self.nS &#x3D; env.observation_space.shape[0]</span><br><span class="line">        # 环境</span><br><span class="line">        self.env &#x3D; env</span><br><span class="line">        # 迭代次数</span><br><span class="line">        self.num_episodes &#x3D; num_episodes</span><br><span class="line">        # 衰减系数</span><br><span class="line">        self.discount &#x3D; discount</span><br><span class="line">        # 时间差分误差系数</span><br><span class="line">        self.alpha &#x3D; alpha</span><br><span class="line">        # 贪婪策略系数</span><br><span class="line">        self.epsilon &#x3D; epsilon</span><br><span class="line">        # 动作值函数</span><br><span class="line">        self.Q &#x3D; defaultdict(lambda: np.zeros(self.nA))</span><br><span class="line"></span><br><span class="line">        # 记录重要的迭代信息</span><br><span class="line">        record &#x3D; namedtuple(&quot;Record&quot;,[&quot;episode_lengths&quot;,&quot;episode_rewards&quot;])</span><br><span class="line">        self.rec &#x3D; record(episode_lengths&#x3D;np.zeros(num_episodes),episode_rewards&#x3D;np.zeros(num_episodes))</span><br><span class="line"></span><br><span class="line">        # 状态空间的桶</span><br><span class="line">        self.cart_position_bins &#x3D; pd.cut([-2.4, 2.4], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">        self.pole_angle_bins &#x3D; pd.cut([-2.0, 2.0], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">        self.cart_velocity_bins &#x3D; pd.cut([-1.0, 1.0], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">        self.angle_rate_bins &#x3D; pd.cut([-3.5, 3.5], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">    </span><br><span class="line">    # 状态空间简化后的返回函数 </span><br><span class="line">    def get_bins_states(self, state):</span><br><span class="line"></span><br><span class="line">        # 获取当前状态的4个状态元素值</span><br><span class="line">        s1_, s2_, s3_, s4_ &#x3D; state</span><br><span class="line"></span><br><span class="line">        # 分别找到4个元素值在bins中的索引位置</span><br><span class="line">        cart_position_idx &#x3D; np.digitize(s1_, self.cart_position_bins)</span><br><span class="line">        pole_angle_idx &#x3D; np.digitize(s2_, self.pole_angle_bins)</span><br><span class="line">        cart_velocity_idx &#x3D; np.digitize(s3_, self.cart_velocity_bins)</span><br><span class="line">        angle_rate_idx &#x3D; np.digitize(s4_, self.angle_rate_bins)</span><br><span class="line"></span><br><span class="line">        # 重新组合简化过的状态值</span><br><span class="line">        state_ &#x3D; [cart_position_idx, pole_angle_idx, cart_velocity_idx, angle_rate_idx]</span><br><span class="line"></span><br><span class="line">        # 通过map函数对状态索引号进行组合，并把每一个元素强制转换为int类型</span><br><span class="line">        state &#x3D; map(lambda s :int(s), state_)</span><br><span class="line">        return tuple(state)</span><br><span class="line"></span><br><span class="line">    # epislon 贪婪策略</span><br><span class="line">    def __epislon_greedy_policy(self, epsilon, nA):</span><br><span class="line"></span><br><span class="line">        def policy(state):</span><br><span class="line">            A &#x3D; np.ones(nA, dtype&#x3D;float) * epsilon &#x2F;nA</span><br><span class="line">            best_action &#x3D; np.argmax(self.Q[state])</span><br><span class="line">            A[best_action] +&#x3D; (1.0 - epsilon)</span><br><span class="line">            return A</span><br><span class="line">        return policy</span><br><span class="line"></span><br><span class="line">    # 随机选择动作</span><br><span class="line">    def __next_action(self, prob):</span><br><span class="line">        return np.random.choice(np.arange(len(prob)), p&#x3D;prob)</span><br><span class="line"></span><br><span class="line">    # sarsa算法核心流程代码</span><br><span class="line">    def sarsa(self):</span><br><span class="line">        # Sarsa 算法</span><br><span class="line">        policy &#x3D; self.__epislon_greedy_policy(self.epsilon, self.nA)</span><br><span class="line">        sumlist &#x3D; []</span><br><span class="line"></span><br><span class="line">        # 迭代经验轨迹</span><br><span class="line">        for i_episodes in range(self.num_episodes):</span><br><span class="line">            # 输出迭代的信息</span><br><span class="line">            if 0 &#x3D;&#x3D; (i_episodes+1) % 10:</span><br><span class="line">                print(&quot;\r Episode &#123;&#125; in &#123;&#125;&quot;.format(i_episodes+1, self.num_episodes))</span><br><span class="line">            </span><br><span class="line">            # 每一次迭代的初始化状态s，动作状态转换概率p，下一个动作a</span><br><span class="line">            step &#x3D; 0</span><br><span class="line">            # 初始化状态</span><br><span class="line">            state__ &#x3D; self.env.reset()</span><br><span class="line">            # 状态重新赋值</span><br><span class="line">            state &#x3D; self.get_bins_states(state__)</span><br><span class="line">            # 根据状态获得动作状态的转换概率</span><br><span class="line">            prob_actions &#x3D; policy(state)</span><br><span class="line">            # 选择一个动作</span><br><span class="line">            action &#x3D; self.__next_action(prob_actions)</span><br><span class="line">            # 迭代本次经验轨迹</span><br><span class="line">            while(True):</span><br><span class="line">                next_state__, reward, done, info &#x3D; env.step(action)</span><br><span class="line">                next_state &#x3D; self.get_bins_states(next_state__)</span><br><span class="line"></span><br><span class="line">                prob_next_actions &#x3D; policy(next_state)</span><br><span class="line">                next_action &#x3D; self.__next_action(prob_next_actions)</span><br><span class="line"></span><br><span class="line">                # 更新需要的记录的信息（迭代时间步长和奖励）</span><br><span class="line">                self.rec.episode_lengths[i_episodes] +&#x3D; reward</span><br><span class="line">                self.rec.episode_rewards[i_episodes] &#x3D; step</span><br><span class="line"></span><br><span class="line">                # 时间差分更新</span><br><span class="line">                td_target &#x3D; reward + self.discount * self.Q[next_state][next_action] </span><br><span class="line">                td_delta &#x3D; td_target - self.Q[state][action]</span><br><span class="line">                self.Q[state][action] +&#x3D; self.alpha * td_delta</span><br><span class="line"></span><br><span class="line">                if done:</span><br><span class="line">                    # 游戏结束</span><br><span class="line">                    reward &#x3D; -200</span><br><span class="line">                    print(&quot;Episode finished after &#123;&#125; timesteps&quot;.format(step))</span><br><span class="line">                    sumlist.append(step)</span><br><span class="line">                    break</span><br><span class="line">                else:</span><br><span class="line">                    # 状态和动作重新赋值</span><br><span class="line">                    step +&#x3D; 1</span><br><span class="line">                    state &#x3D; next_state</span><br><span class="line">                    action &#x3D; next_action</span><br><span class="line">        # 结束本次经验轨迹之前进行平均奖励得分统计，并输出结果</span><br><span class="line">        iter_time &#x3D; sum(sumlist)&#x2F;len(sumlist)</span><br><span class="line">        print(&quot;CartPole game iter average time is &#123;&#125;&quot;.format(iter_time))</span><br><span class="line">        return self.Q</span><br><span class="line">cls_sarsa &#x3D; SARSA(env,num_episodes&#x3D;1000)</span><br><span class="line">Q &#x3D; cls_sarsa.sarsa()</span><br><span class="line">plot_episodes_stats(cls_sarsa.rec)</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-Q-learning算法"><a href="#5-Q-learning算法" class="headerlink" title="5.Q-learning算法"></a>5.Q-learning算法</h3><p>Q-learning算法是时间差分算法中非固定式策略，其中目标策略为epislon-贪婪算法，而行动策略为贪婪算法，其外框与Sarsa类似，具体的代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"># Q-learing 算法</span><br><span class="line">class QLearning():</span><br><span class="line">    def __init__(self, env, num_episodes, discount&#x3D;1.0, alpha&#x3D;0.5, epsilon&#x3D;0.1, n_bins&#x3D;10):</span><br><span class="line">        </span><br><span class="line">        # 动作空间数</span><br><span class="line">        self.nA &#x3D; env.action_space.n</span><br><span class="line">        # 状态空间数</span><br><span class="line">        self.nS &#x3D; env.observation_space.shape[0]</span><br><span class="line">        # 环境</span><br><span class="line">        self.env &#x3D; env</span><br><span class="line">        # 迭代次数</span><br><span class="line">        self.num_episodes &#x3D; num_episodes</span><br><span class="line">        # 衰减系数</span><br><span class="line">        self.discount &#x3D; discount</span><br><span class="line">        # 时间差分误差系数</span><br><span class="line">        self.alpha &#x3D; alpha</span><br><span class="line">        # 贪婪策略系数</span><br><span class="line">        self.epsilon &#x3D; epsilon</span><br><span class="line"></span><br><span class="line">        # 初始化动作值函数</span><br><span class="line">        # Initialize Q(s,a)</span><br><span class="line">        self.Q &#x3D; defaultdict(lambda: np.zeros(self.nA))</span><br><span class="line"></span><br><span class="line">        # 定义存储记录有用的信息(每一条经验轨迹的时间步与奖励)</span><br><span class="line">        # keeps track of useful statistics</span><br><span class="line">        record &#x3D; namedtuple(&quot;Record&quot;,[&quot;episode_lengths&quot;,&quot;episode_rewards&quot;])</span><br><span class="line">        self.rec &#x3D; record(episode_lengths&#x3D;np.zeros(num_episodes),episode_rewards&#x3D;np.zeros(num_episodes))</span><br><span class="line"></span><br><span class="line">        # 状态空间的桶</span><br><span class="line">        self.cart_position_bins &#x3D; pd.cut([-2.4, 2.4], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">        self.pole_angle_bins &#x3D; pd.cut([-2.0, 2.0], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">        self.cart_velocity_bins &#x3D; pd.cut([-1.0, 1.0], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">        self.angle_rate_bins &#x3D; pd.cut([-3.5, 3.5], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line"></span><br><span class="line">    # 状态空间简化后的返回函数 </span><br><span class="line">    def get_bins_states(self, state):</span><br><span class="line"></span><br><span class="line">        # 获取当前状态的4个状态元素值</span><br><span class="line">        s1_, s2_, s3_, s4_ &#x3D; state</span><br><span class="line"></span><br><span class="line">        # 分别找到4个元素值在bins中的索引位置</span><br><span class="line">        cart_position_idx &#x3D; np.digitize(s1_, self.cart_position_bins)</span><br><span class="line">        pole_angle_idx &#x3D; np.digitize(s2_, self.pole_angle_bins)</span><br><span class="line">        cart_velocity_idx &#x3D; np.digitize(s3_, self.cart_velocity_bins)</span><br><span class="line">        angle_rate_idx &#x3D; np.digitize(s4_, self.angle_rate_bins)</span><br><span class="line"></span><br><span class="line">        # 重新组合简化过的状态值</span><br><span class="line">        state_ &#x3D; [cart_position_idx, pole_angle_idx, cart_velocity_idx, angle_rate_idx]</span><br><span class="line"></span><br><span class="line">        # 通过map函数对状态索引号进行组合，并把每一个元素强制转换为int类型</span><br><span class="line">        state &#x3D; map(lambda s :int(s), state_)</span><br><span class="line">        return tuple(state)</span><br><span class="line"></span><br><span class="line">    # epislon 贪婪策略</span><br><span class="line">    def __epislon_greedy_policy(self, epsilon, nA):</span><br><span class="line"></span><br><span class="line">        def policy(state):</span><br><span class="line">            A &#x3D; np.ones(nA, dtype&#x3D;float) * epsilon &#x2F;nA</span><br><span class="line">            best_action &#x3D; np.argmax(self.Q[state]) </span><br><span class="line">            A[best_action] +&#x3D; (1.0 - epsilon)</span><br><span class="line">            return A</span><br><span class="line">        return policy</span><br><span class="line"></span><br><span class="line">    # 随机选择动作</span><br><span class="line">    def __next_action(self, prob):</span><br><span class="line">        return np.random.choice(np.arange(len(prob)), p&#x3D;prob)</span><br><span class="line"></span><br><span class="line">    # Q-learning 算法</span><br><span class="line">    def qlearning(self):</span><br><span class="line">        # 定义策略</span><br><span class="line">        policy &#x3D; self.__epislon_greedy_policy(self.epsilon, self.nA)</span><br><span class="line">        sumlist &#x3D; []</span><br><span class="line"></span><br><span class="line">        # 开始迭代经验轨迹</span><br><span class="line">        for i_episode in range(self.num_episodes):</span><br><span class="line">            if 0 &#x3D;&#x3D; (i_episode + 1) % 10:</span><br><span class="line">                print(&quot;\r Episode &#123;&#125; in &#123;&#125;&quot;.format(i_episode+1, self.num_episodes))</span><br><span class="line">            </span><br><span class="line">            # 初始化环境状态并对状态值进行索引简化</span><br><span class="line">            step &#x3D; 0</span><br><span class="line">            state__ &#x3D; self.env.reset()</span><br><span class="line">            state &#x3D; self.get_bins_states(state__)</span><br><span class="line"></span><br><span class="line">            # 迭代本次经验轨迹</span><br><span class="line">            while(True):</span><br><span class="line">                # 根据策略，在状态s下选择动作a</span><br><span class="line">                prob_actions &#x3D; policy(state)</span><br><span class="line">                action &#x3D; self.__next_action(prob_actions)</span><br><span class="line"></span><br><span class="line">                # 智能体执行动作</span><br><span class="line">                next_state__, reward, done, info &#x3D; env.step(action)</span><br><span class="line">                next_state &#x3D; self.get_bins_states(next_state__)</span><br><span class="line">                </span><br><span class="line">                # 更新每一条经验轨迹的时间步与奖励</span><br><span class="line">                self.rec.episode_lengths[i_episode] +&#x3D; reward</span><br><span class="line">                self.rec.episode_rewards[i_episode] &#x3D; step</span><br><span class="line"></span><br><span class="line">                # 更新动作值函数</span><br><span class="line">                # Q（S，A） &lt;-- Q(S,A) + alpha * [R + discount * max Q(S&#39;;a) - Q(S,A)]</span><br><span class="line">                best_next_action &#x3D; np.argmax(self.Q[next_state]) # 贪婪策略</span><br><span class="line">                td_target &#x3D; reward + self.discount * self.Q[next_state][best_next_action]</span><br><span class="line">                td_delta &#x3D; td_target - self.Q[state][action]</span><br><span class="line">                self.Q[state][action] +&#x3D; self.alpha * td_delta </span><br><span class="line"></span><br><span class="line">                if done:</span><br><span class="line">                    # 游戏停止，输出输出结果</span><br><span class="line">                    print(&quot;Episode finished after &#123;&#125; timesteps&quot;.format(step))</span><br><span class="line">                    sumlist.append(step)</span><br><span class="line">                    break</span><br><span class="line">                else:</span><br><span class="line">                    # 游戏继续，状态赋值</span><br><span class="line">                    step +&#x3D; 1</span><br><span class="line">                    # S &lt;- S&#39;</span><br><span class="line">                    state &#x3D; next_state</span><br><span class="line">        # 结束本次经验轨迹之前进行平均奖励得分统计，并输出结果</span><br><span class="line">        iter_time &#x3D; sum(sumlist)&#x2F;len(sumlist)</span><br><span class="line">        print(&quot;CartPole game iter average time is &#123;&#125;&quot;.format(iter_time))</span><br><span class="line">        return self.Q</span><br><span class="line">cls_qlearning &#x3D; QLearning(env,num_episodes&#x3D;1000)</span><br><span class="line">Q &#x3D; cls_qlearning.qlearning()</span><br><span class="line">plot_episodes_stats(cls_qlearning.rec)</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/17/temporal_difference/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/02/23/value_function_approximate/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          强化学习求解（四） ———— 值函数近似法
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -330,8 +215,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
