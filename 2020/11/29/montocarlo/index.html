@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2021/2 | SlowlyMorningSun</title>
+  <title>强化学习求解（二） ———— 蒙特卡洛法 | SlowlyMorningSun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="SlowlyMorningSun">
-<meta property="og:url" content="http://yoursite.com/archives/2021/02/index.html">
+  <meta name="description" content="强化学习求解（二） ———— 蒙特卡洛法&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强化学习求解（二） ———— 蒙特卡洛法">
+<meta property="og:url" content="http://yoursite.com/2020/11/29/montocarlo/index.html">
 <meta property="og:site_name" content="SlowlyMorningSun">
+<meta property="og:description" content="强化学习求解（二） ———— 蒙特卡洛法&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:published_time" content="2020-11-29T03:44:42.000Z">
+<meta property="article:modified_time" content="2021-02-23T09:23:27.821Z">
+<meta property="article:author" content="Chenyang,Xu">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SlowlyMorningSun" type="application/atom+xml">
@@ -43,10 +47,10 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/assets/gougou.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">Chenyang,Xu</a></h1>
 		</hgroup>
 		
 
@@ -77,7 +81,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="/SlowlyMorningSun" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -101,10 +105,10 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/assets/gougou.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">Chenyang,Xu</h1>
 			</hgroup>
 			
 			
@@ -118,7 +122,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="/SlowlyMorningSun" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -150,103 +154,175 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-montocarlo" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      强化学习求解（二） ———— 蒙特卡洛法
+    </h1>
+  
+
+        
+        <a href="/2020/11/29/montocarlo/" class="archive-article-date">
+  	<time datetime="2020-11-29T03:44:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-29</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="强化学习求解（二）-————-蒙特卡洛法"><a href="#强化学习求解（二）-————-蒙特卡洛法" class="headerlink" title="强化学习求解（二） ———— 蒙特卡洛法"></a>强化学习求解（二） ———— 蒙特卡洛法</h1><p>==========================================================================================================================</p>
+<a id="more"></a>
+<h2 id="关于主要的配置需求"><a href="#关于主要的配置需求" class="headerlink" title="关于主要的配置需求"></a>关于主要的配置需求</h2><ol>
+<li>numpy</li>
+<li>gym</li>
+</ol>
+<h2 id="关于程序的解释"><a href="#关于程序的解释" class="headerlink" title="关于程序的解释"></a>关于程序的解释</h2><p>对于本次的程序，我想通过介绍<strong>经验轨迹</strong>开始认识什么是蒙特卡洛法，之后利用gym库中的21点游戏，进行对强化学习中<strong>蒙特卡洛预测算法</strong>，蒙特卡洛评估，以及<strong>蒙特卡洛控制</strong>进行介绍。</p>
+<h3 id="1-什么是经验轨迹————蒙特卡洛法的数据来源"><a href="#1-什么是经验轨迹————蒙特卡洛法的数据来源" class="headerlink" title="1.什么是经验轨迹————蒙特卡洛法的数据来源"></a>1.什么是经验轨迹————蒙特卡洛法的数据来源</h3><p><strong>经验轨迹</strong>是指智能体通过与环境交互获得的状态，动作，奖励夫人样本序列。而对于蒙特卡洛法而言，蒙特卡洛法能够处理免模型的任务，它不需要依赖环境的完备的知识，只需要收集从环境中采样得到的经验轨迹，基于经验轨迹数据集的计算，求解最优的策略，当然，采样的数目越多，对应的结果就越近似最优解，这样的方法就是蒙特卡洛法。</p>
+<p>再进行后面对于蒙特卡洛的具体的相关算法介绍之前，我们先介绍一下21点的游戏的实现：</p>
+<p>首先是对于21点的规则：<br>首次发牌的时候是庄家与玩家个发两张牌（一张明牌，一张暗牌），此时询问玩家是否继续要牌，如果玩家要牌，则明牌给牌，若大于21点，则玩家输，若玩家没有超过21点，则庄家必须揭开自己的暗牌，若庄家点数小于17点，则必须继续要拍，同理若庄家超过21点，则庄家输，若都未超过21点则进行比较总和大小，进而决定胜负。</p>
+<p>调用游戏的代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"># 21 点游戏的经验轨迹收集</span><br><span class="line"></span><br><span class="line"># 定义gym环境为Blackjack游戏</span><br><span class="line">env &#x3D; gym.make(&quot;Blackjack-v0&quot;)</span><br><span class="line"></span><br><span class="line">def show_state(state):</span><br><span class="line"># 用于输出任务的当前状态，玩家点数，庄家点数以及是否持有牌A</span><br><span class="line"># state：输入的状态</span><br><span class="line">    player, dealer, ace &#x3D; state</span><br><span class="line">    dealer &#x3D; sum(env.dealer)</span><br><span class="line">    print(&quot;Player:&#123;&#125;, ace:&#123;&#125;, Dealer:&#123;&#125;&quot;.format(player,ace,dealer))</span><br><span class="line"></span><br><span class="line">def episode(num_episodes):</span><br><span class="line"># 收集经验轨迹函数</span><br><span class="line"># num_episodes : 迭代次数</span><br><span class="line">    episode &#x3D; [] # 经验轨迹收集列表</span><br><span class="line"></span><br><span class="line">    # 迭代num_episodes条经验轨迹</span><br><span class="line">    for i_episode in range(num_episodes):</span><br><span class="line">        print(&quot;\n&quot;+&quot;&#x3D;&quot;* 30)</span><br><span class="line">        state &#x3D; env.reset()</span><br><span class="line"></span><br><span class="line">        # 每条经验轨迹有10个状态</span><br><span class="line">        for t in range(10):</span><br><span class="line"></span><br><span class="line">            show_state(state)</span><br><span class="line">            # 基于某一个策略选择动作</span><br><span class="line">            action &#x3D; simple_strategy(state)</span><br><span class="line">            # 对于玩家Player 只有Stand 停牌，和HIT拿牌两种动作</span><br><span class="line">            action_ &#x3D; [&quot;STAND&quot;,&quot;HIT&quot;][action]</span><br><span class="line">            print(&quot;Player Simple Strategy take action:&#123;&#125;&quot;.format(action_))</span><br><span class="line"></span><br><span class="line">            # 执行某一策略下的动作</span><br><span class="line">            next_state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line"></span><br><span class="line">            # 记录经验轨迹</span><br><span class="line">            episode.append((state,action, reward))</span><br><span class="line"></span><br><span class="line">            # 遇到游戏结束结束打印游戏结果</span><br><span class="line">            if done:</span><br><span class="line">                show_state(state)</span><br><span class="line">                # [-1(loss),-(push), 1(win)]</span><br><span class="line">                reward_ &#x3D; [&quot;loss&quot;, &quot;push&quot;, &quot;win&quot;][int(reward+1)]</span><br><span class="line">                print(&quot;Game &#123;&#125;.(Reward&#123;&#125;)&quot;.format(reward_,int(reward)))</span><br><span class="line">                print(&quot;PLAYER:&#123;&#125;\t DEALER:&#123;&#125;&quot;.format(env.player,env.dealer))</span><br><span class="line">                break</span><br><span class="line">            state &#x3D; next_state</span><br></pre></td></tr></table></figure>
+<h3 id="2-蒙特卡洛预测算法"><a href="#2-蒙特卡洛预测算法" class="headerlink" title="2.蒙特卡洛预测算法"></a>2.蒙特卡洛预测算法</h3><p>由于蒙特卡洛法是对策略进行优化，然而对于动作值函数的评判与优化则需要一个依据，这就是蒙特卡洛预测算法，对于经验轨迹遍历的方式的不同可以分为：“<strong>首次访问蒙特卡洛预测算法</strong>”以及“<strong>每次访问蒙特卡洛预测算法</strong>”</p>
+<h5 id="2-1-首次访问蒙特卡洛预测法"><a href="#2-1-首次访问蒙特卡洛预测法" class="headerlink" title="2.1 首次访问蒙特卡洛预测法"></a>2.1 首次访问蒙特卡洛预测法</h5><p>首次访问蒙特卡洛预测法，顾名思义，再对于每一条经验轨迹中，每个状态仅当第一次出现时才加入未来折扣累积奖励中进行计算。算法的代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"># 首次访问蒙特卡洛预测算法</span><br><span class="line">def mc_firstvisit_prediction(policy, env, num_episodes, episode_endtime&#x3D;10, discount&#x3D;1.0):</span><br><span class="line">    # sum记录</span><br><span class="line">    r_sum &#x3D; defaultdict(float)</span><br><span class="line">    # count记录</span><br><span class="line">    r_count &#x3D; defaultdict(float)</span><br><span class="line">    # 状态值记录</span><br><span class="line">    r_V &#x3D; defaultdict(float)</span><br><span class="line"></span><br><span class="line">    # 采集num_episodes条经验轨迹</span><br><span class="line">    for i in range(num_episodes):</span><br><span class="line">        # 输出经验轨迹完成的百分比</span><br><span class="line">        episode_rate &#x3D; int(40 * i &#x2F; num_episodes)</span><br><span class="line">        print(&quot;Episode &#123;&#125;&#x2F;&#123;&#125;&quot;.format(i+1, num_episodes) + &quot;&#x3D;&quot; * episode_rate,end&#x3D;&quot;\r&quot;)</span><br><span class="line">        sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">        # 初始化经验轨迹集合和环境状态</span><br><span class="line">        episode &#x3D; []</span><br><span class="line">        state &#x3D; env.reset()</span><br><span class="line"></span><br><span class="line">        # 完成一条经验轨迹</span><br><span class="line">        for j in range(episode_endtime):</span><br><span class="line">            # 根据给定的策略选择动作，即a &#x3D; policy（s）</span><br><span class="line">            action &#x3D; policy(state)</span><br><span class="line">            next_state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line">            episode.append((state,action, reward))</span><br><span class="line"></span><br><span class="line">            # 遇到游戏结束结束打印游戏结果</span><br><span class="line">            if done:</span><br><span class="line">                break</span><br><span class="line">            state &#x3D; next_state</span><br><span class="line"></span><br><span class="line">        # 首次访问蒙特卡洛预测的核心算法</span><br><span class="line">        for k, data_k in enumerate(episode):</span><br><span class="line">            # 获得首次遇到该状态的引索号k</span><br><span class="line">            state_k &#x3D; data_k[0]</span><br><span class="line">            # 计算首次访问的状态的累积奖励</span><br><span class="line">            G &#x3D; sum([x[2] * np.power(discount,i) for i,x in enumerate(episode[k:])]) # 每次访问蒙特卡洛预测算法，在这里不同</span><br><span class="line">            r_sum[state_k] +&#x3D; G</span><br><span class="line">            r_count[state_k] +&#x3D; 1.0</span><br><span class="line">            # 计算状态值</span><br><span class="line">            r_V[state_k] &#x3D; r_sum[state_k] &#x2F; r_count[state_k]</span><br><span class="line">    return r_V</span><br></pre></td></tr></table></figure>
+<h5 id="2-2-每次访问蒙特卡洛预测法"><a href="#2-2-每次访问蒙特卡洛预测法" class="headerlink" title="2.2 每次访问蒙特卡洛预测法"></a>2.2 每次访问蒙特卡洛预测法</h5><p>对于每次访问蒙特卡洛预测法，即无论状态s出现多少次，每一次的奖励的奖励返回值都被纳入平均未来折扣累积奖励的计算。代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"># 每次访问蒙特卡洛预测算法</span><br><span class="line">def mc_everyvisit_prediction(policy, env, num_episodes, episode_endtime&#x3D;10, discount&#x3D;1.0):</span><br><span class="line">    # sum记录</span><br><span class="line">    r_sum &#x3D; defaultdict(float)</span><br><span class="line">    # count记录</span><br><span class="line">    r_count &#x3D; defaultdict(float)</span><br><span class="line">    # 状态值记录</span><br><span class="line">    r_V &#x3D; defaultdict(float)</span><br><span class="line"></span><br><span class="line">    # 采集num_episodes条经验轨迹</span><br><span class="line">    for i in range(num_episodes):</span><br><span class="line">        # 输出经验轨迹完成的百分比</span><br><span class="line">        episode_rate &#x3D; int(40 * i &#x2F; num_episodes)</span><br><span class="line">        print(&quot;Episode &#123;&#125;&#x2F;&#123;&#125;&quot;.format(i+1, num_episodes) + &quot;&#x3D;&quot; * episode_rate,end&#x3D;&quot;\r&quot;)</span><br><span class="line">        sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">        # 初始化经验轨迹集合和环境状态</span><br><span class="line">        episode &#x3D; []</span><br><span class="line">        state &#x3D; env.reset()</span><br><span class="line"></span><br><span class="line">        # 完成一条经验轨迹</span><br><span class="line">        for j in range(episode_endtime):</span><br><span class="line">            # 根据给定的策略选择动作，即a &#x3D; policy（s）</span><br><span class="line">            action &#x3D; policy(state)</span><br><span class="line">            next_state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line">            episode.append((state,action, reward))</span><br><span class="line"></span><br><span class="line">            # 遇到游戏结束结束打印游戏结果</span><br><span class="line">            if done:</span><br><span class="line">                break</span><br><span class="line">            state &#x3D; next_state</span><br><span class="line">        # 每次访问蒙特卡洛预测的核心算法</span><br><span class="line">        for k,data_k in enumerate(episode):</span><br><span class="line">            # 获得首次遇到该状态的引索号k</span><br><span class="line">            state_k &#x3D; data_k[0]</span><br><span class="line">            # 计算每次访问状态的累计奖励</span><br><span class="line">            G &#x3D; sum([x[2] * np.power(discount,i) for i,x in enumerate(episode)]) # 首次访问蒙特卡洛预测算法，在这里不同</span><br><span class="line">            r_sum[state_k] +&#x3D; G</span><br><span class="line">            r_count[state_k] +&#x3D; 1.0</span><br><span class="line">            r_V[state_k] &#x3D; r_sum[state_k]&#x2F;r_count[state_k]</span><br><span class="line">    return r_V</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-3-值函数的图像显示"><a href="#2-3-值函数的图像显示" class="headerlink" title="2.3 值函数的图像显示"></a>2.3 值函数的图像显示</h5><p>当然对于值函数，我们可以通过图像的方法进行表征，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 构筑三维图像</span><br><span class="line">def plot_value_function(v, title&#x3D;None):</span><br><span class="line">    x &#x3D; []</span><br><span class="line">    y &#x3D; []</span><br><span class="line">    z &#x3D; []</span><br><span class="line">    for key , values in v.items():</span><br><span class="line">        x.append(key[1])</span><br><span class="line">        y.append(key[0])</span><br><span class="line">        z.append(values)</span><br><span class="line">    fig &#x3D; plt.figure()  #定义新的三维坐标轴</span><br><span class="line">    ax3 &#x3D; plt.axes(projection&#x3D;&#39;3d&#39;)   # 建立坐标轴  </span><br><span class="line">    #作图</span><br><span class="line">    ax3.plot_trisurf(x, y, z, cmap&#x3D;&quot;rainbow&quot; )</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<h5 id="2-4-关于函数的调用与展示"><a href="#2-4-关于函数的调用与展示" class="headerlink" title="2.4 关于函数的调用与展示"></a>2.4 关于函数的调用与展示</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 测试每次访问和首次访问蒙特卡洛预测方法的区别    </span><br><span class="line">v1 &#x3D; mc_everyvisit_prediction(simple_strategy, env ,100000)</span><br><span class="line">v2 &#x3D; mc_firstvisit_prediction(simple_strategy, env ,100000)</span><br><span class="line">plot_value_function(v1)</span><br><span class="line">plot_value_function(v2)</span><br></pre></td></tr></table></figure>
+<h3 id="3-蒙特卡洛控制"><a href="#3-蒙特卡洛控制" class="headerlink" title="3.蒙特卡洛控制"></a>3.蒙特卡洛控制</h3><p>对于蒙特卡洛控制而言，其与蒙特卡洛预测的最关键的一点就是对于当前的目标策略进行优化，首先根据优化的是本策略还是其他策略可以分为<strong>固定策略蒙特卡洛控制</strong>以及<strong>非固定策略蒙特卡洛控制</strong></p>
+<h5 id="3-1-固定策略蒙特卡洛控制"><a href="#3-1-固定策略蒙特卡洛控制" class="headerlink" title="3.1 固定策略蒙特卡洛控制"></a>3.1 固定策略蒙特卡洛控制</h5><p>固定策略蒙特卡洛控制是指智能体已经有一个策略，并且基于该策略进行采样，以得到的经验轨迹集合来更新值函数，随后采用策略评估以及策略改进对给定策略进行优化，以获得最优策略。（优化的是原策略）。对于固定式策略可以分为两种，“<strong>起始点探索</strong>”与“<strong>非起始点探索</strong>”两种方式，由于起始点探索虽然计算简便，但很容易收敛不到全局最优或局部最优的情况，我们通常选择非起始点探索来进行探索，以实现对于策略的改进。</p>
+<p>在进行对于非起始点探索进行代码展示之前，我们先对<strong>epsilon贪婪策略算法</strong>进行介绍。由于是以概率epsilon来从所有动作中选择一种动作，因而最优动作被选中的概率为1 - epsilon + epsilon / A(s) , 而非最优动作被选择的概率为epsilon / A(s) 。代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># epsilon贪婪策略算法</span><br><span class="line">def epsilon_greddy_policy(q, epsilon, nA):</span><br><span class="line">    def __policy__(state):</span><br><span class="line">        # 初始化动作概率</span><br><span class="line">        A_ &#x3D; np.ones(nA, dtype&#x3D;float)</span><br><span class="line"></span><br><span class="line">        # 以epsilon设定动作概略</span><br><span class="line">        A &#x3D; A_ * epsilon &#x2F; nA</span><br><span class="line"></span><br><span class="line">        # 选取动作值函数中的最大值作为最优值</span><br><span class="line">        best &#x3D; np.argmax(q[state])</span><br><span class="line"></span><br><span class="line">        # 以1-epsilon 设定最大动作动作概率</span><br><span class="line">        A[best] +&#x3D; 1- epsilon </span><br><span class="line">        return A</span><br><span class="line">    return __policy__</span><br></pre></td></tr></table></figure>
+
+<p>接下来进行介绍固定式策略非起始点探索蒙特卡洛控制，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"># 固定策略的非起始点探索的蒙特卡洛控制</span><br><span class="line">def mc_firstvisit_control_epsilon_greddy(env, num_episodes&#x3D;100, epsilon&#x3D;0.1, episode_endtime&#x3D;10, discount&#x3D;1.0 ):</span><br><span class="line">    # 初始化设定使用到的变量</span><br><span class="line"></span><br><span class="line">    # 环境中的状态对应动作空间数量</span><br><span class="line">    nA &#x3D; env.action_space.n</span><br><span class="line">    # 动作值函数</span><br><span class="line">    Q &#x3D; defaultdict(lambda: np.zeros(nA))</span><br><span class="line">    # 动作-状态对的累计奖励</span><br><span class="line">    r_sum &#x3D; defaultdict(float)</span><br><span class="line">    # 动作-状态对的计数器</span><br><span class="line">    r_cou &#x3D; defaultdict(float)</span><br><span class="line"></span><br><span class="line">    # 初始化贪婪策略</span><br><span class="line">    policy &#x3D; epsilon_greddy_policy(Q, epsilon, nA)</span><br><span class="line"></span><br><span class="line">    for i in range(num_episodes):</span><br><span class="line">        # 输出当前迭代的经验轨迹次数</span><br><span class="line">        episode_rate &#x3D; int(40 * i &#x2F; num_episodes)</span><br><span class="line">        print(&quot;Episode &#123;&#125;&#x2F;&#123;&#125;&quot;.format(i+1, num_episodes),end &#x3D; &quot;\r&quot;)</span><br><span class="line">        sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">        # 初始化状态和当前的经验轨迹</span><br><span class="line">        episode &#x3D; []</span><br><span class="line">        state &#x3D; env.reset()</span><br><span class="line"></span><br><span class="line">        # (a) 基于策略产生一条经验轨迹，其中每一个事件步为tuple(state, action, reward)</span><br><span class="line">        for j in range(episode_endtime):</span><br><span class="line">            </span><br><span class="line">            # 通过epslion-greddy算法对动作-状态对进行探索和利用</span><br><span class="line">            action_prob &#x3D; policy(state)</span><br><span class="line">            # 根据epslion-greddy算法的结果随机选取一个动作</span><br><span class="line">            action &#x3D; np.random.choice(np.arange(action_prob.shape[0]), p&#x3D;action_prob)</span><br><span class="line"></span><br><span class="line">            # 运行一个时间步并采集经验轨迹</span><br><span class="line">            next_state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            if done:</span><br><span class="line">                break</span><br><span class="line">            state &#x3D; next_state</span><br><span class="line">        # (b) 计算经验轨迹中每一个&lt;状态-动作&gt;对</span><br><span class="line">        for k,(state, actions, reward) in  enumerate(episode):</span><br><span class="line"></span><br><span class="line">            # 提取动作-状态对为 sa_pair</span><br><span class="line">            sa_pair &#x3D; (state, actions)</span><br><span class="line">            first_visit_idx &#x3D; k</span><br><span class="line"></span><br><span class="line">            # 计算未来累计奖励</span><br><span class="line">            G &#x3D; sum([x[2] * np.power(discount, i) for i , x in enumerate(episode[first_visit_idx:])])</span><br><span class="line"></span><br><span class="line">            # 更新未来累计奖励</span><br><span class="line">            r_sum[sa_pair] +&#x3D; G</span><br><span class="line">            # 更新动作-状态对的计数器</span><br><span class="line">            r_cou[sa_pair] +&#x3D;1.0</span><br><span class="line"></span><br><span class="line">            # 计算平均的累计奖励</span><br><span class="line">            Q[state][actions]  &#x3D; r_sum[sa_pair] &#x2F; r_cou[sa_pair]</span><br><span class="line">    </span><br><span class="line">    return Q</span><br><span class="line"></span><br><span class="line"># 非起始点探索获得动作值函数</span><br><span class="line">Q &#x3D; mc_firstvisit_control_epsilon_greddy(env,num_episodes&#x3D;100000)</span><br><span class="line">print(Q)</span><br><span class="line"># 初始化状态函数</span><br><span class="line">V &#x3D; defaultdict(float)</span><br><span class="line"># (c) 根据求得的动作值函数选择最大的动作作为最优状态值</span><br><span class="line">for state, actions in Q.items():</span><br><span class="line">    V[state] &#x3D; np.max(actions)</span><br><span class="line">plot_value_function(V)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-2-非固定策略蒙特卡洛控制"><a href="#3-2-非固定策略蒙特卡洛控制" class="headerlink" title="3.2 非固定策略蒙特卡洛控制"></a>3.2 非固定策略蒙特卡洛控制</h5><p>非固定式策略蒙特卡洛控制是指智能体在有行为策略的前提下，利用行为策略所采集的经验轨迹对目标策略进行优化，通常来说目标策略通常采用epsilon贪婪策略。虽然非固定式策略控制有很多种，在本博客种将只会对蒙特卡洛控制进行介绍————<strong>重要性采样</strong>,代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">def mc_control_importance_sampling(env, num_episodes, behavior_policy, discount_factor&#x3D;1.0):</span><br><span class="line">    # 非固定式策略学习法</span><br><span class="line"></span><br><span class="line">    # 初始化参数</span><br><span class="line">    Q &#x3D; defaultdict(lambda: np.zeros(env.action_space.n)) # 动作值函数</span><br><span class="line">    C &#x3D; defaultdict(lambda: np.zeros(env.action_space.n)) # 重要性参数</span><br><span class="line"></span><br><span class="line">    # 初始化目标策略</span><br><span class="line">    target_policy &#x3D; create_greedy_policy(Q)</span><br><span class="line"></span><br><span class="line">    # Repect</span><br><span class="line">    for i_episode in range(1,num_episodes+1):</span><br><span class="line">        if i_episode % 1000 &#x3D;&#x3D; 0:</span><br><span class="line">            print(&quot;\rEpisode &#123;&#125;&#x2F;&#123;&#125;.&quot;.format(i_episode,num_episodes), end&#x3D;&quot;&quot;)</span><br><span class="line">            sys.stdout.flush()</span><br><span class="line">        </span><br><span class="line">        # 单条经验轨迹采样,其中每个时间步内容为 turple(state, action, reward)</span><br><span class="line">        episode &#x3D; []</span><br><span class="line">        state &#x3D; env.reset()</span><br><span class="line"></span><br><span class="line">        while(True):</span><br><span class="line">            # 从行为策略中进行采样</span><br><span class="line">            probs &#x3D; behavior_policy(state)</span><br><span class="line"></span><br><span class="line">            # 随机在当前状态的动作概率中选择一个动作</span><br><span class="line">            action &#x3D; np.random.choice(np.arange(len(probs)),p&#x3D;probs)</span><br><span class="line">            </span><br><span class="line">            # 智能体执行该动作并记录当前状态</span><br><span class="line">            next_state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line"></span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            if done:</span><br><span class="line">                break</span><br><span class="line">            state &#x3D; next_state</span><br><span class="line">        G &#x3D; 0.0 # 未来折扣累计奖励</span><br><span class="line">        W &#x3D; 1.0 # 重要性权重参数</span><br><span class="line"></span><br><span class="line">        # 在该经验轨迹中从最后的一个时间步开始遍历</span><br><span class="line">        for t in range(len(episode))[::-1]:</span><br><span class="line"></span><br><span class="line">            # 获得当前经验轨迹的当前时间步</span><br><span class="line">            state, action, reward &#x3D; episode[t]</span><br><span class="line">            # 更新累计奖励</span><br><span class="line">            G &#x3D; discount_factor * G + reward</span><br><span class="line">            # 求累计权重Cn</span><br><span class="line">            C[state][action] +&#x3D; W</span><br><span class="line">            # 更新动作值函数，同样的，这是改进目标中用到的动作值函数</span><br><span class="line">            Q[state][action] +&#x3D; (W &#x2F; C[state][action]) * (G - Q[state][action])</span><br><span class="line">            # 如果行为策略采取的动作并不是目标策略的动作，那么概率将变化为0，循环中断</span><br><span class="line">            if action !&#x3D; np.argmax(target_policy(state)):</span><br><span class="line">                break </span><br><span class="line">            W &#x3D; W * 1.0 &#x2F; behavior_policy(state)[action]</span><br><span class="line">    return Q, target_policy</span><br><span class="line"></span><br><span class="line"># 非固定式策略学习法</span><br><span class="line">random_policy &#x3D; create_random_policy(env.action_space.n)</span><br><span class="line">Q, policy &#x3D;mc_control_importance_sampling(env, num_episodes&#x3D;500,behavior_policy&#x3D;random_policy)</span><br><span class="line">V &#x3D; defaultdict(float)</span><br><span class="line">for state, action_values in Q.items():</span><br><span class="line">    action_values &#x3D; np.max(action_values)</span><br><span class="line">    V[state] &#x3D; action_values</span><br><span class="line">plot_value_function(V)</span><br></pre></td></tr></table></figure>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>蒙特卡洛法来求解强化学习这一部分是至关重要的一个部分，需要进行较深入的理解，其中务必要理解每个算法的原因以及公式的来源。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/23/value_function_approximate/" class="archive-article-date">
-  	<time datetime="2021-02-23T03:27:18.825Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/23/value_function_approximate/">value_function_approximate</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/11/29/montocarlo/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/17/temporal_difference/" class="archive-article-date">
-  	<time datetime="2021-02-17T09:52:31.271Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-17</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/11/29/hello_gird/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          强化学习的Hello World ———— Hello Grid
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/28/NuGet_Package_Restore/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于C#中构建整体程序框架需要的NuGet&#34;Package Restore&#34;</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/17/temporal_difference/">temporal_difference</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/03/montocarlo/" class="archive-article-date">
-  	<time datetime="2021-02-03T13:44:46.186Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/03/montocarlo/">montocarlo</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -256,7 +332,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 John Doe
+    		&copy; 2021 Chenyang,Xu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -269,8 +345,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -383,34 +459,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
     	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
   		
     	</section>
     

@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="SlowlyMorningSun">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Chenyang,Xu">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="SlowlyMorningSun" type="application/atom+xml">
@@ -43,10 +43,10 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/assets/gougou.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">Chenyang,Xu</a></h1>
 		</hgroup>
 		
 
@@ -77,7 +77,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="/SlowlyMorningSun" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -101,10 +101,10 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/assets/gougou.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">Chenyang,Xu</h1>
 			</hgroup>
 			
 			
@@ -118,7 +118,7 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="/SlowlyMorningSun" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -152,261 +152,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-value_function_approximate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/23/value_function_approximate/">value_function_approximate</a>
-    </h1>
-  
-
-        
-        <a href="/2021/02/23/value_function_approximate/" class="archive-article-date">
-  	<time datetime="2021-02-23T03:27:18.825Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="强化学习求解（四）-————-值函数近似法"><a href="#强化学习求解（四）-————-值函数近似法" class="headerlink" title="强化学习求解（四） ———— 值函数近似法"></a>强化学习求解（四） ———— 值函数近似法</h1><p>==========================================================================================================================</p>
-<h2 id="关于主要的配置需求"><a href="#关于主要的配置需求" class="headerlink" title="关于主要的配置需求"></a>关于主要的配置需求</h2><ol>
-<li>numpy</li>
-<li>gym</li>
-</ol>
-<h2 id="关于程序的解释："><a href="#关于程序的解释：" class="headerlink" title="关于程序的解释："></a>关于程序的解释：</h2><p>在本次的程序中，我们将主要介绍<strong>值函数近似法</strong>的强化学习的求解方式，首先我们将介绍我们本次程序的载体gym中的<strong>MountainCar-V0</strong>的游戏。之后我们将介绍值函数近似法的原理及代码部分，最后我们将QLreaning与值函数近似法结合实现对MountainCar-v0游戏的最佳策略求解。</p>
-<h3 id="1-值函数近似法"><a href="#1-值函数近似法" class="headerlink" title="1.值函数近似法"></a>1.值函数近似法</h3><p>在传统的强化学习的任务中，求解方法都是通过&lt;状态，动作&gt;对与动作值函数的对应关系完成。而值函数近似法即利用一个近似函数来模拟当前的环境的动作值函数或者状态值函数进而完成大规模强化学习任务的方法。其目标是找到权重参数w，使得对应的近似状态值函数或近似动作值函数对真实的动作值函数以及状态值函数实现一个逼近。即实现一个以动作和状态（或状态）与动作值函数与状态值函数的函数关系。详细代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"># 值函数近似器</span><br><span class="line">class EStimator():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        # 对环境进行采样，便于后续对于状态state抽取特征</span><br><span class="line">        state_examples &#x3D; np.array([env.observation_space.sample() for x in range(10000)])</span><br><span class="line">        # print(state_examples)</span><br><span class="line">        # 特征处理1：归一化状态数据为0均值和单位方差</span><br><span class="line">        self.scaler &#x3D; Scaler()</span><br><span class="line">        self.scaler.fit(state_examples)</span><br><span class="line">        </span><br><span class="line">        # 特征处理2：状态state的特征抽取表示</span><br><span class="line">        self.featurizer &#x3D; FeatureUnion([(&quot;rbf1&quot;, RBF(gamma&#x3D;5.0, n_components&#x3D;100)),(&quot;rbf2&quot;,RBF(gamma&#x3D;1.0, n_components&#x3D;100)),])</span><br><span class="line">        self.featurizer.fit(self.scaler.transform(state_examples))</span><br><span class="line"></span><br><span class="line">        # 动作空间模型</span><br><span class="line">        # 声明动作模型</span><br><span class="line">        self.action_models &#x3D; []</span><br><span class="line">        # 动作空间数量</span><br><span class="line">        self.nA &#x3D; env.action_space.n</span><br><span class="line"></span><br><span class="line">        for na in range(self.nA):</span><br><span class="line">            # 动作模型使用随机梯度下降算法</span><br><span class="line">            model &#x3D; SGD(learning_rate&#x3D;&quot;constant&quot;) </span><br><span class="line">            model.partial_fit([self.featurize_state(env.reset())],[0])</span><br><span class="line">            self.action_models.append(model)</span><br><span class="line"></span><br><span class="line">    # 返回状态信号的特征化表示形式</span><br><span class="line">    def featurize_state(self, state):</span><br><span class="line">        # 对输入的状态信号归一化</span><br><span class="line">        scaled &#x3D; self.scaler.transform([state])</span><br><span class="line">        # 对归一化的状态提取特征</span><br><span class="line">        featurized &#x3D; self.featurizer.transform(scaled)[0]</span><br><span class="line">        # 返回状态信号的特征化表示形式</span><br><span class="line">        return featurized</span><br><span class="line">    </span><br><span class="line">    # 对状态值函数进行预测</span><br><span class="line">    def predict(self,s):</span><br><span class="line">        # 对输入的状态信号提取特征</span><br><span class="line">        features &#x3D; self.featurize_state(s)</span><br><span class="line">        # 预测该状态信号对应所有的动作的概率</span><br><span class="line">        predicter &#x3D; np.array([model.predict([features])[0] for model in self.action_models])</span><br><span class="line"></span><br><span class="line">        # 返回动作预测概率向量</span><br><span class="line">        return predicter</span><br><span class="line"></span><br><span class="line">    # 更新值函数近似器</span><br><span class="line">    def update(self, s, a, y):</span><br><span class="line">        # 对当前的状态信号提取特征</span><br><span class="line">        cur_features &#x3D; self.featurize_state(s)</span><br><span class="line"></span><br><span class="line">        # 根据目标y和当前的状态信号特征更新对应的近似模型</span><br><span class="line">        self.action_models[a].partial_fit([cur_features],[y])</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-MountainCar-v0"><a href="#2-MountainCar-v0" class="headerlink" title="2.MountainCar-v0"></a>2.MountainCar-v0</h3><p>关于MountainCar-v0游戏，其是一个车上山到达山顶的游戏，通过操纵是否为不加速，向左加速，向右加速的三种状态实现对于小车的驱使，进而实现上山的操作，详细代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import gym</span><br><span class="line">import sys</span><br><span class="line">import itertools</span><br><span class="line">import matplotlib</span><br><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">from collections import defaultdict, namedtuple</span><br><span class="line">from sklearn.pipeline import FeatureUnion</span><br><span class="line">from sklearn.preprocessing import StandardScaler as Scaler</span><br><span class="line">from sklearn.linear_model import SGDRegressor as SGD</span><br><span class="line">from sklearn.kernel_approximation import RBFSampler as RBF</span><br><span class="line"></span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line">from mpl_toolkits.mplot3d import Axes3D</span><br><span class="line">from Tools.scripts import lll</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">env &#x3D; gym.envs.make(&quot;MountainCar-v0&quot;)</span><br><span class="line"></span><br><span class="line"># Mountain-Car 的应用演示</span><br><span class="line">observation &#x3D; env.reset()</span><br><span class="line">plt.figure()</span><br><span class="line">for x in range(1000):</span><br><span class="line">    action &#x3D; np.random.choice([0,1,2])</span><br><span class="line"></span><br><span class="line">    observation,reward,done,info &#x3D; env.step(action)</span><br><span class="line">    print(action,reward ,done)</span><br><span class="line">    print(observation)</span><br><span class="line">    time.sleep(0.02)</span><br><span class="line">    </span><br><span class="line">    plt.imshow(env.render(mode&#x3D;&#39;rgb_array&#39;))</span><br><span class="line">env.close()</span><br></pre></td></tr></table></figure>
-<h3 id="3-与QLearning的结合"><a href="#3-与QLearning的结合" class="headerlink" title="3.与QLearning的结合"></a>3.与QLearning的结合</h3><p>最后，由于有了值函数的近似器，因而我们可以将其与qlearning算法相结合，进而可以得到如下的程序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"># 基于值函数近似表示的时间差分控制的Q-learning算法</span><br><span class="line">class VF_QLearning():</span><br><span class="line">    def __init__(self, env, estimator, num_episodes, epsilon&#x3D;0.1, discount_factor&#x3D;1.0, epsilom_decay&#x3D;1.0):</span><br><span class="line">        </span><br><span class="line">        # 初始化类中的参数</span><br><span class="line">        # 动作空间数量</span><br><span class="line">        self.nA &#x3D; env.action_space.n</span><br><span class="line">        # 状态空间数量</span><br><span class="line">        self.nS &#x3D; env.observation_space.shape[0]</span><br><span class="line">        # 环境</span><br><span class="line">        self.env &#x3D; env</span><br><span class="line">        # 经验轨迹迭代次数</span><br><span class="line">        self.num_episodes &#x3D; num_episodes</span><br><span class="line">        # epsilon贪婪算法参数</span><br><span class="line">        self.epsilon &#x3D; epsilon</span><br><span class="line">        # 未来折扣系数</span><br><span class="line">        self.discount_factor &#x3D; discount_factor</span><br><span class="line">        # 贪婪算法策略衰减系数</span><br><span class="line">        self.epsilon_decay &#x3D; epsilom_decay</span><br><span class="line">        # 函数近似器</span><br><span class="line">        self.estimator &#x3D; estimator</span><br><span class="line"></span><br><span class="line">        # 记录器，用于保存迭代长度（episode length）和迭代奖励（episode rewards）</span><br><span class="line">        record_head &#x3D; namedtuple(&quot;Stats&quot;,[&quot;episode_lengths&quot;, &quot;episode_rewards&quot;])</span><br><span class="line"></span><br><span class="line">        # 记录器初始化</span><br><span class="line">        self.record &#x3D; record_head(episode_lengths &#x3D; np.zeros(num_episodes),episode_rewards &#x3D; np.zeros(num_episodes))</span><br><span class="line"></span><br><span class="line">    # epislon 贪婪算法</span><br><span class="line">    def epislon_greedy_policy(self, nA, epislon &#x3D; 0.5):</span><br><span class="line">        def policy(state):</span><br><span class="line">            A &#x3D; np.ones(nA, dtype&#x3D;float) * epislon &#x2F; nA</span><br><span class="line">            Q &#x3D; self.estimator.predict(state)</span><br><span class="line">            best_action &#x3D; np.argmax(Q)</span><br><span class="line">            A[best_action] +&#x3D; (1.0 - epislon)</span><br><span class="line"></span><br><span class="line">            return  A</span><br><span class="line">        return  policy</span><br><span class="line"></span><br><span class="line">    # 选取随机动作 </span><br><span class="line">    def random_action(self, action_prob):</span><br><span class="line">        </span><br><span class="line">        # 从给定的动作概率action_prob中随机选出一个动作</span><br><span class="line">        return np.random.choice(np.arange(len(action_prob)),p &#x3D; action_prob)</span><br><span class="line"></span><br><span class="line">    # qlearning核心算法</span><br><span class="line">    def q_learning(self):</span><br><span class="line">        for i_episode in range(self.num_episodes):</span><br><span class="line">            # 打印经验轨迹的迭代次数信息</span><br><span class="line">            # 迭代百分比</span><br><span class="line">            num_present &#x3D; (i_episode + 1)&#x2F;self.num_episodes</span><br><span class="line">            print(&quot;Episode &#123;&#125; &#x2F; &#123;&#125;&quot;.format(i_episode+1,self.num_episodes), end&#x3D;&quot;&quot;)</span><br><span class="line">            # 信息输出</span><br><span class="line">            print(&quot;&#x3D;&quot;*round(num_present*60))</span><br><span class="line"></span><br><span class="line">            # 策略选择使用episilon贪婪算法</span><br><span class="line">            # 策略参数</span><br><span class="line">            policy_epislon &#x3D; self.epsilon * self.epsilon_decay**i_episode</span><br><span class="line">            # 声明策略</span><br><span class="line">            policy &#x3D; self.epislon_greedy_policy(self.nA, policy_epislon)</span><br><span class="line">            # 记录奖励</span><br><span class="line">            last_reward &#x3D; self.record.episode_rewards[i_episode - 1]</span><br><span class="line">            # print(last_reward)</span><br><span class="line">            sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">            # 重置环境进行第一个动作</span><br><span class="line">            state &#x3D; env.reset()</span><br><span class="line"></span><br><span class="line">            # 下一个动作信号的初始化</span><br><span class="line">            next_action &#x3D; None</span><br><span class="line"></span><br><span class="line">            # 单次经验轨迹的迭代</span><br><span class="line">            for t in itertools.count():</span><br><span class="line">                # 根据策略获得当前状态信号的动作值</span><br><span class="line">                action_probs &#x3D; policy(state)</span><br><span class="line">                action &#x3D; self.random_action(action_probs)</span><br><span class="line">                # print(action)</span><br><span class="line"></span><br><span class="line">                # 向前执行一步</span><br><span class="line">                next_state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line"></span><br><span class="line">                # print(&quot;reward&quot;,reward)</span><br><span class="line"></span><br><span class="line">                # 更新统计信息</span><br><span class="line">                # 更新信号奖励</span><br><span class="line">                self.record.episode_rewards[i_episode] +&#x3D; reward</span><br><span class="line">                # 更新迭代次数</span><br><span class="line">                self.record.episode_lengths[i_episode] &#x3D; t</span><br><span class="line"></span><br><span class="line">                # 预测下一时间步的动作值</span><br><span class="line">                # 时间差分更新</span><br><span class="line">                q_values_next &#x3D; estimator.predict(next_state)</span><br><span class="line"></span><br><span class="line">                # 使用时间差分目标作为预测结果更新函数的近似器</span><br><span class="line">                td_target &#x3D; reward + self.discount_factor * np.max(q_values_next)</span><br><span class="line">                # Q-Value 时间差分目标</span><br><span class="line">                estimator.update(state, action, td_target)</span><br><span class="line"></span><br><span class="line">                print(&quot;\rStep &#123;&#125; with reward (&#123;&#125;)&quot;.format(t, last_reward),end&#x3D;&quot;&quot;)</span><br><span class="line">                if done:break</span><br><span class="line"></span><br><span class="line">                # 覆盖下一时间步状态为当前的时间状态</span><br><span class="line">                state &#x3D; next_state</span><br><span class="line">        return self.record</span><br></pre></td></tr></table></figure>
-
-<p>以及对应的画图的程序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">def plot_cost_to_go_mountain_car(env, estimator, niter, num_tiles &#x3D; 20):</span><br><span class="line">    # 显示mountain Car 爬山车游戏的代价函数</span><br><span class="line">    # x 为 小车的位置信息</span><br><span class="line">    # y 为 小车的速度信息</span><br><span class="line">    # z 为 动作状态价值信息</span><br><span class="line"></span><br><span class="line">    x &#x3D; np.linspace(env.observation_space.low[0], env.observation_space.high[0], num&#x3D;num_tiles)</span><br><span class="line">    y &#x3D; np.linspace(env.observation_space.low[1], env.observation_space.high[1], num&#x3D;num_tiles)</span><br><span class="line"></span><br><span class="line">    # 合并x，y的信息</span><br><span class="line">    X,Y &#x3D; np.meshgrid(x,y)</span><br><span class="line">    Z &#x3D; np.apply_along_axis(lambda _: -np.max(estimator.predict(_)), 2,np.dstack([X,Y]))</span><br><span class="line"></span><br><span class="line">    # 配置显示图像信息</span><br><span class="line">    fig &#x3D; plt.figure(figsize&#x3D;(15,7.5))</span><br><span class="line">    ax &#x3D; fig.add_subplot(111, projection &#x3D; &#39;3d&#39;)</span><br><span class="line">    surf &#x3D; ax.plot_surface(X,Y,Z, rstride&#x3D;1, cstride&#x3D;1)</span><br><span class="line"></span><br><span class="line">    # 设置x轴为位置信息</span><br><span class="line">    ax.set_xlabel(&quot;position&quot;)</span><br><span class="line">    # 设置y轴为速率信息</span><br><span class="line">    ax.set_ylabel(&quot;Velocity&quot;)</span><br><span class="line">    # 设置Z轴为价值信息</span><br><span class="line">    ax.set_zlabel(&quot;Value&quot;)</span><br><span class="line">    # 设置Z轴大小，便于显示</span><br><span class="line">    ax.set_zlim(0,160)</span><br><span class="line">    # 设置背景为白色</span><br><span class="line">    ax.set_facecolor(&quot;white&quot;)</span><br><span class="line">    # 设置标题</span><br><span class="line">    ax.set_title(&quot;Cost To Go Function(iter:&#123;&#125;&quot;.format(niter))</span><br><span class="line">    # 设置侧边条</span><br><span class="line">    fig.colorbar(surf)</span><br><span class="line">    # 显示图像</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
-<p>相关的调用方法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 值函数近似法 + QLearning</span><br><span class="line">estimator &#x3D; EStimator()</span><br><span class="line"># vf &#x3D; VF_QLearning(env, estimator, num_episodes&#x3D;100, epsilon&#x3D;0.2)</span><br><span class="line"># result &#x3D; vf.q_learning()</span><br><span class="line"># 值函数近似法 + QLearning + 图像</span><br><span class="line">iter &#x3D; [10, 50, 100, 200]</span><br><span class="line">for x in iter:</span><br><span class="line">    vf &#x3D; VF_QLearning(env, estimator, num_episodes&#x3D;x, epsilon&#x3D;0.2)</span><br><span class="line">    result &#x3D; vf.q_learning()</span><br><span class="line">    plot_cost_to_go_mountain_car(env, estimator,x , num_tiles&#x3D;10)</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/23/value_function_approximate/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-temporal_difference" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/17/temporal_difference/">temporal_difference</a>
-    </h1>
-  
-
-        
-        <a href="/2021/02/17/temporal_difference/" class="archive-article-date">
-  	<time datetime="2021-02-17T09:52:31.271Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="强化学习求解（三）-————-时间差分法"><a href="#强化学习求解（三）-————-时间差分法" class="headerlink" title="强化学习求解（三） ———— 时间差分法"></a>强化学习求解（三） ———— 时间差分法</h1><p>==========================================================================================================================</p>
-<h2 id="关于主要的配置需求"><a href="#关于主要的配置需求" class="headerlink" title="关于主要的配置需求"></a>关于主要的配置需求</h2><ol>
-<li>numpy</li>
-<li>gym</li>
-</ol>
-<h2 id="关于程序的解释："><a href="#关于程序的解释：" class="headerlink" title="关于程序的解释："></a>关于程序的解释：</h2><p>对于本次的程序，我首先通过<strong>TD（λ）算法</strong>来进行介绍，由于对于强化学习求解的时间差分法存在着固定式策略和非固定式策略两种，在本篇博客里面将主要对<strong>固定式策略——Sarsa算法</strong>，以及对于<strong>非固定式策略——Q-learning算法</strong>进行介绍。</p>
-<h3 id="1-TD（λ）算法"><a href="#1-TD（λ）算法" class="headerlink" title="1.TD（λ）算法"></a>1.TD（λ）算法</h3><p>在本章介绍的是时间差分预测算法，其中Sarsa与Q-learning算法都属于TD(0)算法。在进行对于TD(λ)进行介绍之前，我们将首先介绍<strong>n-步奖励</strong>。<strong>n-步奖励</strong>，即为在当前状态向前行动n步，并计算n步的的回报。其中时间差分目标G<sub>t</sub><sup>(n)</sup>由两部分组成：已走的步数使用确定的即时奖励，未来的步数使用估计的状态价值代替。</p>
-<p>当n=1时： G<sub>t</sub><sup>(1)</sup> = r<sub>t+1</sub> + γv(S<sub>t+1</sub>)<br>当n=2时： G<sub>t</sub><sup>(2)</sup> = r<sub>t+1</sub> + γv(r<sub>t+2</sub>) + γ<sup>2</sup>v(r<sub>t+2</sub>)<br>当n接近无穷的时候，该公式趋近于蒙特卡洛法</p>
-<p>接下来，我们引入了λ参数，通过引入该参数，可以在不增加计算复杂度的情况下综合考虑所有步数的预测，即综合考虑从时间步1到时间步∞的所有的奖励，其中对于任意一个时间步n的奖励增加到一定的权重（1-λ）λ<sup>n-1</sup>，因而可以获得λ-奖励的公式：</p>
-<p>G<sub>t</sub><sup>λ</sup> = （1-λ）* ∑ λ<sup>n-1</sup> * G<sub>t</sub><sup>n</sup><br>v(S<sub>t</sub>) &lt;- v(S<sub>t</sub>) + α[ G<sub>t</sub><sup>λ</sup> - v(S<sub>t</sub>) ]</p>
-<h3 id="2-CartPole-游戏"><a href="#2-CartPole-游戏" class="headerlink" title="2.CartPole 游戏"></a>2.CartPole 游戏</h3><p>CartPole 游戏是gym库中游戏之一，对于他的状态值而言，他反馈的是小车的位置（Position），杆子的角度（Angle），车的速度（Velocity）以及角度的变化率（Rate of Angle），接下来展示游戏的调用的过程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import gym</span><br><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">import sys</span><br><span class="line">from collections import defaultdict, namedtuple</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># CaerPole 游戏介绍</span><br><span class="line">env &#x3D; gym.make(&quot;CartPole-v0&quot;)</span><br><span class="line">sumlist &#x3D; []</span><br><span class="line">for t in range(200):</span><br><span class="line">    state &#x3D; env.reset()</span><br><span class="line">    i &#x3D; 0</span><br><span class="line"></span><br><span class="line">    # 进行游戏</span><br><span class="line">    while(True):</span><br><span class="line">        i +&#x3D;1</span><br><span class="line">        # 环境重置</span><br><span class="line">        env.render()</span><br><span class="line">        # 随机选择动作</span><br><span class="line">        action &#x3D; env.action_space.sample()</span><br><span class="line">        # 获取动作的数量</span><br><span class="line">        nA &#x3D; env.action_space.n</span><br><span class="line">        # 智能体执行动作</span><br><span class="line">        state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line">        # print(state,action ,reward)</span><br><span class="line"></span><br><span class="line">        # 游戏结束，输出本次游戏的时间步</span><br><span class="line">        if done:</span><br><span class="line">            print(&quot;Episode finished after &#123;&#125; timesteps&quot;.format(i+1))</span><br><span class="line">            break</span><br><span class="line">    # 记录迭代次数</span><br><span class="line">    sumlist.append(i)</span><br><span class="line">    print(&quot;Gamw Over .....&quot;)</span><br><span class="line"># 关闭游戏监听器</span><br><span class="line">env.close()</span><br><span class="line"></span><br><span class="line">iter_time &#x3D; sum(sumlist)&#x2F;len(sumlist)</span><br><span class="line">print(&quot;CartPole game iter average time is &#123;&#125;&quot;.format(iter_time))</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-关于结果图像的显示"><a href="#3-关于结果图像的显示" class="headerlink" title="3.关于结果图像的显示"></a>3.关于结果图像的显示</h3><p>在这部分中，作者仅给出一下的代码，不给予解释：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 显示时间步和奖励结果</span><br><span class="line">def plot_episodes_stats(stats, smoothing_window&#x3D;10):</span><br><span class="line">    fig1 &#x3D; plt.figure(figsize&#x3D;(10,5))</span><br><span class="line">    plt.plot(stats.episode_lengths[:200])</span><br><span class="line">    plt.xlabel(&quot;Episode&quot;)</span><br><span class="line">    plt.ylabel(&quot;Episode length&quot;)</span><br><span class="line">    plt .title(&quot;EPisode Length over time&quot;)</span><br><span class="line">    plt.show(fig1)</span><br><span class="line">    fig2 &#x3D; plt.figure(figsize&#x3D;(10,5))</span><br><span class="line">    reward_smoothed &#x3D; pd.Series(stats.episode_rewards[:200]).rolling(smoothing_window, min_periods&#x3D;smoothing_window).mean()</span><br><span class="line">    plt.plot(reward_smoothed)</span><br><span class="line">    plt.xlabel(&quot;Episode&quot;)</span><br><span class="line">    plt.ylabel(&quot;Episode reward&quot;)</span><br><span class="line">    plt.title(&quot;Episode Reward over time&quot;.format(smoothing_window))</span><br><span class="line">    plt.show(fig2)</span><br><span class="line">    return fig1, fig2</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-Sarsa算法"><a href="#4-Sarsa算法" class="headerlink" title="4.Sarsa算法"></a>4.Sarsa算法</h3><p>关于Sarsa算法，他是根据当前状态s，当前的动作a，当前的奖励r，下一时间步状态s’，下一时间步动作a’，这5个变量组合而成的。其中在本段代码中，作者将对应的可能的范围区间划分成不同的区域，进而判断对应的状态处于具体的哪个中进而实现对于存储空间浪费的降低并便于查询与检索。在整个的算法过程中，Sarsa采用的是epislon-贪婪算法，实现对于策略的更新，通过当前状态以及对于下一状态的估计，我们实现对于动作值函数Q的迭代收敛，具体代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line">class SARSA():</span><br><span class="line">    def __init__(self, env, num_episodes, discount&#x3D;1.0, alpha&#x3D;0.5, epsilon&#x3D;0.1, n_bins&#x3D;10):</span><br><span class="line">        # 初始化算法使用到的基本变量</span><br><span class="line">        # 动作状态数</span><br><span class="line">        self.nA &#x3D; env.action_space.n</span><br><span class="line">        # 状态空间数</span><br><span class="line">        self.nS &#x3D; env.observation_space.shape[0]</span><br><span class="line">        # 环境</span><br><span class="line">        self.env &#x3D; env</span><br><span class="line">        # 迭代次数</span><br><span class="line">        self.num_episodes &#x3D; num_episodes</span><br><span class="line">        # 衰减系数</span><br><span class="line">        self.discount &#x3D; discount</span><br><span class="line">        # 时间差分误差系数</span><br><span class="line">        self.alpha &#x3D; alpha</span><br><span class="line">        # 贪婪策略系数</span><br><span class="line">        self.epsilon &#x3D; epsilon</span><br><span class="line">        # 动作值函数</span><br><span class="line">        self.Q &#x3D; defaultdict(lambda: np.zeros(self.nA))</span><br><span class="line"></span><br><span class="line">        # 记录重要的迭代信息</span><br><span class="line">        record &#x3D; namedtuple(&quot;Record&quot;,[&quot;episode_lengths&quot;,&quot;episode_rewards&quot;])</span><br><span class="line">        self.rec &#x3D; record(episode_lengths&#x3D;np.zeros(num_episodes),episode_rewards&#x3D;np.zeros(num_episodes))</span><br><span class="line"></span><br><span class="line">        # 状态空间的桶</span><br><span class="line">        self.cart_position_bins &#x3D; pd.cut([-2.4, 2.4], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">        self.pole_angle_bins &#x3D; pd.cut([-2.0, 2.0], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">        self.cart_velocity_bins &#x3D; pd.cut([-1.0, 1.0], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">        self.angle_rate_bins &#x3D; pd.cut([-3.5, 3.5], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">    </span><br><span class="line">    # 状态空间简化后的返回函数 </span><br><span class="line">    def get_bins_states(self, state):</span><br><span class="line"></span><br><span class="line">        # 获取当前状态的4个状态元素值</span><br><span class="line">        s1_, s2_, s3_, s4_ &#x3D; state</span><br><span class="line"></span><br><span class="line">        # 分别找到4个元素值在bins中的索引位置</span><br><span class="line">        cart_position_idx &#x3D; np.digitize(s1_, self.cart_position_bins)</span><br><span class="line">        pole_angle_idx &#x3D; np.digitize(s2_, self.pole_angle_bins)</span><br><span class="line">        cart_velocity_idx &#x3D; np.digitize(s3_, self.cart_velocity_bins)</span><br><span class="line">        angle_rate_idx &#x3D; np.digitize(s4_, self.angle_rate_bins)</span><br><span class="line"></span><br><span class="line">        # 重新组合简化过的状态值</span><br><span class="line">        state_ &#x3D; [cart_position_idx, pole_angle_idx, cart_velocity_idx, angle_rate_idx]</span><br><span class="line"></span><br><span class="line">        # 通过map函数对状态索引号进行组合，并把每一个元素强制转换为int类型</span><br><span class="line">        state &#x3D; map(lambda s :int(s), state_)</span><br><span class="line">        return tuple(state)</span><br><span class="line"></span><br><span class="line">    # epislon 贪婪策略</span><br><span class="line">    def __epislon_greedy_policy(self, epsilon, nA):</span><br><span class="line"></span><br><span class="line">        def policy(state):</span><br><span class="line">            A &#x3D; np.ones(nA, dtype&#x3D;float) * epsilon &#x2F;nA</span><br><span class="line">            best_action &#x3D; np.argmax(self.Q[state])</span><br><span class="line">            A[best_action] +&#x3D; (1.0 - epsilon)</span><br><span class="line">            return A</span><br><span class="line">        return policy</span><br><span class="line"></span><br><span class="line">    # 随机选择动作</span><br><span class="line">    def __next_action(self, prob):</span><br><span class="line">        return np.random.choice(np.arange(len(prob)), p&#x3D;prob)</span><br><span class="line"></span><br><span class="line">    # sarsa算法核心流程代码</span><br><span class="line">    def sarsa(self):</span><br><span class="line">        # Sarsa 算法</span><br><span class="line">        policy &#x3D; self.__epislon_greedy_policy(self.epsilon, self.nA)</span><br><span class="line">        sumlist &#x3D; []</span><br><span class="line"></span><br><span class="line">        # 迭代经验轨迹</span><br><span class="line">        for i_episodes in range(self.num_episodes):</span><br><span class="line">            # 输出迭代的信息</span><br><span class="line">            if 0 &#x3D;&#x3D; (i_episodes+1) % 10:</span><br><span class="line">                print(&quot;\r Episode &#123;&#125; in &#123;&#125;&quot;.format(i_episodes+1, self.num_episodes))</span><br><span class="line">            </span><br><span class="line">            # 每一次迭代的初始化状态s，动作状态转换概率p，下一个动作a</span><br><span class="line">            step &#x3D; 0</span><br><span class="line">            # 初始化状态</span><br><span class="line">            state__ &#x3D; self.env.reset()</span><br><span class="line">            # 状态重新赋值</span><br><span class="line">            state &#x3D; self.get_bins_states(state__)</span><br><span class="line">            # 根据状态获得动作状态的转换概率</span><br><span class="line">            prob_actions &#x3D; policy(state)</span><br><span class="line">            # 选择一个动作</span><br><span class="line">            action &#x3D; self.__next_action(prob_actions)</span><br><span class="line">            # 迭代本次经验轨迹</span><br><span class="line">            while(True):</span><br><span class="line">                next_state__, reward, done, info &#x3D; env.step(action)</span><br><span class="line">                next_state &#x3D; self.get_bins_states(next_state__)</span><br><span class="line"></span><br><span class="line">                prob_next_actions &#x3D; policy(next_state)</span><br><span class="line">                next_action &#x3D; self.__next_action(prob_next_actions)</span><br><span class="line"></span><br><span class="line">                # 更新需要的记录的信息（迭代时间步长和奖励）</span><br><span class="line">                self.rec.episode_lengths[i_episodes] +&#x3D; reward</span><br><span class="line">                self.rec.episode_rewards[i_episodes] &#x3D; step</span><br><span class="line"></span><br><span class="line">                # 时间差分更新</span><br><span class="line">                td_target &#x3D; reward + self.discount * self.Q[next_state][next_action] </span><br><span class="line">                td_delta &#x3D; td_target - self.Q[state][action]</span><br><span class="line">                self.Q[state][action] +&#x3D; self.alpha * td_delta</span><br><span class="line"></span><br><span class="line">                if done:</span><br><span class="line">                    # 游戏结束</span><br><span class="line">                    reward &#x3D; -200</span><br><span class="line">                    print(&quot;Episode finished after &#123;&#125; timesteps&quot;.format(step))</span><br><span class="line">                    sumlist.append(step)</span><br><span class="line">                    break</span><br><span class="line">                else:</span><br><span class="line">                    # 状态和动作重新赋值</span><br><span class="line">                    step +&#x3D; 1</span><br><span class="line">                    state &#x3D; next_state</span><br><span class="line">                    action &#x3D; next_action</span><br><span class="line">        # 结束本次经验轨迹之前进行平均奖励得分统计，并输出结果</span><br><span class="line">        iter_time &#x3D; sum(sumlist)&#x2F;len(sumlist)</span><br><span class="line">        print(&quot;CartPole game iter average time is &#123;&#125;&quot;.format(iter_time))</span><br><span class="line">        return self.Q</span><br><span class="line">cls_sarsa &#x3D; SARSA(env,num_episodes&#x3D;1000)</span><br><span class="line">Q &#x3D; cls_sarsa.sarsa()</span><br><span class="line">plot_episodes_stats(cls_sarsa.rec)</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-Q-learning算法"><a href="#5-Q-learning算法" class="headerlink" title="5.Q-learning算法"></a>5.Q-learning算法</h3><p>Q-learning算法是时间差分算法中非固定式策略，其中目标策略为epislon-贪婪算法，而行动策略为贪婪算法，其外框与Sarsa类似，具体的代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"># Q-learing 算法</span><br><span class="line">class QLearning():</span><br><span class="line">    def __init__(self, env, num_episodes, discount&#x3D;1.0, alpha&#x3D;0.5, epsilon&#x3D;0.1, n_bins&#x3D;10):</span><br><span class="line">        </span><br><span class="line">        # 动作空间数</span><br><span class="line">        self.nA &#x3D; env.action_space.n</span><br><span class="line">        # 状态空间数</span><br><span class="line">        self.nS &#x3D; env.observation_space.shape[0]</span><br><span class="line">        # 环境</span><br><span class="line">        self.env &#x3D; env</span><br><span class="line">        # 迭代次数</span><br><span class="line">        self.num_episodes &#x3D; num_episodes</span><br><span class="line">        # 衰减系数</span><br><span class="line">        self.discount &#x3D; discount</span><br><span class="line">        # 时间差分误差系数</span><br><span class="line">        self.alpha &#x3D; alpha</span><br><span class="line">        # 贪婪策略系数</span><br><span class="line">        self.epsilon &#x3D; epsilon</span><br><span class="line"></span><br><span class="line">        # 初始化动作值函数</span><br><span class="line">        # Initialize Q(s,a)</span><br><span class="line">        self.Q &#x3D; defaultdict(lambda: np.zeros(self.nA))</span><br><span class="line"></span><br><span class="line">        # 定义存储记录有用的信息(每一条经验轨迹的时间步与奖励)</span><br><span class="line">        # keeps track of useful statistics</span><br><span class="line">        record &#x3D; namedtuple(&quot;Record&quot;,[&quot;episode_lengths&quot;,&quot;episode_rewards&quot;])</span><br><span class="line">        self.rec &#x3D; record(episode_lengths&#x3D;np.zeros(num_episodes),episode_rewards&#x3D;np.zeros(num_episodes))</span><br><span class="line"></span><br><span class="line">        # 状态空间的桶</span><br><span class="line">        self.cart_position_bins &#x3D; pd.cut([-2.4, 2.4], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">        self.pole_angle_bins &#x3D; pd.cut([-2.0, 2.0], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">        self.cart_velocity_bins &#x3D; pd.cut([-1.0, 1.0], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line">        self.angle_rate_bins &#x3D; pd.cut([-3.5, 3.5], bins&#x3D;n_bins, retbins&#x3D;True)[1]</span><br><span class="line"></span><br><span class="line">    # 状态空间简化后的返回函数 </span><br><span class="line">    def get_bins_states(self, state):</span><br><span class="line"></span><br><span class="line">        # 获取当前状态的4个状态元素值</span><br><span class="line">        s1_, s2_, s3_, s4_ &#x3D; state</span><br><span class="line"></span><br><span class="line">        # 分别找到4个元素值在bins中的索引位置</span><br><span class="line">        cart_position_idx &#x3D; np.digitize(s1_, self.cart_position_bins)</span><br><span class="line">        pole_angle_idx &#x3D; np.digitize(s2_, self.pole_angle_bins)</span><br><span class="line">        cart_velocity_idx &#x3D; np.digitize(s3_, self.cart_velocity_bins)</span><br><span class="line">        angle_rate_idx &#x3D; np.digitize(s4_, self.angle_rate_bins)</span><br><span class="line"></span><br><span class="line">        # 重新组合简化过的状态值</span><br><span class="line">        state_ &#x3D; [cart_position_idx, pole_angle_idx, cart_velocity_idx, angle_rate_idx]</span><br><span class="line"></span><br><span class="line">        # 通过map函数对状态索引号进行组合，并把每一个元素强制转换为int类型</span><br><span class="line">        state &#x3D; map(lambda s :int(s), state_)</span><br><span class="line">        return tuple(state)</span><br><span class="line"></span><br><span class="line">    # epislon 贪婪策略</span><br><span class="line">    def __epislon_greedy_policy(self, epsilon, nA):</span><br><span class="line"></span><br><span class="line">        def policy(state):</span><br><span class="line">            A &#x3D; np.ones(nA, dtype&#x3D;float) * epsilon &#x2F;nA</span><br><span class="line">            best_action &#x3D; np.argmax(self.Q[state]) </span><br><span class="line">            A[best_action] +&#x3D; (1.0 - epsilon)</span><br><span class="line">            return A</span><br><span class="line">        return policy</span><br><span class="line"></span><br><span class="line">    # 随机选择动作</span><br><span class="line">    def __next_action(self, prob):</span><br><span class="line">        return np.random.choice(np.arange(len(prob)), p&#x3D;prob)</span><br><span class="line"></span><br><span class="line">    # Q-learning 算法</span><br><span class="line">    def qlearning(self):</span><br><span class="line">        # 定义策略</span><br><span class="line">        policy &#x3D; self.__epislon_greedy_policy(self.epsilon, self.nA)</span><br><span class="line">        sumlist &#x3D; []</span><br><span class="line"></span><br><span class="line">        # 开始迭代经验轨迹</span><br><span class="line">        for i_episode in range(self.num_episodes):</span><br><span class="line">            if 0 &#x3D;&#x3D; (i_episode + 1) % 10:</span><br><span class="line">                print(&quot;\r Episode &#123;&#125; in &#123;&#125;&quot;.format(i_episode+1, self.num_episodes))</span><br><span class="line">            </span><br><span class="line">            # 初始化环境状态并对状态值进行索引简化</span><br><span class="line">            step &#x3D; 0</span><br><span class="line">            state__ &#x3D; self.env.reset()</span><br><span class="line">            state &#x3D; self.get_bins_states(state__)</span><br><span class="line"></span><br><span class="line">            # 迭代本次经验轨迹</span><br><span class="line">            while(True):</span><br><span class="line">                # 根据策略，在状态s下选择动作a</span><br><span class="line">                prob_actions &#x3D; policy(state)</span><br><span class="line">                action &#x3D; self.__next_action(prob_actions)</span><br><span class="line"></span><br><span class="line">                # 智能体执行动作</span><br><span class="line">                next_state__, reward, done, info &#x3D; env.step(action)</span><br><span class="line">                next_state &#x3D; self.get_bins_states(next_state__)</span><br><span class="line">                </span><br><span class="line">                # 更新每一条经验轨迹的时间步与奖励</span><br><span class="line">                self.rec.episode_lengths[i_episode] +&#x3D; reward</span><br><span class="line">                self.rec.episode_rewards[i_episode] &#x3D; step</span><br><span class="line"></span><br><span class="line">                # 更新动作值函数</span><br><span class="line">                # Q（S，A） &lt;-- Q(S,A) + alpha * [R + discount * max Q(S&#39;;a) - Q(S,A)]</span><br><span class="line">                best_next_action &#x3D; np.argmax(self.Q[next_state]) # 贪婪策略</span><br><span class="line">                td_target &#x3D; reward + self.discount * self.Q[next_state][best_next_action]</span><br><span class="line">                td_delta &#x3D; td_target - self.Q[state][action]</span><br><span class="line">                self.Q[state][action] +&#x3D; self.alpha * td_delta </span><br><span class="line"></span><br><span class="line">                if done:</span><br><span class="line">                    # 游戏停止，输出输出结果</span><br><span class="line">                    print(&quot;Episode finished after &#123;&#125; timesteps&quot;.format(step))</span><br><span class="line">                    sumlist.append(step)</span><br><span class="line">                    break</span><br><span class="line">                else:</span><br><span class="line">                    # 游戏继续，状态赋值</span><br><span class="line">                    step +&#x3D; 1</span><br><span class="line">                    # S &lt;- S&#39;</span><br><span class="line">                    state &#x3D; next_state</span><br><span class="line">        # 结束本次经验轨迹之前进行平均奖励得分统计，并输出结果</span><br><span class="line">        iter_time &#x3D; sum(sumlist)&#x2F;len(sumlist)</span><br><span class="line">        print(&quot;CartPole game iter average time is &#123;&#125;&quot;.format(iter_time))</span><br><span class="line">        return self.Q</span><br><span class="line">cls_qlearning &#x3D; QLearning(env,num_episodes&#x3D;1000)</span><br><span class="line">Q &#x3D; cls_qlearning.qlearning()</span><br><span class="line">plot_episodes_stats(cls_qlearning.rec)</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/17/temporal_difference/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-montocarlo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/03/montocarlo/">montocarlo</a>
-    </h1>
-  
-
-        
-        <a href="/2021/02/03/montocarlo/" class="archive-article-date">
-  	<time datetime="2021-02-03T13:44:46.186Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="强化学习求解（二）-————-蒙特卡洛法"><a href="#强化学习求解（二）-————-蒙特卡洛法" class="headerlink" title="强化学习求解（二） ———— 蒙特卡洛法"></a>强化学习求解（二） ———— 蒙特卡洛法</h1><p>==========================================================================================================================</p>
-<h2 id="关于主要的配置需求"><a href="#关于主要的配置需求" class="headerlink" title="关于主要的配置需求"></a>关于主要的配置需求</h2><ol>
-<li>numpy</li>
-<li>gym</li>
-</ol>
-<h2 id="关于程序的解释"><a href="#关于程序的解释" class="headerlink" title="关于程序的解释"></a>关于程序的解释</h2><p>对于本次的程序，我想通过介绍<strong>经验轨迹</strong>开始认识什么是蒙特卡洛法，之后利用gym库中的21点游戏，进行对强化学习中<strong>蒙特卡洛预测算法</strong>，蒙特卡洛评估，以及<strong>蒙特卡洛控制</strong>进行介绍。</p>
-<h3 id="1-什么是经验轨迹————蒙特卡洛法的数据来源"><a href="#1-什么是经验轨迹————蒙特卡洛法的数据来源" class="headerlink" title="1.什么是经验轨迹————蒙特卡洛法的数据来源"></a>1.什么是经验轨迹————蒙特卡洛法的数据来源</h3><p><strong>经验轨迹</strong>是指智能体通过与环境交互获得的状态，动作，奖励夫人样本序列。而对于蒙特卡洛法而言，蒙特卡洛法能够处理免模型的任务，它不需要依赖环境的完备的知识，只需要收集从环境中采样得到的经验轨迹，基于经验轨迹数据集的计算，求解最优的策略，当然，采样的数目越多，对应的结果就越近似最优解，这样的方法就是蒙特卡洛法。</p>
-<p>再进行后面对于蒙特卡洛的具体的相关算法介绍之前，我们先介绍一下21点的游戏的实现：</p>
-<p>首先是对于21点的规则：<br>首次发牌的时候是庄家与玩家个发两张牌（一张明牌，一张暗牌），此时询问玩家是否继续要牌，如果玩家要牌，则明牌给牌，若大于21点，则玩家输，若玩家没有超过21点，则庄家必须揭开自己的暗牌，若庄家点数小于17点，则必须继续要拍，同理若庄家超过21点，则庄家输，若都未超过21点则进行比较总和大小，进而决定胜负。</p>
-<p>调用游戏的代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"># 21 点游戏的经验轨迹收集</span><br><span class="line"></span><br><span class="line"># 定义gym环境为Blackjack游戏</span><br><span class="line">env &#x3D; gym.make(&quot;Blackjack-v0&quot;)</span><br><span class="line"></span><br><span class="line">def show_state(state):</span><br><span class="line"># 用于输出任务的当前状态，玩家点数，庄家点数以及是否持有牌A</span><br><span class="line"># state：输入的状态</span><br><span class="line">    player, dealer, ace &#x3D; state</span><br><span class="line">    dealer &#x3D; sum(env.dealer)</span><br><span class="line">    print(&quot;Player:&#123;&#125;, ace:&#123;&#125;, Dealer:&#123;&#125;&quot;.format(player,ace,dealer))</span><br><span class="line"></span><br><span class="line">def episode(num_episodes):</span><br><span class="line"># 收集经验轨迹函数</span><br><span class="line"># num_episodes : 迭代次数</span><br><span class="line">    episode &#x3D; [] # 经验轨迹收集列表</span><br><span class="line"></span><br><span class="line">    # 迭代num_episodes条经验轨迹</span><br><span class="line">    for i_episode in range(num_episodes):</span><br><span class="line">        print(&quot;\n&quot;+&quot;&#x3D;&quot;* 30)</span><br><span class="line">        state &#x3D; env.reset()</span><br><span class="line"></span><br><span class="line">        # 每条经验轨迹有10个状态</span><br><span class="line">        for t in range(10):</span><br><span class="line"></span><br><span class="line">            show_state(state)</span><br><span class="line">            # 基于某一个策略选择动作</span><br><span class="line">            action &#x3D; simple_strategy(state)</span><br><span class="line">            # 对于玩家Player 只有Stand 停牌，和HIT拿牌两种动作</span><br><span class="line">            action_ &#x3D; [&quot;STAND&quot;,&quot;HIT&quot;][action]</span><br><span class="line">            print(&quot;Player Simple Strategy take action:&#123;&#125;&quot;.format(action_))</span><br><span class="line"></span><br><span class="line">            # 执行某一策略下的动作</span><br><span class="line">            next_state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line"></span><br><span class="line">            # 记录经验轨迹</span><br><span class="line">            episode.append((state,action, reward))</span><br><span class="line"></span><br><span class="line">            # 遇到游戏结束结束打印游戏结果</span><br><span class="line">            if done:</span><br><span class="line">                show_state(state)</span><br><span class="line">                # [-1(loss),-(push), 1(win)]</span><br><span class="line">                reward_ &#x3D; [&quot;loss&quot;, &quot;push&quot;, &quot;win&quot;][int(reward+1)]</span><br><span class="line">                print(&quot;Game &#123;&#125;.(Reward&#123;&#125;)&quot;.format(reward_,int(reward)))</span><br><span class="line">                print(&quot;PLAYER:&#123;&#125;\t DEALER:&#123;&#125;&quot;.format(env.player,env.dealer))</span><br><span class="line">                break</span><br><span class="line">            state &#x3D; next_state</span><br></pre></td></tr></table></figure>
-<h3 id="2-蒙特卡洛预测算法"><a href="#2-蒙特卡洛预测算法" class="headerlink" title="2.蒙特卡洛预测算法"></a>2.蒙特卡洛预测算法</h3><p>由于蒙特卡洛法是对策略进行优化，然而对于动作值函数的评判与优化则需要一个依据，这就是蒙特卡洛预测算法，对于经验轨迹遍历的方式的不同可以分为：“<strong>首次访问蒙特卡洛预测算法</strong>”以及“<strong>每次访问蒙特卡洛预测算法</strong>”</p>
-<h5 id="2-1-首次访问蒙特卡洛预测法"><a href="#2-1-首次访问蒙特卡洛预测法" class="headerlink" title="2.1 首次访问蒙特卡洛预测法"></a>2.1 首次访问蒙特卡洛预测法</h5><p>首次访问蒙特卡洛预测法，顾名思义，再对于每一条经验轨迹中，每个状态仅当第一次出现时才加入未来折扣累积奖励中进行计算。算法的代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"># 首次访问蒙特卡洛预测算法</span><br><span class="line">def mc_firstvisit_prediction(policy, env, num_episodes, episode_endtime&#x3D;10, discount&#x3D;1.0):</span><br><span class="line">    # sum记录</span><br><span class="line">    r_sum &#x3D; defaultdict(float)</span><br><span class="line">    # count记录</span><br><span class="line">    r_count &#x3D; defaultdict(float)</span><br><span class="line">    # 状态值记录</span><br><span class="line">    r_V &#x3D; defaultdict(float)</span><br><span class="line"></span><br><span class="line">    # 采集num_episodes条经验轨迹</span><br><span class="line">    for i in range(num_episodes):</span><br><span class="line">        # 输出经验轨迹完成的百分比</span><br><span class="line">        episode_rate &#x3D; int(40 * i &#x2F; num_episodes)</span><br><span class="line">        print(&quot;Episode &#123;&#125;&#x2F;&#123;&#125;&quot;.format(i+1, num_episodes) + &quot;&#x3D;&quot; * episode_rate,end&#x3D;&quot;\r&quot;)</span><br><span class="line">        sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">        # 初始化经验轨迹集合和环境状态</span><br><span class="line">        episode &#x3D; []</span><br><span class="line">        state &#x3D; env.reset()</span><br><span class="line"></span><br><span class="line">        # 完成一条经验轨迹</span><br><span class="line">        for j in range(episode_endtime):</span><br><span class="line">            # 根据给定的策略选择动作，即a &#x3D; policy（s）</span><br><span class="line">            action &#x3D; policy(state)</span><br><span class="line">            next_state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line">            episode.append((state,action, reward))</span><br><span class="line"></span><br><span class="line">            # 遇到游戏结束结束打印游戏结果</span><br><span class="line">            if done:</span><br><span class="line">                break</span><br><span class="line">            state &#x3D; next_state</span><br><span class="line"></span><br><span class="line">        # 首次访问蒙特卡洛预测的核心算法</span><br><span class="line">        for k, data_k in enumerate(episode):</span><br><span class="line">            # 获得首次遇到该状态的引索号k</span><br><span class="line">            state_k &#x3D; data_k[0]</span><br><span class="line">            # 计算首次访问的状态的累积奖励</span><br><span class="line">            G &#x3D; sum([x[2] * np.power(discount,i) for i,x in enumerate(episode[k:])]) # 每次访问蒙特卡洛预测算法，在这里不同</span><br><span class="line">            r_sum[state_k] +&#x3D; G</span><br><span class="line">            r_count[state_k] +&#x3D; 1.0</span><br><span class="line">            # 计算状态值</span><br><span class="line">            r_V[state_k] &#x3D; r_sum[state_k] &#x2F; r_count[state_k]</span><br><span class="line">    return r_V</span><br></pre></td></tr></table></figure>
-<h5 id="2-2-每次访问蒙特卡洛预测法"><a href="#2-2-每次访问蒙特卡洛预测法" class="headerlink" title="2.2 每次访问蒙特卡洛预测法"></a>2.2 每次访问蒙特卡洛预测法</h5><p>对于每次访问蒙特卡洛预测法，即无论状态s出现多少次，每一次的奖励的奖励返回值都被纳入平均未来折扣累积奖励的计算。代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"># 每次访问蒙特卡洛预测算法</span><br><span class="line">def mc_everyvisit_prediction(policy, env, num_episodes, episode_endtime&#x3D;10, discount&#x3D;1.0):</span><br><span class="line">    # sum记录</span><br><span class="line">    r_sum &#x3D; defaultdict(float)</span><br><span class="line">    # count记录</span><br><span class="line">    r_count &#x3D; defaultdict(float)</span><br><span class="line">    # 状态值记录</span><br><span class="line">    r_V &#x3D; defaultdict(float)</span><br><span class="line"></span><br><span class="line">    # 采集num_episodes条经验轨迹</span><br><span class="line">    for i in range(num_episodes):</span><br><span class="line">        # 输出经验轨迹完成的百分比</span><br><span class="line">        episode_rate &#x3D; int(40 * i &#x2F; num_episodes)</span><br><span class="line">        print(&quot;Episode &#123;&#125;&#x2F;&#123;&#125;&quot;.format(i+1, num_episodes) + &quot;&#x3D;&quot; * episode_rate,end&#x3D;&quot;\r&quot;)</span><br><span class="line">        sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">        # 初始化经验轨迹集合和环境状态</span><br><span class="line">        episode &#x3D; []</span><br><span class="line">        state &#x3D; env.reset()</span><br><span class="line"></span><br><span class="line">        # 完成一条经验轨迹</span><br><span class="line">        for j in range(episode_endtime):</span><br><span class="line">            # 根据给定的策略选择动作，即a &#x3D; policy（s）</span><br><span class="line">            action &#x3D; policy(state)</span><br><span class="line">            next_state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line">            episode.append((state,action, reward))</span><br><span class="line"></span><br><span class="line">            # 遇到游戏结束结束打印游戏结果</span><br><span class="line">            if done:</span><br><span class="line">                break</span><br><span class="line">            state &#x3D; next_state</span><br><span class="line">        # 每次访问蒙特卡洛预测的核心算法</span><br><span class="line">        for k,data_k in enumerate(episode):</span><br><span class="line">            # 获得首次遇到该状态的引索号k</span><br><span class="line">            state_k &#x3D; data_k[0]</span><br><span class="line">            # 计算每次访问状态的累计奖励</span><br><span class="line">            G &#x3D; sum([x[2] * np.power(discount,i) for i,x in enumerate(episode)]) # 首次访问蒙特卡洛预测算法，在这里不同</span><br><span class="line">            r_sum[state_k] +&#x3D; G</span><br><span class="line">            r_count[state_k] +&#x3D; 1.0</span><br><span class="line">            r_V[state_k] &#x3D; r_sum[state_k]&#x2F;r_count[state_k]</span><br><span class="line">    return r_V</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-3-值函数的图像显示"><a href="#2-3-值函数的图像显示" class="headerlink" title="2.3 值函数的图像显示"></a>2.3 值函数的图像显示</h5><p>当然对于值函数，我们可以通过图像的方法进行表征，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 构筑三维图像</span><br><span class="line">def plot_value_function(v, title&#x3D;None):</span><br><span class="line">    x &#x3D; []</span><br><span class="line">    y &#x3D; []</span><br><span class="line">    z &#x3D; []</span><br><span class="line">    for key , values in v.items():</span><br><span class="line">        x.append(key[1])</span><br><span class="line">        y.append(key[0])</span><br><span class="line">        z.append(values)</span><br><span class="line">    fig &#x3D; plt.figure()  #定义新的三维坐标轴</span><br><span class="line">    ax3 &#x3D; plt.axes(projection&#x3D;&#39;3d&#39;)   # 建立坐标轴  </span><br><span class="line">    #作图</span><br><span class="line">    ax3.plot_trisurf(x, y, z, cmap&#x3D;&quot;rainbow&quot; )</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
-<h5 id="2-4-关于函数的调用与展示"><a href="#2-4-关于函数的调用与展示" class="headerlink" title="2.4 关于函数的调用与展示"></a>2.4 关于函数的调用与展示</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 测试每次访问和首次访问蒙特卡洛预测方法的区别    </span><br><span class="line">v1 &#x3D; mc_everyvisit_prediction(simple_strategy, env ,100000)</span><br><span class="line">v2 &#x3D; mc_firstvisit_prediction(simple_strategy, env ,100000)</span><br><span class="line">plot_value_function(v1)</span><br><span class="line">plot_value_function(v2)</span><br></pre></td></tr></table></figure>
-<h3 id="3-蒙特卡洛控制"><a href="#3-蒙特卡洛控制" class="headerlink" title="3.蒙特卡洛控制"></a>3.蒙特卡洛控制</h3><p>对于蒙特卡洛控制而言，其与蒙特卡洛预测的最关键的一点就是对于当前的目标策略进行优化，首先根据优化的是本策略还是其他策略可以分为<strong>固定策略蒙特卡洛控制</strong>以及<strong>非固定策略蒙特卡洛控制</strong></p>
-<h5 id="3-1-固定策略蒙特卡洛控制"><a href="#3-1-固定策略蒙特卡洛控制" class="headerlink" title="3.1 固定策略蒙特卡洛控制"></a>3.1 固定策略蒙特卡洛控制</h5><p>固定策略蒙特卡洛控制是指智能体已经有一个策略，并且基于该策略进行采样，以得到的经验轨迹集合来更新值函数，随后采用策略评估以及策略改进对给定策略进行优化，以获得最优策略。（优化的是原策略）。对于固定式策略可以分为两种，“<strong>起始点探索</strong>”与“<strong>非起始点探索</strong>”两种方式，由于起始点探索虽然计算简便，但很容易收敛不到全局最优或局部最优的情况，我们通常选择非起始点探索来进行探索，以实现对于策略的改进。</p>
-<p>在进行对于非起始点探索进行代码展示之前，我们先对<strong>epsilon贪婪策略算法</strong>进行介绍。由于是以概率epsilon来从所有动作中选择一种动作，因而最优动作被选中的概率为1 - epsilon + epsilon / A(s) , 而非最优动作被选择的概率为epsilon / A(s) 。代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># epsilon贪婪策略算法</span><br><span class="line">def epsilon_greddy_policy(q, epsilon, nA):</span><br><span class="line">    def __policy__(state):</span><br><span class="line">        # 初始化动作概率</span><br><span class="line">        A_ &#x3D; np.ones(nA, dtype&#x3D;float)</span><br><span class="line"></span><br><span class="line">        # 以epsilon设定动作概略</span><br><span class="line">        A &#x3D; A_ * epsilon &#x2F; nA</span><br><span class="line"></span><br><span class="line">        # 选取动作值函数中的最大值作为最优值</span><br><span class="line">        best &#x3D; np.argmax(q[state])</span><br><span class="line"></span><br><span class="line">        # 以1-epsilon 设定最大动作动作概率</span><br><span class="line">        A[best] +&#x3D; 1- epsilon </span><br><span class="line">        return A</span><br><span class="line">    return __policy__</span><br></pre></td></tr></table></figure>
-
-<p>接下来进行介绍固定式策略非起始点探索蒙特卡洛控制，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"># 固定策略的非起始点探索的蒙特卡洛控制</span><br><span class="line">def mc_firstvisit_control_epsilon_greddy(env, num_episodes&#x3D;100, epsilon&#x3D;0.1, episode_endtime&#x3D;10, discount&#x3D;1.0 ):</span><br><span class="line">    # 初始化设定使用到的变量</span><br><span class="line"></span><br><span class="line">    # 环境中的状态对应动作空间数量</span><br><span class="line">    nA &#x3D; env.action_space.n</span><br><span class="line">    # 动作值函数</span><br><span class="line">    Q &#x3D; defaultdict(lambda: np.zeros(nA))</span><br><span class="line">    # 动作-状态对的累计奖励</span><br><span class="line">    r_sum &#x3D; defaultdict(float)</span><br><span class="line">    # 动作-状态对的计数器</span><br><span class="line">    r_cou &#x3D; defaultdict(float)</span><br><span class="line"></span><br><span class="line">    # 初始化贪婪策略</span><br><span class="line">    policy &#x3D; epsilon_greddy_policy(Q, epsilon, nA)</span><br><span class="line"></span><br><span class="line">    for i in range(num_episodes):</span><br><span class="line">        # 输出当前迭代的经验轨迹次数</span><br><span class="line">        episode_rate &#x3D; int(40 * i &#x2F; num_episodes)</span><br><span class="line">        print(&quot;Episode &#123;&#125;&#x2F;&#123;&#125;&quot;.format(i+1, num_episodes),end &#x3D; &quot;\r&quot;)</span><br><span class="line">        sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">        # 初始化状态和当前的经验轨迹</span><br><span class="line">        episode &#x3D; []</span><br><span class="line">        state &#x3D; env.reset()</span><br><span class="line"></span><br><span class="line">        # (a) 基于策略产生一条经验轨迹，其中每一个事件步为tuple(state, action, reward)</span><br><span class="line">        for j in range(episode_endtime):</span><br><span class="line">            </span><br><span class="line">            # 通过epslion-greddy算法对动作-状态对进行探索和利用</span><br><span class="line">            action_prob &#x3D; policy(state)</span><br><span class="line">            # 根据epslion-greddy算法的结果随机选取一个动作</span><br><span class="line">            action &#x3D; np.random.choice(np.arange(action_prob.shape[0]), p&#x3D;action_prob)</span><br><span class="line"></span><br><span class="line">            # 运行一个时间步并采集经验轨迹</span><br><span class="line">            next_state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            if done:</span><br><span class="line">                break</span><br><span class="line">            state &#x3D; next_state</span><br><span class="line">        # (b) 计算经验轨迹中每一个&lt;状态-动作&gt;对</span><br><span class="line">        for k,(state, actions, reward) in  enumerate(episode):</span><br><span class="line"></span><br><span class="line">            # 提取动作-状态对为 sa_pair</span><br><span class="line">            sa_pair &#x3D; (state, actions)</span><br><span class="line">            first_visit_idx &#x3D; k</span><br><span class="line"></span><br><span class="line">            # 计算未来累计奖励</span><br><span class="line">            G &#x3D; sum([x[2] * np.power(discount, i) for i , x in enumerate(episode[first_visit_idx:])])</span><br><span class="line"></span><br><span class="line">            # 更新未来累计奖励</span><br><span class="line">            r_sum[sa_pair] +&#x3D; G</span><br><span class="line">            # 更新动作-状态对的计数器</span><br><span class="line">            r_cou[sa_pair] +&#x3D;1.0</span><br><span class="line"></span><br><span class="line">            # 计算平均的累计奖励</span><br><span class="line">            Q[state][actions]  &#x3D; r_sum[sa_pair] &#x2F; r_cou[sa_pair]</span><br><span class="line">    </span><br><span class="line">    return Q</span><br><span class="line"></span><br><span class="line"># 非起始点探索获得动作值函数</span><br><span class="line">Q &#x3D; mc_firstvisit_control_epsilon_greddy(env,num_episodes&#x3D;100000)</span><br><span class="line">print(Q)</span><br><span class="line"># 初始化状态函数</span><br><span class="line">V &#x3D; defaultdict(float)</span><br><span class="line"># (c) 根据求得的动作值函数选择最大的动作作为最优状态值</span><br><span class="line">for state, actions in Q.items():</span><br><span class="line">    V[state] &#x3D; np.max(actions)</span><br><span class="line">plot_value_function(V)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-2-非固定策略蒙特卡洛控制"><a href="#3-2-非固定策略蒙特卡洛控制" class="headerlink" title="3.2 非固定策略蒙特卡洛控制"></a>3.2 非固定策略蒙特卡洛控制</h5><p>非固定式策略蒙特卡洛控制是指智能体在有行为策略的前提下，利用行为策略所采集的经验轨迹对目标策略进行优化，通常来说目标策略通常采用epsilon贪婪策略。虽然非固定式策略控制有很多种，在本博客种将只会对蒙特卡洛控制进行介绍————<strong>重要性采样</strong>,代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">def mc_control_importance_sampling(env, num_episodes, behavior_policy, discount_factor&#x3D;1.0):</span><br><span class="line">    # 非固定式策略学习法</span><br><span class="line"></span><br><span class="line">    # 初始化参数</span><br><span class="line">    Q &#x3D; defaultdict(lambda: np.zeros(env.action_space.n)) # 动作值函数</span><br><span class="line">    C &#x3D; defaultdict(lambda: np.zeros(env.action_space.n)) # 重要性参数</span><br><span class="line"></span><br><span class="line">    # 初始化目标策略</span><br><span class="line">    target_policy &#x3D; create_greedy_policy(Q)</span><br><span class="line"></span><br><span class="line">    # Repect</span><br><span class="line">    for i_episode in range(1,num_episodes+1):</span><br><span class="line">        if i_episode % 1000 &#x3D;&#x3D; 0:</span><br><span class="line">            print(&quot;\rEpisode &#123;&#125;&#x2F;&#123;&#125;.&quot;.format(i_episode,num_episodes), end&#x3D;&quot;&quot;)</span><br><span class="line">            sys.stdout.flush()</span><br><span class="line">        </span><br><span class="line">        # 单条经验轨迹采样,其中每个时间步内容为 turple(state, action, reward)</span><br><span class="line">        episode &#x3D; []</span><br><span class="line">        state &#x3D; env.reset()</span><br><span class="line"></span><br><span class="line">        while(True):</span><br><span class="line">            # 从行为策略中进行采样</span><br><span class="line">            probs &#x3D; behavior_policy(state)</span><br><span class="line"></span><br><span class="line">            # 随机在当前状态的动作概率中选择一个动作</span><br><span class="line">            action &#x3D; np.random.choice(np.arange(len(probs)),p&#x3D;probs)</span><br><span class="line">            </span><br><span class="line">            # 智能体执行该动作并记录当前状态</span><br><span class="line">            next_state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line"></span><br><span class="line">            episode.append((state, action, reward))</span><br><span class="line">            if done:</span><br><span class="line">                break</span><br><span class="line">            state &#x3D; next_state</span><br><span class="line">        G &#x3D; 0.0 # 未来折扣累计奖励</span><br><span class="line">        W &#x3D; 1.0 # 重要性权重参数</span><br><span class="line"></span><br><span class="line">        # 在该经验轨迹中从最后的一个时间步开始遍历</span><br><span class="line">        for t in range(len(episode))[::-1]:</span><br><span class="line"></span><br><span class="line">            # 获得当前经验轨迹的当前时间步</span><br><span class="line">            state, action, reward &#x3D; episode[t]</span><br><span class="line">            # 更新累计奖励</span><br><span class="line">            G &#x3D; discount_factor * G + reward</span><br><span class="line">            # 求累计权重Cn</span><br><span class="line">            C[state][action] +&#x3D; W</span><br><span class="line">            # 更新动作值函数，同样的，这是改进目标中用到的动作值函数</span><br><span class="line">            Q[state][action] +&#x3D; (W &#x2F; C[state][action]) * (G - Q[state][action])</span><br><span class="line">            # 如果行为策略采取的动作并不是目标策略的动作，那么概率将变化为0，循环中断</span><br><span class="line">            if action !&#x3D; np.argmax(target_policy(state)):</span><br><span class="line">                break </span><br><span class="line">            W &#x3D; W * 1.0 &#x2F; behavior_policy(state)[action]</span><br><span class="line">    return Q, target_policy</span><br><span class="line"></span><br><span class="line"># 非固定式策略学习法</span><br><span class="line">random_policy &#x3D; create_random_policy(env.action_space.n)</span><br><span class="line">Q, policy &#x3D;mc_control_importance_sampling(env, num_episodes&#x3D;500,behavior_policy&#x3D;random_policy)</span><br><span class="line">V &#x3D; defaultdict(float)</span><br><span class="line">for state, action_values in Q.items():</span><br><span class="line">    action_values &#x3D; np.max(action_values)</span><br><span class="line">    V[state] &#x3D; action_values</span><br><span class="line">plot_value_function(V)</span><br></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>蒙特卡洛法来求解强化学习这一部分是至关重要的一个部分，需要进行较深入的理解，其中务必要理解每个算法的原因以及公式的来源。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/03/montocarlo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-policy_intergration" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -414,13 +159,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/29/policy_intergration/">policy_intergration</a>
+      <a class="article-title" href="/2020/11/29/policy_intergration/">强化学习求解（一） ———— 动态规划法</a>
     </h1>
   
 
         
         <a href="/2020/11/29/policy_intergration/" class="archive-article-date">
-  	<time datetime="2020-11-29T13:51:38.631Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-29</time>
+  	<time datetime="2020-11-29T13:51:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-29</time>
 </a>
         
       </header>
@@ -428,26 +173,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="强化学习求解（一）-————-动态规划法"><a href="#强化学习求解（一）-————-动态规划法" class="headerlink" title="强化学习求解（一） ———— 动态规划法"></a>强化学习求解（一） ———— 动态规划法</h1><p>==========================================================================================================================</p>
-<h2 id="关于主要的配置需求"><a href="#关于主要的配置需求" class="headerlink" title="关于主要的配置需求"></a>关于主要的配置需求</h2><ol>
-<li>numpy</li>
-<li>gym</li>
-</ol>
-<h2 id="2-关于程序的解释："><a href="#2-关于程序的解释：" class="headerlink" title="2.关于程序的解释："></a>2.关于程序的解释：</h2><p>对于本次的程序而言，主要分为三个部分的验证：<strong>策略评估</strong>，<strong>策略迭代</strong>，以及<strong>值迭代</strong>，其中本人认为值迭代相较于策略迭代更为好用一些（在修改策略迭代时一直得不到想要的结果，虽然最后好了）。接下来，我将分别介绍这三个部分的代码。</p>
-<h4 id="策略评估"><a href="#策略评估" class="headerlink" title="策略评估"></a>策略评估</h4><p>对于策略评估而言，我认为策略评估就是对当前状态下所应用的策略的优劣程度的，因此他并不会生成对应的策略，相反他会生成我们后面进行策略设计的评价指标————状态值函数V（s）。在策略评估的过程中，我们不仅仅要考虑多种的状态，还需要考虑到多种动作。因此，在算法中不仅仅需要状态的prob，还需要对应动作的action_prob。最后对于整体的迭代，需要停止迭代的阈值theta,通过阈值我们能够确定策略最终的结果是否收敛到一个值。接下来我们看代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># 策略评估：</span><br><span class="line">def policy_evaluation(policy, environment, discount_factor &#x3D; 1.0, theta &#x3D; 0.99):</span><br><span class="line">    # 迭代式策略评估</span><br><span class="line">    env &#x3D; environment</span><br><span class="line"></span><br><span class="line">    # 初始化一个全0的值函数向量用于记录状态值</span><br><span class="line">    V &#x3D; np.zeros(env.nS)</span><br><span class="line">    </span><br><span class="line">    # 迭代开始，10000为最大迭代次数</span><br><span class="line">    for _ in range(10000):</span><br><span class="line">        delta &#x3D; 0</span><br><span class="line"></span><br><span class="line">        # 对于HelloGrid 中的每一个状态都进行全备份</span><br><span class="line">        for s in range(env.nS):</span><br><span class="line">            v &#x3D; 0</span><br><span class="line">            # 检查下一个有可能执行的动作</span><br><span class="line">            for a, action_prob in enumerate(policy[s]):</span><br><span class="line">                # 对于每一个动作检查下一个状态</span><br><span class="line">                [prob, next_state, reward, done] &#x3D; env.P[s][a]</span><br><span class="line">                # 累计计算下一个动作价值的期望</span><br><span class="line">                v +&#x3D; action_prob * prob * (reward + discount_factor* V[next_state]) </span><br><span class="line">            # 选出变化最大的量</span><br><span class="line">            delta &#x3D; max(delta, np.abs(v-V[s]))</span><br><span class="line">            V[s] &#x3D; v</span><br><span class="line"></span><br><span class="line">        # 检查是否满足停止条件</span><br><span class="line">        if delta &lt;&#x3D; theta:</span><br><span class="line">            break</span><br><span class="line">    return np.array(V)</span><br></pre></td></tr></table></figure>
-
-<p><strong>其中值得注意的是，这里的theta将直接影响到迭代的次数，以及后续过程中策略迭代的结果</strong></p>
-<h4 id="策略迭代"><a href="#策略迭代" class="headerlink" title="策略迭代"></a>策略迭代</h4><p>在策略迭代里，需进行的就是不断的进行策略评估与策略优化，在进行迭代的过程里，保证每一次的策略policy都是上一次的最优的结果，然后反复的迭代，直到最终的迭代出的策略与上一次的策略一致未知，我们就认为策略进行了收敛。接下来，我们将展示代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># 策略迭代算法</span><br><span class="line">def policy_iteration(env, policy, discount_factor &#x3D; 1.0):</span><br><span class="line">    while True:</span><br><span class="line">        # 评估当前的策略policy</span><br><span class="line">        # print(&quot;policy&quot;,np.reshape(np.argmax(policy,axis&#x3D;1),env.shape))</span><br><span class="line">        V &#x3D; policy_evaluation(policy,env,discount_factor)</span><br><span class="line">        # print(&quot;V&quot;,V.reshape(env.shape))</span><br><span class="line">        # policy标志位，当某种的策略更改后，该标志位为False</span><br><span class="line">        policy_stable &#x3D; True</span><br><span class="line">        # 策略改进</span><br><span class="line">        for s in range(env.nS):</span><br><span class="line">            # 在当前状态和策略下，选择概率最高的动作</span><br><span class="line">            old_action &#x3D; np.argmax(policy[s])</span><br><span class="line">            # 在当前状态和策略下，找到最优动作</span><br><span class="line">            action_values &#x3D; np.zeros(env.nA)</span><br><span class="line">            for a in range(env.nA):</span><br><span class="line">                [prob, next_state, reward, done] &#x3D; env.P[s][a]</span><br><span class="line">                action_values[a] +&#x3D; prob*(reward + discount_factor * V[next_state])</span><br><span class="line"></span><br><span class="line">                # 由于Grid World环境存在状态遇到陷阱X则停止，因此让状态值遇到陷阱则为负无穷，不参与计算</span><br><span class="line">                if done and next_state !&#x3D; 15:</span><br><span class="line">                    action_values[a] &#x3D; float(&#39;-inf&#39;)</span><br><span class="line">            # 采用贪婪算法更新当前策略</span><br><span class="line">            best_action &#x3D; np.argmax(action_values)</span><br><span class="line">            if old_action !&#x3D; best_action:</span><br><span class="line">                policy_stable &#x3D; False</span><br><span class="line">            policy[s] &#x3D; np.eye(env.nA)[best_action]</span><br><span class="line">        # 选择的动作不在变化，则代表策略已经稳定下来</span><br><span class="line">        if policy_stable:</span><br><span class="line">            return policy, V</span><br></pre></td></tr></table></figure>
-
-<h4 id="值迭代"><a href="#值迭代" class="headerlink" title="值迭代"></a>值迭代</h4><p>在本片博客的最后，我将介绍动态规划求解强化学习的最后一种方法————值迭代，我认为值迭代相较于前面的策略迭代算法而言，既不需要考虑多轮迭代导致效率下降的问题，也不需要考虑策略初始化的随机问题，受theta的影响应该会小很多。因此，我比较推荐这种算法来进行求解强化学习的问题。接下来我们将展示代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"># 值迭代算法</span><br><span class="line">def calc_action_value(state, V, discount_factor &#x3D; 1.0):</span><br><span class="line">    # 对于给定的状态s计算其动作的期望值</span><br><span class="line"></span><br><span class="line">    # 初始化动作值得期望向量[0,0,0,0]</span><br><span class="line">    A &#x3D; np.zeros(env.nA)</span><br><span class="line"></span><br><span class="line">    # 遍历当前状态下得所有动作</span><br><span class="line">    for a in range(env.nA):</span><br><span class="line">        [prob, next_state,reward ,done ] &#x3D;  env.P[state][a]</span><br><span class="line">        A[a] +&#x3D; prob *(reward + discount_factor * V[next_state])</span><br><span class="line"></span><br><span class="line">    return A</span><br><span class="line"></span><br><span class="line">def value_iteration(env, theta &#x3D; 0.1, discount_factor &#x3D; 1.0):</span><br><span class="line">    # 值迭代算法</span><br><span class="line"></span><br><span class="line">    # 初始化状态值</span><br><span class="line">    V &#x3D; np.zeros(env.nS)</span><br><span class="line"></span><br><span class="line">    # 迭代计算找到最优得状态值函数</span><br><span class="line">    for _ in range(50):</span><br><span class="line">        # 停止标志位</span><br><span class="line">        delta &#x3D; 0</span><br><span class="line"></span><br><span class="line">        # 计算每个状态得状态值</span><br><span class="line">        for s in range(env.nS):</span><br><span class="line">            # 执行一次找到当前状态得动作期望</span><br><span class="line">            A &#x3D; calc_action_value(s,V)</span><br><span class="line">            # 选择最好得动作期望作为新得状态值</span><br><span class="line">            best_action_value &#x3D; np.max(A)</span><br><span class="line"></span><br><span class="line">            # 计算停止得标志位</span><br><span class="line">            delta &#x3D; max(delta, np.abs(best_action_value - V[s]))</span><br><span class="line"></span><br><span class="line">            # 更新状态值函数</span><br><span class="line">            V[s] &#x3D; best_action_value</span><br><span class="line">        </span><br><span class="line">        if delta &lt; theta:</span><br><span class="line">            break</span><br><span class="line">    </span><br><span class="line">    #输出最优策略：通过最优状态值函数找到确定性策略，并初始化策略</span><br><span class="line">    policy &#x3D; np.zeros([env.nS,env.nA])</span><br><span class="line"></span><br><span class="line">    for s in range(env.nS):</span><br><span class="line">        # 执行一次找到当前状态值得最优状态值得动作期望A</span><br><span class="line">        A &#x3D; calc_action_value(s,V)</span><br><span class="line">        # 选出最大得状态值作为最优动作</span><br><span class="line">        best_action &#x3D; np.argmax(A)</span><br><span class="line">        policy[s, best_action] &#x3D; 1.0</span><br><span class="line">    return policy,V</span><br></pre></td></tr></table></figure>
-
-<p>在博客的最后，我将说明一下随机策略的生成的方式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 生成随机策略：</span><br><span class="line">random_policy &#x3D; np.ones([env.nS,env.nA])&#x2F;env.nA</span><br></pre></td></tr></table></figure>
-
-<p>以上就是我近期的学习情况。</p>
-
+        
+          <a class="article-more-a" href="/2020/11/29/policy_intergration/#more">more >></a>
+        
       
 
       
@@ -489,37 +217,30 @@
 
 
   
-    <article id="post-NuGet_Package_Restore" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-hello_gird" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/28/NuGet_Package_Restore/">NuGet_Package_Restore</a>
+      <a class="article-title" href="/2020/11/29/hello_gird/">强化学习的Hello World ———— Hello Grid</a>
     </h1>
   
 
         
-        <a href="/2020/11/28/NuGet_Package_Restore/" class="archive-article-date">
-  	<time datetime="2020-11-28T14:05:10.289Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-28</time>
+        <a href="/2020/11/29/hello_gird/" class="archive-article-date">
+  	<time datetime="2020-11-29T11:27:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="关于C-中构建整体程序框架需要的NuGet”Package-Restore”"><a href="#关于C-中构建整体程序框架需要的NuGet”Package-Restore”" class="headerlink" title="关于C#中构建整体程序框架需要的NuGet”Package Restore”"></a>关于C#中构建整体程序框架需要的NuGet”Package Restore”</h1><hr>
-<p>在进行对于DWSIM 6进行编译的时候，此时出现了两个问题：第一个是对于del的值的未知，其次是对于NuGet的问题</p>
-<h2 id="首先是对于第一个问题："><a href="#首先是对于第一个问题：" class="headerlink" title="首先是对于第一个问题："></a>首先是对于第一个问题：</h2><p>关于问题的描述如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Resx 文件无效。未找到请求的值“Del”。</span><br></pre></td></tr></table></figure>
-
-<p>此时只要将del变为delete既可以成功的进行下去，但是此时会出现第二个问题。</p>
-<h2 id="关于NuGet的程序还原问题"><a href="#关于NuGet的程序还原问题" class="headerlink" title="关于NuGet的程序还原问题:"></a>关于NuGet的程序还原问题:</h2><p>关于问题的描述如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http:&#x2F;&#x2F;go.microsoft.com&#x2F;fwlink&#x2F;?LinkID&#x3D;322105. The missing file is &#123;0&#125;.</span><br></pre></td></tr></table></figure>
-
-<p>对于这类的问题：首先我们对程序包还原进行概述：程序包还原首先根据需要安装项目的直接依赖项，然后在整个依赖项关系图中安装这些包的所有依赖项。常用的策略如下：选择“工具” &gt; “选项” &gt; “NuGet 程序包管理器”，以启用程序包还原。 在“程序包还原”选项下，选择“允许 NuGet 下载缺少的程序包”。在“解决方案资源管理器”中，右键单击解决方案并选择“还原 NuGet 程序包” 。如果仍未正确安装一个或多个单独的包，“解决方案资源管理器”会显示错误图标 。 右键单击并选择“管理 NuGet 程序包”，然后使用“程序包管理器”卸载并重新安装受影响的程序包 。 有关详细信息，请参阅重新安装和更新包。如果看到错误“此项目引用此计算机上缺少的 NuGet 包”或者“一个或更多 NuGet 包需要还原但无法还原，因为未授予许可”，则启用自动还原。 对于旧项目，亦请参阅迁移到自动程序包还原。 另请参阅程序包还原疑难解答。</p>
-
+        <h1 id="强化学习的Hello-World-————-Hello-Grid"><a href="#强化学习的Hello-World-————-Hello-Grid" class="headerlink" title="强化学习的Hello World ———— Hello Grid"></a>强化学习的Hello World ———— Hello Grid</h1><p>================================================================================================================================================</p>
+        
+          <a class="article-more-a" href="/2020/11/29/hello_gird/#more">more >></a>
+        
       
 
       
@@ -531,7 +252,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/28/NuGet_Package_Restore/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/29/hello_gird/">展开全文 >></a>
         </p>
       
 
@@ -561,46 +282,30 @@
 
 
   
-    <article id="post-hello_gird" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-montocarlo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/26/hello_gird/">hello_gird</a>
+      <a class="article-title" href="/2020/11/29/montocarlo/">强化学习求解（二） ———— 蒙特卡洛法</a>
     </h1>
   
 
         
-        <a href="/2020/11/26/hello_gird/" class="archive-article-date">
-  	<time datetime="2020-11-26T15:27:33.655Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-26</time>
+        <a href="/2020/11/29/montocarlo/" class="archive-article-date">
+  	<time datetime="2020-11-29T03:44:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="强化学习的Hello-World-————-Hello-Grid"><a href="#强化学习的Hello-World-————-Hello-Grid" class="headerlink" title="强化学习的Hello World ———— Hello Grid"></a>强化学习的Hello World ———— Hello Grid</h1><p>============================================</p>
-<h2 id="1-关于主要的配置需求"><a href="#1-关于主要的配置需求" class="headerlink" title="1.关于主要的配置需求"></a>1.关于主要的配置需求</h2><ol>
-<li>numpy</li>
-<li>gym</li>
-</ol>
-<h2 id="2-关于程序的解释："><a href="#2-关于程序的解释：" class="headerlink" title="2.关于程序的解释："></a>2.关于程序的解释：</h2><p>在本次的程序中，其实并没有用到强化学习求解的相关部分的知识，其主要是对于gym库的熟悉以及对于强化学习的相关的四个部分加深印象。强化学习的四个重要的部分分别为：<strong>环境，状态，奖励，动作</strong>。在本篇的文章中，主要是对于HelloGrid中迷宫进行详细的说明。在本次代码里，环境为迷宫，状态为当前的网格的位置，而奖励则是指是否到达G位置给获得的奖励的数值。动作则为每次转换状态所需要进行的行动。好吧，废话不多说，咱么上代码：</p>
-<p>首先是对于地图的声明，以及对于相关的操作的编号：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># HelloGrid 环境</span><br><span class="line">MAPS &#x3D; &#123;&#39;4x4&#39;:[&quot;SOOO&quot;,&quot;OXOX&quot;,&quot;OOOX&quot;,&quot;XOOG&quot;]&#125;</span><br><span class="line"># 对应所有状态都有四个动作</span><br><span class="line">UP &#x3D; 0</span><br><span class="line">RIGHT &#x3D; 1</span><br><span class="line">DOWN &#x3D; 2</span><br><span class="line">LEFT &#x3D; 3</span><br></pre></td></tr></table></figure>
-
-<p>关于对于HelloGridEnv类的详细的声明：关于HelloGridEnv类其主要包含三个部分step，initial和render，其中initial是关于对于初始的地图的转译，以及对于整体的每一块的概率p，奖励r，状态s，以及对于是否完成形成一个大的字典。详细如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">def __init__(self, desc &#x3D; None, map_name &#x3D; &#39;4x4&#39;):</span><br><span class="line">        &quot;&quot;&quot; GridWorldEnv 环境构建&quot;&quot;&quot;</span><br><span class="line">        # 环境地图Grid</span><br><span class="line">        self.desc &#x3D; np.asarray(MAPS[map_name],dtype&#x3D;&#39;c&#39;)</span><br><span class="line">        # 获取maps的形状（4，4）</span><br><span class="line">        self.shape &#x3D; self.desc.shape</span><br><span class="line">        # print(self.shape)</span><br><span class="line">        # 动作集的个数</span><br><span class="line">        nA &#x3D; 4</span><br><span class="line">        # 状态集的个数</span><br><span class="line">        nS &#x3D; np.prod(self.desc.shape)</span><br><span class="line">        # 设置最大的行号和最大的列号方便索引</span><br><span class="line">        MAX_Y &#x3D; self.shape[0]</span><br><span class="line">        MAX_X &#x3D; self.shape[1]</span><br><span class="line"></span><br><span class="line">        # 初始状态分布[1. 0. 0.  ...],并于格子S开始执行</span><br><span class="line">        isd &#x3D; np.array(self.desc &#x3D;&#x3D; b&#39;S&#39;).astype(&#39;float64&#39;).ravel()  # 将其变为对应的一维数组</span><br><span class="line">        isd &#x2F;&#x3D; isd.sum()</span><br><span class="line">        # 动作-状态转化概率字典</span><br><span class="line">        P &#x3D; &#123;&#125;</span><br><span class="line"></span><br><span class="line">        # 使用 numpy 的 nditer 时状态 grid 进行遍历</span><br><span class="line">        state_grid &#x3D; np.arange(nS).reshape(self.desc.shape)</span><br><span class="line">        it &#x3D; np.nditer(state_grid,flags &#x3D; [&#39;multi_index&#39;])</span><br><span class="line"></span><br><span class="line">        # 通常it.finish,it.iternext() 连在一起使用</span><br><span class="line">        while not it.finished:</span><br><span class="line">            # 获取当前的状态state</span><br><span class="line">            s &#x3D; it.iterindex</span><br><span class="line">            # 获取当前状态所在grid格子中的值</span><br><span class="line">            y,x &#x3D; it.multi_index</span><br><span class="line">            # P[s][a] &#x3D;&#x3D; [(probability,nextstate,reward,done)*4]</span><br><span class="line">            P[s] &#x3D; &#123;a : [] for a in range(nA)&#125;</span><br><span class="line">            </span><br><span class="line">            s_letter &#x3D; self.desc[y][x]</span><br><span class="line">            # 使用lambda表达式代替函数,遇到G或者X结束</span><br><span class="line">            is_done &#x3D; lambda letter : letter in b&#39;GX&#39;</span><br><span class="line">            # 只有到达位置G奖励才为1</span><br><span class="line">            reward &#x3D; 1.0 if s_letter in b&#39;G&#39;else 0.0</span><br><span class="line">            reward &#x3D; -1.0 if s_letter in b&#39;X&#39;else reward</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            if is_done(s_letter):</span><br><span class="line">            # 如果达到状态G，直接更新动作-状态转换概率</span><br><span class="line">                P[s][UP] &#x3D; [1.0,s,reward,True]</span><br><span class="line">                P[s][RIGHT] &#x3D; [1.0,s,reward,True]</span><br><span class="line">                P[s][DOWN] &#x3D; [1.0,s,reward,True]</span><br><span class="line">                P[s][LEFT] &#x3D; [1.0,s,reward,True]</span><br><span class="line">            else:</span><br><span class="line">            # 如果还没有达到状态G</span><br><span class="line">                # 新状态位置的索引</span><br><span class="line">                ns_up &#x3D; s if y &#x3D;&#x3D; 0 else s - MAX_X #减去一行的数量，即为上一行的坐标位置</span><br><span class="line">                ns_right &#x3D; s if x &#x3D;&#x3D; (MAX_X - 1) else s + 1</span><br><span class="line">                ns_down &#x3D; s if y &#x3D;&#x3D; (MAX_Y - 1) else s + MAX_X</span><br><span class="line">                ns_left &#x3D; s if x &#x3D;&#x3D; 0 else s - 1</span><br><span class="line"></span><br><span class="line">                # 新状态位置的索引对应的字母  &#x2F;&#x2F; 表示显示浮点数的结果</span><br><span class="line">                sl_up &#x3D; self.desc[ns_up &#x2F;&#x2F; MAX_Y][ns_up % MAX_X]</span><br><span class="line">                sl_right &#x3D; self.desc[ns_right &#x2F;&#x2F; MAX_Y][ns_right % MAX_X]</span><br><span class="line">                sl_down &#x3D; self.desc[ns_down &#x2F;&#x2F; MAX_Y][ns_down % MAX_X]</span><br><span class="line">                sl_left &#x3D; self.desc[ns_left &#x2F;&#x2F; MAX_Y][ns_left % MAX_X]</span><br><span class="line"></span><br><span class="line">                # 更新动作-状态转换概率</span><br><span class="line">                P[s][UP] &#x3D; [1.0, ns_up , reward, is_done(sl_up)]</span><br><span class="line">                P[s][RIGHT] &#x3D; [1.0, ns_right , reward, is_done(sl_right)]</span><br><span class="line">                P[s][DOWN] &#x3D; [1.0, ns_down , reward, is_done(sl_down)]</span><br><span class="line">                P[s][LEFT] &#x3D; [1.0, ns_left , reward, is_done(sl_left)]</span><br><span class="line">            # 准备更新下一个状态</span><br><span class="line">            it.iternext()</span><br><span class="line">        self.P &#x3D; P</span><br><span class="line">        super(HelloGridEnv, self).__init__(nS, nA , P , isd)</span><br></pre></td></tr></table></figure>
-
-<p>对于render部分其主要是对于当前状态的描述，其主要的作用是对于当前的位置（状态）进行标红，并进行输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">def render(self, mode &#x3D; &#39;human&#39;, close&#x3D;False):</span><br><span class="line">        # 判断程序是否结束</span><br><span class="line">        if close:</span><br><span class="line">            return</span><br><span class="line">        outfile &#x3D; StringIO() if mode &#x3D;&#x3D; &#39;ansi&#39; else sys.stdout</span><br><span class="line"></span><br><span class="line">        # 格式转化</span><br><span class="line">        desc &#x3D; self.desc.tolist()</span><br><span class="line">        desc &#x3D; [[c.decode(&#39;utf-8&#39;) for c in line ] for line in desc]</span><br><span class="line"></span><br><span class="line">        state_grid &#x3D; np.arange(self.nS).reshape(self.shape)</span><br><span class="line">        it &#x3D; np.nditer(state_grid, flags&#x3D;[&#39;multi_index&#39;])</span><br><span class="line"></span><br><span class="line">        while not it.finished:</span><br><span class="line">            s &#x3D; it.iterindex</span><br><span class="line">            y,x &#x3D; it.multi_index</span><br><span class="line"></span><br><span class="line">            # 对于当前的状态用红色标志</span><br><span class="line">            if self.s &#x3D;&#x3D; s:</span><br><span class="line">                desc[y][x] &#x3D; utils.colorize(desc[y][x],&quot;red&quot;,highlight&#x3D;True)</span><br><span class="line">            it.iternext()</span><br><span class="line">        outfile.write(&quot;\n&quot;.join(&#39; &#39;.join(line) for line in desc) + &quot;\n&quot;)</span><br><span class="line"></span><br><span class="line">        if mode !&#x3D; &#39;human&#39;:</span><br><span class="line">            return outfile</span><br></pre></td></tr></table></figure>
-
-<p>对于step的部分，是指对于新的状态进行更新:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def step(self, a):</span><br><span class="line">        transitions &#x3D; self.P[self.s]</span><br><span class="line">        p, s, r, d&#x3D; transitions[a]</span><br><span class="line">        self.s &#x3D; s</span><br><span class="line">        # print(self.s)</span><br><span class="line">        self.lastaction &#x3D; a</span><br><span class="line">        return (int(s), r, d, &#123;&quot;prob&quot; : p&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>对于程序的主体的部分，其主要可分为几个部分，环境声明，通过随机获取动作，进行step进行更新状态，详细如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    </span><br><span class="line">    env &#x3D; HelloGridEnv() # 使用HelloGrid 环境</span><br><span class="line">    state &#x3D; env.reset() # 初始化</span><br><span class="line"></span><br><span class="line">    # 执行5次动作</span><br><span class="line">    for _ in range(5):</span><br><span class="line">        # 显示环境</span><br><span class="line">        env.render()</span><br><span class="line"></span><br><span class="line">        # 随机获取动作 action</span><br><span class="line">        action &#x3D; env.action_space.sample()</span><br><span class="line">        # 执行随机选取的动作action</span><br><span class="line">        state ,reward, done, info &#x3D; env.step(action)</span><br><span class="line"></span><br><span class="line">        print(&quot;action&#123;&#125;(&#123;&#125;)&quot;.format(action ,[&quot;Up&quot;,&quot;Right&quot;,&quot;Down&quot;,&quot;Left&quot;][action]))</span><br><span class="line">        print(&quot;done:&#123;&#125;, observation:&#123;&#125;,reward:&#123;&#125;&quot;.format(done,state,reward))</span><br><span class="line"></span><br><span class="line">        # 如果执行动作后返回的done状态为True则停止执行</span><br><span class="line">        if done:</span><br><span class="line">            print(&quot;Episode finished after &#123;&#125; timesteps&quot;.format(_+1))</span><br><span class="line">            break</span><br></pre></td></tr></table></figure>
+        <h1 id="强化学习求解（二）-————-蒙特卡洛法"><a href="#强化学习求解（二）-————-蒙特卡洛法" class="headerlink" title="强化学习求解（二） ———— 蒙特卡洛法"></a>强化学习求解（二） ———— 蒙特卡洛法</h1><p>==========================================================================================================================</p>
+        
+          <a class="article-more-a" href="/2020/11/29/montocarlo/#more">more >></a>
+        
       
 
       
@@ -612,7 +317,72 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/26/hello_gird/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/29/montocarlo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-NuGet_Package_Restore" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/28/NuGet_Package_Restore/">关于C#中构建整体程序框架需要的NuGet&#34;Package Restore&#34;</a>
+    </h1>
+  
+
+        
+        <a href="/2020/11/28/NuGet_Package_Restore/" class="archive-article-date">
+  	<time datetime="2020-11-28T14:03:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="关于C-中构建整体程序框架需要的NuGet”Package-Restore”"><a href="#关于C-中构建整体程序框架需要的NuGet”Package-Restore”" class="headerlink" title="关于C#中构建整体程序框架需要的NuGet”Package Restore”"></a>关于C#中构建整体程序框架需要的NuGet”Package Restore”</h1><hr>
+        
+          <a class="article-more-a" href="/2020/11/28/NuGet_Package_Restore/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/28/NuGet_Package_Restore/">展开全文 >></a>
         </p>
       
 
@@ -663,20 +433,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>由于代码的部分功能需要利用rdkit的库进行对相关分子以及对应的smile的值进行验证以及图像的输出，但是由于通过简单的pip install 以及conda install无法正常下载，因此，在本片博客中将介绍如何轻松的将rdkit的库下载下来。</p>
-<h2 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h2><h3 id="1-官网方法"><a href="#1-官网方法" class="headerlink" title="1.官网方法"></a>1.官网方法</h3><p>由于博主使用的是anaconda的环境，因此本篇文章介绍官网中的anaconda的安装方法，打开Anaconda Prompt命令行窗口进行安装，一开始还行，但到了安装rdkit时报错。具体的代码如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda create -c rdkit -n my-rdkit-env rdkit</span><br><span class="line">conda install -c rdkit rdkit</span><br><span class="line"># 注：加一个-c表示从http:&#x2F;&#x2F;anaconda.org下载资源包；</span><br><span class="line"># conda create -n env_name 代表创建一个名字为env_name的虚拟环境；</span><br></pre></td></tr></table></figure>
-<h5 id="解决办法一："><a href="#解决办法一：" class="headerlink" title="解决办法一："></a>解决办法一：</h5><p>一般出错都是由于网络问题，失败就重新安装。注意！！我之前出错后只删除my-rdkit-env文件夹，然后即使显示安装成功了也不能用。正确做法是在anaconda的安装路径中搜索rdkit，将所有相关文件全部删除，然后重新安装。解决办法出处：python包 —rdkit 安装，但是我并没有找到my-rdkit-env文件夹，只能换种方式安装。</p>
-<h5 id="解决办法二："><a href="#解决办法二：" class="headerlink" title="解决办法二："></a>解决办法二：</h5><p>用anaconda原网站，下载速度慢(作者并没有进去该网站)，改用清华镜像网站，速度快。执行代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;msys2&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;cloud&#x2F;conda-forge&#x2F;</span><br><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;</span><br><span class="line">conda config --set show_channel_urls yes</span><br><span class="line"># 注：conda config --add channels 为添加镜像命令</span><br></pre></td></tr></table></figure>
-<p>但是对于作者而言依然不行</p>
-<h3 id="2-本地下载"><a href="#2-本地下载" class="headerlink" title="2.本地下载"></a>2.本地下载</h3><p>首先下载：<br><code>https://github.com/rdkit/rdkit/release</code><br>中的一个包<br>然后在命令行下进行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install XXXXXXXXXXXXXXX.gz</span><br></pre></td></tr></table></figure>
-<p>但作者依然没有安装成功</p>
-<h3 id="3-conda-forge"><a href="#3-conda-forge" class="headerlink" title="3.conda-forge"></a>3.conda-forge</h3><p>conda-forge这是一个组织，维护了可供使用的conda recipes，字面上理解是菜谱，就是一份相互关联的可打包在一起的东西。具体使用起来，就是推荐红色圈中的命令，首先加上conda-forge，然后安装所需要的工具包。这是最推荐的安装包的方式，因为是社团首选的一个可以使用的包，版本关联性等都是经过测试的。代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge rdkit</span><br></pre></td></tr></table></figure>
-<p>通过这个方法，作者成功的安装，并且安装的速度很快不到5min就成功下载</p>
-<h3 id="结局"><a href="#结局" class="headerlink" title="结局"></a>结局</h3><p>在vscode中打开原来不能运行的代码，成功运行，并成功输出对应的分子的图像。</p>
-
+        
+          <a class="article-more-a" href="/2020/03/31/how_to_install_rdkit/#more">more >></a>
+        
       
 
       
@@ -739,8 +498,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="1-环境环境"><a href="#1-环境环境" class="headerlink" title="1. 环境环境"></a>1. 环境环境</h2><h4 id="1-1-安装Git"><a href="#1-1-安装Git" class="headerlink" title="1.1 安装Git"></a>1.1 安装Git</h4><p>  官网上有git-for-windows可以直接下载</p>
-<h4 id="1-2-安装node-js"><a href="#1-2-安装node-js" class="headerlink" title="1.2 安装node.js"></a>1.2 安装node.js</h4><p>下载：<a href="http://nodejs.org/download/" target="_blank" rel="noopener">http://nodejs.org/download/</a><br>可以下载 node-v0.10.33-x64.msi<br>安装时直接保持默认配置即可。<br>NOTE：Hexo 3.9.0要求nodejs版本&gt;6.9.0<br>Ubuntu下，直接执行下面的命令安装即可：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2020/03/29/blog_create/#more">more >></a>
         
@@ -860,6 +617,136 @@
 
 
   
+    <article id="post-value_function_approximate" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/23/value_function_approximate/">强化学习求解（四） ———— 值函数近似法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/23/value_function_approximate/" class="archive-article-date">
+  	<time datetime="2020-02-23T09:26:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="强化学习求解（四）-————-值函数近似法"><a href="#强化学习求解（四）-————-值函数近似法" class="headerlink" title="强化学习求解（四） ———— 值函数近似法"></a>强化学习求解（四） ———— 值函数近似法</h1><p>==========================================================================================================================</p>
+        
+          <a class="article-more-a" href="/2020/02/23/value_function_approximate/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/23/value_function_approximate/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-temporal_difference" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/17/temporal_difference/">强化学习求解（三） ———— 时间差分法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/17/temporal_difference/" class="archive-article-date">
+  	<time datetime="2020-02-17T09:52:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="强化学习求解（三）-————-时间差分法"><a href="#强化学习求解（三）-————-时间差分法" class="headerlink" title="强化学习求解（三） ———— 时间差分法"></a>强化学习求解（三） ———— 时间差分法</h1><p>==========================================================================================================================</p>
+        
+          <a class="article-more-a" href="/2020/02/17/temporal_difference/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/17/temporal_difference/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
 
 
@@ -870,7 +757,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 John Doe
+    		&copy; 2021 Chenyang,Xu
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -997,34 +884,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
     
     	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
   		
     	</section>
     
