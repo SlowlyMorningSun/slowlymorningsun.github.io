@@ -6,17 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>强化学习求解（四） ———— 值函数近似法 | SlowlyMorningSun</title>
+  <title>Archives: 2021/3 | SlowlyMorningSun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="强化学习求解（四） ———— 值函数近似法&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;">
-<meta property="og:type" content="article">
-<meta property="og:title" content="强化学习求解（四） ———— 值函数近似法">
-<meta property="og:url" content="http://yoursite.com/2021/02/23/value_function_approximate/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="SlowlyMorningSun">
+<meta property="og:url" content="http://yoursite.com/archives/2021/03/index.html">
 <meta property="og:site_name" content="SlowlyMorningSun">
-<meta property="og:description" content="强化学习求解（四） ———— 值函数近似法&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-02-23T09:26:12.000Z">
-<meta property="article:modified_time" content="2021-02-23T09:30:23.758Z">
 <meta property="article:author" content="Chenyang,Xu">
 <meta name="twitter:card" content="summary">
   
@@ -154,161 +150,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-value_function_approximate" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      强化学习求解（四） ———— 值函数近似法
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/03/08/policyGradient/" class="archive-article-date">
+  	<time datetime="2021-03-08T15:51:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/03/08/policyGradient/">强化学习求解（五） ———— 策略梯度法</a>
     </h1>
   
 
-        
-        <a href="/2021/02/23/value_function_approximate/" class="archive-article-date">
-  	<time datetime="2021-02-23T09:26:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="强化学习求解（四）-————-值函数近似法"><a href="#强化学习求解（四）-————-值函数近似法" class="headerlink" title="强化学习求解（四） ———— 值函数近似法"></a>强化学习求解（四） ———— 值函数近似法</h1><p>==========================================================================================================================</p>
-<a id="more"></a>
-<h2 id="关于主要的配置需求"><a href="#关于主要的配置需求" class="headerlink" title="关于主要的配置需求"></a>关于主要的配置需求</h2><ol>
-<li>numpy</li>
-<li>gym</li>
-</ol>
-<h2 id="关于程序的解释："><a href="#关于程序的解释：" class="headerlink" title="关于程序的解释："></a>关于程序的解释：</h2><p>在本次的程序中，我们将主要介绍<strong>值函数近似法</strong>的强化学习的求解方式，首先我们将介绍我们本次程序的载体gym中的<strong>MountainCar-V0</strong>的游戏。之后我们将介绍值函数近似法的原理及代码部分，最后我们将QLreaning与值函数近似法结合实现对MountainCar-v0游戏的最佳策略求解。</p>
-<h3 id="1-值函数近似法"><a href="#1-值函数近似法" class="headerlink" title="1.值函数近似法"></a>1.值函数近似法</h3><p>在传统的强化学习的任务中，求解方法都是通过&lt;状态，动作&gt;对与动作值函数的对应关系完成。而值函数近似法即利用一个近似函数来模拟当前的环境的动作值函数或者状态值函数进而完成大规模强化学习任务的方法。其目标是找到权重参数w，使得对应的近似状态值函数或近似动作值函数对真实的动作值函数以及状态值函数实现一个逼近。即实现一个以动作和状态（或状态）与动作值函数与状态值函数的函数关系。详细代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"># 值函数近似器</span><br><span class="line">class EStimator():</span><br><span class="line">    def __init__(self):</span><br><span class="line">        # 对环境进行采样，便于后续对于状态state抽取特征</span><br><span class="line">        state_examples &#x3D; np.array([env.observation_space.sample() for x in range(10000)])</span><br><span class="line">        # print(state_examples)</span><br><span class="line">        # 特征处理1：归一化状态数据为0均值和单位方差</span><br><span class="line">        self.scaler &#x3D; Scaler()</span><br><span class="line">        self.scaler.fit(state_examples)</span><br><span class="line">        </span><br><span class="line">        # 特征处理2：状态state的特征抽取表示</span><br><span class="line">        self.featurizer &#x3D; FeatureUnion([(&quot;rbf1&quot;, RBF(gamma&#x3D;5.0, n_components&#x3D;100)),(&quot;rbf2&quot;,RBF(gamma&#x3D;1.0, n_components&#x3D;100)),])</span><br><span class="line">        self.featurizer.fit(self.scaler.transform(state_examples))</span><br><span class="line"></span><br><span class="line">        # 动作空间模型</span><br><span class="line">        # 声明动作模型</span><br><span class="line">        self.action_models &#x3D; []</span><br><span class="line">        # 动作空间数量</span><br><span class="line">        self.nA &#x3D; env.action_space.n</span><br><span class="line"></span><br><span class="line">        for na in range(self.nA):</span><br><span class="line">            # 动作模型使用随机梯度下降算法</span><br><span class="line">            model &#x3D; SGD(learning_rate&#x3D;&quot;constant&quot;) </span><br><span class="line">            model.partial_fit([self.featurize_state(env.reset())],[0])</span><br><span class="line">            self.action_models.append(model)</span><br><span class="line"></span><br><span class="line">    # 返回状态信号的特征化表示形式</span><br><span class="line">    def featurize_state(self, state):</span><br><span class="line">        # 对输入的状态信号归一化</span><br><span class="line">        scaled &#x3D; self.scaler.transform([state])</span><br><span class="line">        # 对归一化的状态提取特征</span><br><span class="line">        featurized &#x3D; self.featurizer.transform(scaled)[0]</span><br><span class="line">        # 返回状态信号的特征化表示形式</span><br><span class="line">        return featurized</span><br><span class="line">    </span><br><span class="line">    # 对状态值函数进行预测</span><br><span class="line">    def predict(self,s):</span><br><span class="line">        # 对输入的状态信号提取特征</span><br><span class="line">        features &#x3D; self.featurize_state(s)</span><br><span class="line">        # 预测该状态信号对应所有的动作的概率</span><br><span class="line">        predicter &#x3D; np.array([model.predict([features])[0] for model in self.action_models])</span><br><span class="line"></span><br><span class="line">        # 返回动作预测概率向量</span><br><span class="line">        return predicter</span><br><span class="line"></span><br><span class="line">    # 更新值函数近似器</span><br><span class="line">    def update(self, s, a, y):</span><br><span class="line">        # 对当前的状态信号提取特征</span><br><span class="line">        cur_features &#x3D; self.featurize_state(s)</span><br><span class="line"></span><br><span class="line">        # 根据目标y和当前的状态信号特征更新对应的近似模型</span><br><span class="line">        self.action_models[a].partial_fit([cur_features],[y])</span><br></pre></td></tr></table></figure>
+        <div class="article-info info-on-right">
+          
+          
 
-<h3 id="2-MountainCar-v0"><a href="#2-MountainCar-v0" class="headerlink" title="2.MountainCar-v0"></a>2.MountainCar-v0</h3><p>关于MountainCar-v0游戏，其是一个车上山到达山顶的游戏，通过操纵是否为不加速，向左加速，向右加速的三种状态实现对于小车的驱使，进而实现上山的操作，详细代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">import gym</span><br><span class="line">import sys</span><br><span class="line">import itertools</span><br><span class="line">import matplotlib</span><br><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">from collections import defaultdict, namedtuple</span><br><span class="line">from sklearn.pipeline import FeatureUnion</span><br><span class="line">from sklearn.preprocessing import StandardScaler as Scaler</span><br><span class="line">from sklearn.linear_model import SGDRegressor as SGD</span><br><span class="line">from sklearn.kernel_approximation import RBFSampler as RBF</span><br><span class="line"></span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line">from mpl_toolkits.mplot3d import Axes3D</span><br><span class="line">from Tools.scripts import lll</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">env &#x3D; gym.envs.make(&quot;MountainCar-v0&quot;)</span><br><span class="line"></span><br><span class="line"># Mountain-Car 的应用演示</span><br><span class="line">observation &#x3D; env.reset()</span><br><span class="line">plt.figure()</span><br><span class="line">for x in range(1000):</span><br><span class="line">    action &#x3D; np.random.choice([0,1,2])</span><br><span class="line"></span><br><span class="line">    observation,reward,done,info &#x3D; env.step(action)</span><br><span class="line">    print(action,reward ,done)</span><br><span class="line">    print(observation)</span><br><span class="line">    time.sleep(0.02)</span><br><span class="line">    </span><br><span class="line">    plt.imshow(env.render(mode&#x3D;&#39;rgb_array&#39;))</span><br><span class="line">env.close()</span><br></pre></td></tr></table></figure>
-<h3 id="3-与QLearning的结合"><a href="#3-与QLearning的结合" class="headerlink" title="3.与QLearning的结合"></a>3.与QLearning的结合</h3><p>最后，由于有了值函数的近似器，因而我们可以将其与qlearning算法相结合，进而可以得到如下的程序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"># 基于值函数近似表示的时间差分控制的Q-learning算法</span><br><span class="line">class VF_QLearning():</span><br><span class="line">    def __init__(self, env, estimator, num_episodes, epsilon&#x3D;0.1, discount_factor&#x3D;1.0, epsilom_decay&#x3D;1.0):</span><br><span class="line">        </span><br><span class="line">        # 初始化类中的参数</span><br><span class="line">        # 动作空间数量</span><br><span class="line">        self.nA &#x3D; env.action_space.n</span><br><span class="line">        # 状态空间数量</span><br><span class="line">        self.nS &#x3D; env.observation_space.shape[0]</span><br><span class="line">        # 环境</span><br><span class="line">        self.env &#x3D; env</span><br><span class="line">        # 经验轨迹迭代次数</span><br><span class="line">        self.num_episodes &#x3D; num_episodes</span><br><span class="line">        # epsilon贪婪算法参数</span><br><span class="line">        self.epsilon &#x3D; epsilon</span><br><span class="line">        # 未来折扣系数</span><br><span class="line">        self.discount_factor &#x3D; discount_factor</span><br><span class="line">        # 贪婪算法策略衰减系数</span><br><span class="line">        self.epsilon_decay &#x3D; epsilom_decay</span><br><span class="line">        # 函数近似器</span><br><span class="line">        self.estimator &#x3D; estimator</span><br><span class="line"></span><br><span class="line">        # 记录器，用于保存迭代长度（episode length）和迭代奖励（episode rewards）</span><br><span class="line">        record_head &#x3D; namedtuple(&quot;Stats&quot;,[&quot;episode_lengths&quot;, &quot;episode_rewards&quot;])</span><br><span class="line"></span><br><span class="line">        # 记录器初始化</span><br><span class="line">        self.record &#x3D; record_head(episode_lengths &#x3D; np.zeros(num_episodes),episode_rewards &#x3D; np.zeros(num_episodes))</span><br><span class="line"></span><br><span class="line">    # epislon 贪婪算法</span><br><span class="line">    def epislon_greedy_policy(self, nA, epislon &#x3D; 0.5):</span><br><span class="line">        def policy(state):</span><br><span class="line">            A &#x3D; np.ones(nA, dtype&#x3D;float) * epislon &#x2F; nA</span><br><span class="line">            Q &#x3D; self.estimator.predict(state)</span><br><span class="line">            best_action &#x3D; np.argmax(Q)</span><br><span class="line">            A[best_action] +&#x3D; (1.0 - epislon)</span><br><span class="line"></span><br><span class="line">            return  A</span><br><span class="line">        return  policy</span><br><span class="line"></span><br><span class="line">    # 选取随机动作 </span><br><span class="line">    def random_action(self, action_prob):</span><br><span class="line">        </span><br><span class="line">        # 从给定的动作概率action_prob中随机选出一个动作</span><br><span class="line">        return np.random.choice(np.arange(len(action_prob)),p &#x3D; action_prob)</span><br><span class="line"></span><br><span class="line">    # qlearning核心算法</span><br><span class="line">    def q_learning(self):</span><br><span class="line">        for i_episode in range(self.num_episodes):</span><br><span class="line">            # 打印经验轨迹的迭代次数信息</span><br><span class="line">            # 迭代百分比</span><br><span class="line">            num_present &#x3D; (i_episode + 1)&#x2F;self.num_episodes</span><br><span class="line">            print(&quot;Episode &#123;&#125; &#x2F; &#123;&#125;&quot;.format(i_episode+1,self.num_episodes), end&#x3D;&quot;&quot;)</span><br><span class="line">            # 信息输出</span><br><span class="line">            print(&quot;&#x3D;&quot;*round(num_present*60))</span><br><span class="line"></span><br><span class="line">            # 策略选择使用episilon贪婪算法</span><br><span class="line">            # 策略参数</span><br><span class="line">            policy_epislon &#x3D; self.epsilon * self.epsilon_decay**i_episode</span><br><span class="line">            # 声明策略</span><br><span class="line">            policy &#x3D; self.epislon_greedy_policy(self.nA, policy_epislon)</span><br><span class="line">            # 记录奖励</span><br><span class="line">            last_reward &#x3D; self.record.episode_rewards[i_episode - 1]</span><br><span class="line">            # print(last_reward)</span><br><span class="line">            sys.stdout.flush()</span><br><span class="line"></span><br><span class="line">            # 重置环境进行第一个动作</span><br><span class="line">            state &#x3D; env.reset()</span><br><span class="line"></span><br><span class="line">            # 下一个动作信号的初始化</span><br><span class="line">            next_action &#x3D; None</span><br><span class="line"></span><br><span class="line">            # 单次经验轨迹的迭代</span><br><span class="line">            for t in itertools.count():</span><br><span class="line">                # 根据策略获得当前状态信号的动作值</span><br><span class="line">                action_probs &#x3D; policy(state)</span><br><span class="line">                action &#x3D; self.random_action(action_probs)</span><br><span class="line">                # print(action)</span><br><span class="line"></span><br><span class="line">                # 向前执行一步</span><br><span class="line">                next_state, reward, done, _ &#x3D; env.step(action)</span><br><span class="line"></span><br><span class="line">                # print(&quot;reward&quot;,reward)</span><br><span class="line"></span><br><span class="line">                # 更新统计信息</span><br><span class="line">                # 更新信号奖励</span><br><span class="line">                self.record.episode_rewards[i_episode] +&#x3D; reward</span><br><span class="line">                # 更新迭代次数</span><br><span class="line">                self.record.episode_lengths[i_episode] &#x3D; t</span><br><span class="line"></span><br><span class="line">                # 预测下一时间步的动作值</span><br><span class="line">                # 时间差分更新</span><br><span class="line">                q_values_next &#x3D; estimator.predict(next_state)</span><br><span class="line"></span><br><span class="line">                # 使用时间差分目标作为预测结果更新函数的近似器</span><br><span class="line">                td_target &#x3D; reward + self.discount_factor * np.max(q_values_next)</span><br><span class="line">                # Q-Value 时间差分目标</span><br><span class="line">                estimator.update(state, action, td_target)</span><br><span class="line"></span><br><span class="line">                print(&quot;\rStep &#123;&#125; with reward (&#123;&#125;)&quot;.format(t, last_reward),end&#x3D;&quot;&quot;)</span><br><span class="line">                if done:break</span><br><span class="line"></span><br><span class="line">                # 覆盖下一时间步状态为当前的时间状态</span><br><span class="line">                state &#x3D; next_state</span><br><span class="line">        return self.record</span><br></pre></td></tr></table></figure>
-
-<p>以及对应的画图的程序：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">def plot_cost_to_go_mountain_car(env, estimator, niter, num_tiles &#x3D; 20):</span><br><span class="line">    # 显示mountain Car 爬山车游戏的代价函数</span><br><span class="line">    # x 为 小车的位置信息</span><br><span class="line">    # y 为 小车的速度信息</span><br><span class="line">    # z 为 动作状态价值信息</span><br><span class="line"></span><br><span class="line">    x &#x3D; np.linspace(env.observation_space.low[0], env.observation_space.high[0], num&#x3D;num_tiles)</span><br><span class="line">    y &#x3D; np.linspace(env.observation_space.low[1], env.observation_space.high[1], num&#x3D;num_tiles)</span><br><span class="line"></span><br><span class="line">    # 合并x，y的信息</span><br><span class="line">    X,Y &#x3D; np.meshgrid(x,y)</span><br><span class="line">    Z &#x3D; np.apply_along_axis(lambda _: -np.max(estimator.predict(_)), 2,np.dstack([X,Y]))</span><br><span class="line"></span><br><span class="line">    # 配置显示图像信息</span><br><span class="line">    fig &#x3D; plt.figure(figsize&#x3D;(15,7.5))</span><br><span class="line">    ax &#x3D; fig.add_subplot(111, projection &#x3D; &#39;3d&#39;)</span><br><span class="line">    surf &#x3D; ax.plot_surface(X,Y,Z, rstride&#x3D;1, cstride&#x3D;1)</span><br><span class="line"></span><br><span class="line">    # 设置x轴为位置信息</span><br><span class="line">    ax.set_xlabel(&quot;position&quot;)</span><br><span class="line">    # 设置y轴为速率信息</span><br><span class="line">    ax.set_ylabel(&quot;Velocity&quot;)</span><br><span class="line">    # 设置Z轴为价值信息</span><br><span class="line">    ax.set_zlabel(&quot;Value&quot;)</span><br><span class="line">    # 设置Z轴大小，便于显示</span><br><span class="line">    ax.set_zlim(0,160)</span><br><span class="line">    # 设置背景为白色</span><br><span class="line">    ax.set_facecolor(&quot;white&quot;)</span><br><span class="line">    # 设置标题</span><br><span class="line">    ax.set_title(&quot;Cost To Go Function(iter:&#123;&#125;&quot;.format(niter))</span><br><span class="line">    # 设置侧边条</span><br><span class="line">    fig.colorbar(surf)</span><br><span class="line">    # 显示图像</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
-<p>相关的调用方法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 值函数近似法 + QLearning</span><br><span class="line">estimator &#x3D; EStimator()</span><br><span class="line"># vf &#x3D; VF_QLearning(env, estimator, num_episodes&#x3D;100, epsilon&#x3D;0.2)</span><br><span class="line"># result &#x3D; vf.q_learning()</span><br><span class="line"># 值函数近似法 + QLearning + 图像</span><br><span class="line">iter &#x3D; [10, 50, 100, 200]</span><br><span class="line">for x in iter:</span><br><span class="line">    vf &#x3D; VF_QLearning(env, estimator, num_episodes&#x3D;x, epsilon&#x3D;0.2)</span><br><span class="line">    result &#x3D; vf.q_learning()</span><br><span class="line">    plot_cost_to_go_mountain_car(env, estimator,x , num_tiles&#x3D;10)</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/02/23/value_function_approximate/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2021/03/08/policyGradient/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          强化学习求解（五） ———— 策略梯度法
-        
-      </div>
-    </a>
   
   
-    <a href="/2021/02/17/temporal_difference/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">强化学习求解（三） ———— 时间差分法</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -331,8 +215,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
