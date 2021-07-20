@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>如何进行github的博客搭建 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1. 环境环境1.1 安装Git  官网上有git-for-windows可以直接下载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何进行github的博客搭建">
+<meta property="og:url" content="http://example.com/2020/03/29/blog_create/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. 环境环境1.1 安装Git  官网上有git-for-windows可以直接下载">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-29T03:44:42.000Z">
+<meta property="article:modified_time" content="2021-02-23T09:17:58.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-blog_create" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/03/29/blog_create/" class="article-date">
+  <time class="dt-published" datetime="2020-03-29T03:44:42.000Z" itemprop="datePublished">2020-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      如何进行github的博客搭建
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-环境环境"><a href="#1-环境环境" class="headerlink" title="1. 环境环境"></a>1. 环境环境</h2><h4 id="1-1-安装Git"><a href="#1-1-安装Git" class="headerlink" title="1.1 安装Git"></a>1.1 安装Git</h4><p>  官网上有git-for-windows可以直接下载</p>
+<span id="more"></span>
+<h4 id="1-2-安装node-js"><a href="#1-2-安装node-js" class="headerlink" title="1.2 安装node.js"></a>1.2 安装node.js</h4><p>下载：<a target="_blank" rel="noopener" href="http://nodejs.org/download/">http://nodejs.org/download/</a><br>可以下载 node-v0.10.33-x64.msi<br>安装时直接保持默认配置即可。<br>NOTE：Hexo 3.9.0要求nodejs版本&gt;6.9.0<br>Ubuntu下，直接执行下面的命令安装即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nodejs</span><br><span class="line">sudo apt-get install npm</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-配置Github"><a href="#2-配置Github" class="headerlink" title="2. 配置Github"></a>2. 配置Github</h2><h4 id="1-1-建立Repository"><a href="#1-1-建立Repository" class="headerlink" title="1.1 建立Repository"></a>1.1 建立Repository</h4><p>建立与你用户名对应的仓库，仓库名必须为【your_user_name.github.io】</p>
+<h4 id="1-2-配置SSH-Key"><a href="#1-2-配置SSH-Key" class="headerlink" title="1.2 配置SSH-Key"></a>1.2 配置SSH-Key</h4><p>因为你提交代码肯定要拥有你的github权限才可以，但是直接使用用户名和密码太不安全了，所以我们使用ssh key来解决本地和服务器的连接问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/. ssh #检查本机已存在的ssh密钥 </span><br></pre></td></tr></table></figure>
+<p>如果提示：No such file or directory 说明你是第一次使用git。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮件地址&quot; </span><br></pre></td></tr></table></figure>
+<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：</p>
+<h4 id="1-3-测试是否成功"><a href="#1-3-测试是否成功" class="headerlink" title="1.3 测试是否成功"></a>1.3 测试是否成功</h4><p>输入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com # 注意邮箱地址不用改</span><br></pre></td></tr></table></figure>
+<p>如果提示Are you sure you want to continue connecting (yes/no)?，输入yes，然后会看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi yourname! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+<p>看到这个信息说明SSH已配置成功！<br>此时你还需要配置:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;yourname&quot;// 你的github用户名，非昵称</span><br><span class="line">$ git config --global user.email  &quot;xxx@qq.com&quot;// 填写你的github注册邮箱</span><br></pre></td></tr></table></figure>
+<h2 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3. 安装Hexo"></a>3. 安装Hexo</h2><h4 id="3-1-Installation"><a href="#3-1-Installation" class="headerlink" title="3.1 Installation"></a>3.1 Installation</h4><p>在设定的新的文件夹下，打开Git Bash命令行，执行如下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-Quick-Start-重点"><a href="#3-2-Quick-Start-重点" class="headerlink" title="3.2 Quick Start(重点)"></a>3.2 Quick Start(重点)</h4><ol>
+<li>Setup your blog<br>在电脑中建立一个名字叫「Hexo」的文件夹（比如我建在了D:\Hexo），然后在此文件夹中右键打开Git Bash。执行下面的命令<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br><span class="line">[info] Copying data</span><br><span class="line">[info] You are almost done! Don&#x27;t forget to run `npm install` before you start b</span><br><span class="line">logging with Hexo!</span><br></pre></td></tr></table></figure>
+Hexo随后会自动在目标文件夹建立网站所需要的文件。然后按照提示，运行<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install  #在 /D/Hexo下</span><br></pre></td></tr></table></figure>
+会在D:\Hexo目录中安装 node_modules。</li>
+<li>Start the server<br>运行下面的命令（在 /D/Hexo下）<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">[info] Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+表明Hexo Server已经启动了，在浏览器中打开 <a target="_blank" rel="noopener" href="http://localhost:4000/%EF%BC%8C%E8%BF%99%E6%97%B6%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0Hexo%E5%B7%B2%E4%B8%BA%E4%BD%A0%E7%94%9F%E6%88%90%E4%BA%86%E4%B8%80%E7%AF%87blog%E3%80%82">http://localhost:4000/，这时可以看到Hexo已为你生成了一篇blog。</a><br>你可以按Ctrl+C 停止Server。</li>
+<li>Create a new post<br>新打开一个git bash命令行窗口，cd到/D/Hexo下，执行下面的命令<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;My New Post&quot;</span><br><span class="line">[info] File created at d:\Hexo\source\_posts\My-New-Post.md</span><br></pre></td></tr></table></figure>
+刷新<a target="_blank" rel="noopener" href="http://localhost:4000/%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%8F%91%E7%8E%B0%E5%B7%B2%E7%94%9F%E6%88%90%E4%BA%86%E4%B8%80%E7%AF%87%E6%96%B0%E6%96%87%E7%AB%A0">http://localhost:4000/，可以发现已生成了一篇新文章</a> “My New Post”。<br>NOTE：<br>有一个问题，发现 “My New Post” 被发了2遍，在Hexo server所在的git bash窗口也能看到create了2次。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br><span class="line">[info] Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</span><br><span class="line">[create] d:\Hexo\source\_posts\My-New-Post.md</span><br><span class="line">[create] d:\Hexo\source\_posts\My-New-Post.md</span><br></pre></td></tr></table></figure>
+经验证，在hexo new “My New Post” 时，如果按Ctrl+C将hexo server停掉，就不会出现发2次的问题了。<br>所以，在hexo new文章时，需要stop server。</li>
+<li>Generate static files<br>执行下面的命令，将markdown文件生成静态网页。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+该命令执行完后，会在 D:\Hexo\public\ 目录下生成一系列html，css等文件。</li>
+<li>编辑文章<br>hexo new “My New Post”会在D:\Hexo\source_posts目录下生成一个markdown文件：My-New-Post.md<br>可以使用一个支持markdown语法的编辑器（比如 Sublime Text 2）来编辑该文件。</li>
+<li>部署到Github<br>部署到Github前需要配置_config.yml文件，首先找到下面的内容<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type:</span><br><span class="line">然后将它们修改为</span><br><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: github</span><br><span class="line">  repository: git@github.com:zhchnchn/zhchnchn.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+NOTE1:<br>Repository：必须是SSH形式的url（<a href="mailto:&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a>:zhchnchn/zhchnchn.github.io.git），而不能是HTTPS形式的url（<a target="_blank" rel="noopener" href="https://github.com/zhchnchn/zhchnchn.github.io.git%EF%BC%89%EF%BC%8C%E5%90%A6%E5%88%99%E4%BC%9A%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF%EF%BC%9A">https://github.com/zhchnchn/zhchnchn.github.io.git），否则会出现错误：</a><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br><span class="line">[info] Start deploying: github</span><br><span class="line">[error] https://github.com/zhchnchn/zhchnchn.github.io is not a valid repositor URL!</span><br></pre></td></tr></table></figure>
+使用SSH url，如果电脑没有开放SSH 端口，会致部署失败。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fatal: Could not read from remote repository.</span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br></pre></td></tr></table></figure>
+NOTE2：<br>如果你是为一个项目制作网站，那么需要把branch设置为gh-pages。<h4 id="7-测试"><a href="#7-测试" class="headerlink" title="7. 测试"></a>7. 测试</h4>当部署完成后，在浏览器中打开<a target="_blank" rel="noopener" href="https://yourname.github.io/">https://yourname.github.io/</a>, 正常显示网页，表明部署成功。<h4 id="8-总结：部署步骤"><a href="#8-总结：部署步骤" class="headerlink" title="8. 总结：部署步骤"></a>8. 总结：部署步骤</h4>每次部署的步骤，可按以下三步来进行。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<h4 id="9-总结：本地调试"><a href="#9-总结：本地调试" class="headerlink" title="9. 总结：本地调试"></a>9. 总结：本地调试</h4><h6 id="1-在执行下面的命令后，"><a href="#1-在执行下面的命令后，" class="headerlink" title="1. 在执行下面的命令后，"></a>1. 在执行下面的命令后，</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g #生成</span><br><span class="line">$ hexo s #启动本地服务，进行文章预览调试</span><br></pre></td></tr></table></figure>
+浏览器输入<a href="http://localhost:4000，查看搭建效果。此后的每次变更_config.yml">http://localhost:4000，查看搭建效果。此后的每次变更_config.yml</a> 文件或者新建文件都可以先用此命令调试，尤其是当你想调试新添加的主题时。<h6 id="2-可以用简化的一条命令"><a href="#2-可以用简化的一条命令" class="headerlink" title="2. 可以用简化的一条命令"></a>2. 可以用简化的一条命令</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -g</span><br></pre></td></tr></table></figure>
+<h6 id="3-3-命令总结"><a href="#3-3-命令总结" class="headerlink" title="3.3 命令总结"></a>3.3 命令总结</h6></li>
+<li>3.1 常用命令<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&#x27;ctrl + c&#x27;关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br></pre></td></tr></table></figure></li>
+<li>3.2 复合命令<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy -g  #生成加部署</span><br><span class="line">hexo server -g  #生成加预览</span><br></pre></td></tr></table></figure>
+命令的简写为：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
+<h6 id="4-配置Hexo"><a href="#4-配置Hexo" class="headerlink" title="4 配置Hexo"></a>4 配置Hexo</h6></li>
+<li>1 配置文件介绍</li>
+<li>默认目录结构介绍</li>
+<li>_config.yml配置文件介绍<br>NOTE：在修改_config.yml配置文件时，按照【3】的介绍进行修改后，重新 hexo clean 或者hexo deploy时，可能会出现如下错误：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">[error] &#123; name: &#x27;HexoError&#x27;,</span><br><span class="line">  reason: &#x27;can not read a block mapping entry; a multiline key may not be an imp</span><br><span class="line">licit key&#x27;,</span><br><span class="line">  mark:</span><br><span class="line">   &#123; name: null,</span><br><span class="line">     buffer: &#x27;# Hexo Configuration\n## Docs: http://hexo.io/docs/configuration.h</span><br><span class="line">tml\n## Source: https://github.com/hexojs/hexo/\n\n# Site\ntitle: Zhchnchn\nsubt</span><br><span class="line">itle: Coding on the way\ndescription: Zhchnchn\&#x27;s blog\nauthor: Zhchnchn\nemail:</span><br><span class="line">115063497@qq.com\nlanguage:zh-CN\n\n# URL\n## If your site is put in a subdirect</span><br><span class="line">......</span><br><span class="line">,</span><br><span class="line">     position: 249,</span><br><span class="line">     line: 12,</span><br><span class="line">     column: 0 &#125;,</span><br><span class="line">  message: &#x27;Config file load failed&#x27;,</span><br><span class="line">  domain:</span><br><span class="line">   &#123; domain: null,</span><br><span class="line">     _events: &#123; error: [Function] &#125;,</span><br><span class="line">     _maxListeners: 10,</span><br><span class="line">     members: [ [Object] ] &#125;,</span><br><span class="line">  domainThrown: true,</span><br><span class="line">  stack: undefined &#125;</span><br></pre></td></tr></table></figure>
+我的_config.yml配置文件是一个空行，所以错误肯定在前面，经过对比发现，我前面修改了一下 # Site的各项设置，在冒号:后面没留空格导致了该问题，请对比一下下面的区别：<br>错误的设置：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">author:lalala</span><br><span class="line">email:XXX@qq.com</span><br><span class="line">language:zh-CN</span><br></pre></td></tr></table></figure>
+正确的设置：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">author: lalala</span><br><span class="line">email: XXX@qq.com</span><br><span class="line">language: zh-CN</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/03/29/blog_create/" data-id="ckrc6fps70003b8uo0sdyhy8g" data-title="如何进行github的博客搭建" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/31/how_to_install_rdkit/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          如何在ancoda的环境下下载rdkit
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/20/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/08/policyGradient/">强化学习求解（五） ———— 策略梯度法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/23/value_function_approximate/">强化学习求解（四） ———— 值函数近似法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/17/temporal_difference/">强化学习求解（三） ———— 时间差分法</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/08/montocarlo/">强化学习求解（二） ———— 蒙特卡洛法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

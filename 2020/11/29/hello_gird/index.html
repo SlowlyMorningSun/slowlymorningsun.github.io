@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>强化学习的Hello World ———— Hello Grid | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="强化学习的Hello World ———— Hello Grid&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强化学习的Hello World ———— Hello Grid">
+<meta property="og:url" content="http://example.com/2020/11/29/hello_gird/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="强化学习的Hello World ———— Hello Grid&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-29T11:27:42.000Z">
+<meta property="article:modified_time" content="2021-02-23T09:18:22.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-hello_gird" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2020/11/29/hello_gird/" class="article-date">
+  <time class="dt-published" datetime="2020-11-29T11:27:42.000Z" itemprop="datePublished">2020-11-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      强化学习的Hello World ———— Hello Grid
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="强化学习的Hello-World-————-Hello-Grid"><a href="#强化学习的Hello-World-————-Hello-Grid" class="headerlink" title="强化学习的Hello World ———— Hello Grid"></a>强化学习的Hello World ———— Hello Grid</h1><p>================================================================================================================================================</p>
+<span id="more"></span>
+<h2 id="1-关于主要的配置需求"><a href="#1-关于主要的配置需求" class="headerlink" title="1.关于主要的配置需求"></a>1.关于主要的配置需求</h2><ol>
+<li>numpy</li>
+<li>gym</li>
+</ol>
+<h2 id="2-关于程序的解释："><a href="#2-关于程序的解释：" class="headerlink" title="2.关于程序的解释："></a>2.关于程序的解释：</h2><p>在本次的程序中，其实并没有用到强化学习求解的相关部分的知识，其主要是对于gym库的熟悉以及对于强化学习的相关的四个部分加深印象。强化学习的四个重要的部分分别为：<strong>环境，状态，奖励，动作</strong>。在本篇的文章中，主要是对于HelloGrid中迷宫进行详细的说明。在本次代码里，环境为迷宫，状态为当前的网格的位置，而奖励则是指是否到达G位置给获得的奖励的数值。动作则为每次转换状态所需要进行的行动。好吧，废话不多说，咱么上代码：</p>
+<p>首先是对于地图的声明，以及对于相关的操作的编号：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># HelloGrid 环境</span><br><span class="line">MAPS = &#123;&#x27;4x4&#x27;:[&quot;SOOO&quot;,&quot;OXOX&quot;,&quot;OOOX&quot;,&quot;XOOG&quot;]&#125;</span><br><span class="line"># 对应所有状态都有四个动作</span><br><span class="line">UP = 0</span><br><span class="line">RIGHT = 1</span><br><span class="line">DOWN = 2</span><br><span class="line">LEFT = 3</span><br></pre></td></tr></table></figure>
+
+<p>关于对于HelloGridEnv类的详细的声明：关于HelloGridEnv类其主要包含三个部分step，initial和render，其中initial是关于对于初始的地图的转译，以及对于整体的每一块的概率p，奖励r，状态s，以及对于是否完成形成一个大的字典。详细如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">def __init__(self, desc = None, map_name = &#x27;4x4&#x27;):</span><br><span class="line">        &quot;&quot;&quot; GridWorldEnv 环境构建&quot;&quot;&quot;</span><br><span class="line">        # 环境地图Grid</span><br><span class="line">        self.desc = np.asarray(MAPS[map_name],dtype=&#x27;c&#x27;)</span><br><span class="line">        # 获取maps的形状（4，4）</span><br><span class="line">        self.shape = self.desc.shape</span><br><span class="line">        # print(self.shape)</span><br><span class="line">        # 动作集的个数</span><br><span class="line">        nA = 4</span><br><span class="line">        # 状态集的个数</span><br><span class="line">        nS = np.prod(self.desc.shape)</span><br><span class="line">        # 设置最大的行号和最大的列号方便索引</span><br><span class="line">        MAX_Y = self.shape[0]</span><br><span class="line">        MAX_X = self.shape[1]</span><br><span class="line"></span><br><span class="line">        # 初始状态分布[1. 0. 0.  ...],并于格子S开始执行</span><br><span class="line">        isd = np.array(self.desc == b&#x27;S&#x27;).astype(&#x27;float64&#x27;).ravel()  # 将其变为对应的一维数组</span><br><span class="line">        isd /= isd.sum()</span><br><span class="line">        # 动作-状态转化概率字典</span><br><span class="line">        P = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        # 使用 numpy 的 nditer 时状态 grid 进行遍历</span><br><span class="line">        state_grid = np.arange(nS).reshape(self.desc.shape)</span><br><span class="line">        it = np.nditer(state_grid,flags = [&#x27;multi_index&#x27;])</span><br><span class="line"></span><br><span class="line">        # 通常it.finish,it.iternext() 连在一起使用</span><br><span class="line">        while not it.finished:</span><br><span class="line">            # 获取当前的状态state</span><br><span class="line">            s = it.iterindex</span><br><span class="line">            # 获取当前状态所在grid格子中的值</span><br><span class="line">            y,x = it.multi_index</span><br><span class="line">            # P[s][a] == [(probability,nextstate,reward,done)*4]</span><br><span class="line">            P[s] = &#123;a : [] for a in range(nA)&#125;</span><br><span class="line">            </span><br><span class="line">            s_letter = self.desc[y][x]</span><br><span class="line">            # 使用lambda表达式代替函数,遇到G或者X结束</span><br><span class="line">            is_done = lambda letter : letter in b&#x27;GX&#x27;</span><br><span class="line">            # 只有到达位置G奖励才为1</span><br><span class="line">            reward = 1.0 if s_letter in b&#x27;G&#x27;else 0.0</span><br><span class="line">            reward = -1.0 if s_letter in b&#x27;X&#x27;else reward</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            if is_done(s_letter):</span><br><span class="line">            # 如果达到状态G，直接更新动作-状态转换概率</span><br><span class="line">                P[s][UP] = [1.0,s,reward,True]</span><br><span class="line">                P[s][RIGHT] = [1.0,s,reward,True]</span><br><span class="line">                P[s][DOWN] = [1.0,s,reward,True]</span><br><span class="line">                P[s][LEFT] = [1.0,s,reward,True]</span><br><span class="line">            else:</span><br><span class="line">            # 如果还没有达到状态G</span><br><span class="line">                # 新状态位置的索引</span><br><span class="line">                ns_up = s if y == 0 else s - MAX_X #减去一行的数量，即为上一行的坐标位置</span><br><span class="line">                ns_right = s if x == (MAX_X - 1) else s + 1</span><br><span class="line">                ns_down = s if y == (MAX_Y - 1) else s + MAX_X</span><br><span class="line">                ns_left = s if x == 0 else s - 1</span><br><span class="line"></span><br><span class="line">                # 新状态位置的索引对应的字母  // 表示显示浮点数的结果</span><br><span class="line">                sl_up = self.desc[ns_up // MAX_Y][ns_up % MAX_X]</span><br><span class="line">                sl_right = self.desc[ns_right // MAX_Y][ns_right % MAX_X]</span><br><span class="line">                sl_down = self.desc[ns_down // MAX_Y][ns_down % MAX_X]</span><br><span class="line">                sl_left = self.desc[ns_left // MAX_Y][ns_left % MAX_X]</span><br><span class="line"></span><br><span class="line">                # 更新动作-状态转换概率</span><br><span class="line">                P[s][UP] = [1.0, ns_up , reward, is_done(sl_up)]</span><br><span class="line">                P[s][RIGHT] = [1.0, ns_right , reward, is_done(sl_right)]</span><br><span class="line">                P[s][DOWN] = [1.0, ns_down , reward, is_done(sl_down)]</span><br><span class="line">                P[s][LEFT] = [1.0, ns_left , reward, is_done(sl_left)]</span><br><span class="line">            # 准备更新下一个状态</span><br><span class="line">            it.iternext()</span><br><span class="line">        self.P = P</span><br><span class="line">        super(HelloGridEnv, self).__init__(nS, nA , P , isd)</span><br></pre></td></tr></table></figure>
+
+<p>对于render部分其主要是对于当前状态的描述，其主要的作用是对于当前的位置（状态）进行标红，并进行输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">def render(self, mode = &#x27;human&#x27;, close=False):</span><br><span class="line">        # 判断程序是否结束</span><br><span class="line">        if close:</span><br><span class="line">            return</span><br><span class="line">        outfile = StringIO() if mode == &#x27;ansi&#x27; else sys.stdout</span><br><span class="line"></span><br><span class="line">        # 格式转化</span><br><span class="line">        desc = self.desc.tolist()</span><br><span class="line">        desc = [[c.decode(&#x27;utf-8&#x27;) for c in line ] for line in desc]</span><br><span class="line"></span><br><span class="line">        state_grid = np.arange(self.nS).reshape(self.shape)</span><br><span class="line">        it = np.nditer(state_grid, flags=[&#x27;multi_index&#x27;])</span><br><span class="line"></span><br><span class="line">        while not it.finished:</span><br><span class="line">            s = it.iterindex</span><br><span class="line">            y,x = it.multi_index</span><br><span class="line"></span><br><span class="line">            # 对于当前的状态用红色标志</span><br><span class="line">            if self.s == s:</span><br><span class="line">                desc[y][x] = utils.colorize(desc[y][x],&quot;red&quot;,highlight=True)</span><br><span class="line">            it.iternext()</span><br><span class="line">        outfile.write(&quot;\n&quot;.join(&#x27; &#x27;.join(line) for line in desc) + &quot;\n&quot;)</span><br><span class="line"></span><br><span class="line">        if mode != &#x27;human&#x27;:</span><br><span class="line">            return outfile</span><br></pre></td></tr></table></figure>
+
+<p>对于step的部分，是指对于新的状态进行更新:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def step(self, a):</span><br><span class="line">        transitions = self.P[self.s]</span><br><span class="line">        p, s, r, d= transitions[a]</span><br><span class="line">        self.s = s</span><br><span class="line">        # print(self.s)</span><br><span class="line">        self.lastaction = a</span><br><span class="line">        return (int(s), r, d, &#123;&quot;prob&quot; : p&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>对于程序的主体的部分，其主要可分为几个部分，环境声明，通过随机获取动作，进行step进行更新状态，详细如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    </span><br><span class="line">    env = HelloGridEnv() # 使用HelloGrid 环境</span><br><span class="line">    state = env.reset() # 初始化</span><br><span class="line"></span><br><span class="line">    # 执行5次动作</span><br><span class="line">    for _ in range(5):</span><br><span class="line">        # 显示环境</span><br><span class="line">        env.render()</span><br><span class="line"></span><br><span class="line">        # 随机获取动作 action</span><br><span class="line">        action = env.action_space.sample()</span><br><span class="line">        # 执行随机选取的动作action</span><br><span class="line">        state ,reward, done, info = env.step(action)</span><br><span class="line"></span><br><span class="line">        print(&quot;action&#123;&#125;(&#123;&#125;)&quot;.format(action ,[&quot;Up&quot;,&quot;Right&quot;,&quot;Down&quot;,&quot;Left&quot;][action]))</span><br><span class="line">        print(&quot;done:&#123;&#125;, observation:&#123;&#125;,reward:&#123;&#125;&quot;.format(done,state,reward))</span><br><span class="line"></span><br><span class="line">        # 如果执行动作后返回的done状态为True则停止执行</span><br><span class="line">        if done:</span><br><span class="line">            print(&quot;Episode finished after &#123;&#125; timesteps&quot;.format(_+1))</span><br><span class="line">            break</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/29/hello_gird/" data-id="ckrc6fpsa0008b8uo2ftt2txm" data-title="强化学习的Hello World ———— Hello Grid" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/11/29/policy_intergration/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          强化学习求解（一） ———— 动态规划法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/11/28/NuGet_Package_Restore/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于C#中构建整体程序框架需要的NuGet&#34;Package Restore&#34;</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/20/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/08/policyGradient/">强化学习求解（五） ———— 策略梯度法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/23/value_function_approximate/">强化学习求解（四） ———— 值函数近似法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/17/temporal_difference/">强化学习求解（三） ———— 时间差分法</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/08/montocarlo/">强化学习求解（二） ———— 蒙特卡洛法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
